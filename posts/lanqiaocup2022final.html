@@ -447,7 +447,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020407.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.loli.net/2022/06/19/rmcXhz6YL9NAbGB.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -620,14 +620,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    5.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    23 分
                 </div>
                 
 
@@ -847,9 +847,11 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>至于100%的数据，我使用了倍增+二分，复杂度大概是$O(40nlogn)$（倍数是gcd的复杂度），复杂度上肯定是没有问题的。大致的想法就是先预处理出从数量任意一个数起，2的整次幂个数的gcd，这里复杂度就是$O(20nlogn)$。然后对上面说的k进行二分（k最大取n），每次check遍历起点，然后用预处理的数据计算出k个数的gcd，也是$O(20nlogn)$。代码大致如下：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">check</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> pow2<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">64</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">,</span><span class="token number">256</span><span class="token punctuation">,</span><span class="token number">512</span><span class="token punctuation">,</span><span class="token number">1024</span><span class="token punctuation">,</span><span class="token number">2048</span><span class="token punctuation">,</span><span class="token number">4096</span><span class="token punctuation">,</span><span class="token number">8192</span><span class="token punctuation">,</span><span class="token number">16384</span><span class="token punctuation">,</span><span class="token number">32768</span><span class="token punctuation">,</span><span class="token number">65536</span><span class="token punctuation">,</span><span class="token number">131072</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">bool</span> <span class="token function">check</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> logval <span class="token operator">=</span> <span class="token function">upper_bound</span><span class="token punctuation">(</span>pow2<span class="token punctuation">,</span> pow2 <span class="token operator">+</span> <span class="token number">18</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token operator">-</span> pow2 <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// logval = log2(x)向下取整</span>
+    <span class="token keyword">int</span> logval <span class="token operator">=</span> <span class="token function">upper_bound</span><span class="token punctuation">(</span>pow2<span class="token punctuation">,</span> pow2 <span class="token operator">+</span> <span class="token number">18</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token operator">-</span> pow2 <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// logval = log2(x)向下取整-1</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n <span class="token operator">-</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">int</span> l <span class="token operator">=</span> i<span class="token punctuation">,</span> r <span class="token operator">=</span> i <span class="token operator">+</span> x<span class="token punctuation">;</span>
@@ -878,9 +880,153 @@
         <span class="token keyword">else</span> L <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> n <span class="token operator">+</span> L <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="未完待续……"><a href="#未完待续……" class="headerlink" title="未完待续……"></a>未完待续……</h1>
+<h1 id="E-题：owo"><a href="#E-题：owo" class="headerlink" title="E 题：owo"></a>E 题：owo</h1><h2 id="问题描述-4"><a href="#问题描述-4" class="headerlink" title="问题描述"></a>问题描述</h2><blockquote>
+<p>小蓝很喜欢 owo ，他现在有一些字符串，他想将这些字符串拼接起来，使得最终得到的字符串中出现尽可能多的 owo 。</p>
+<p>在计算数量时，允许字符重叠，即 owowo 计算为 2 个，owowowo 计算为3 个。</p>
+<p>请算出最优情况下得到的字符串中有多少个 owo。</p>
+</blockquote>
+<h3 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h3><blockquote>
+<p>输入的第一行包含一个整数 n ，表示小蓝拥有的字符串的数量。<br>接下来 n 行，每行包含一个由小写英文字母组成的字符串 si 。</p>
+</blockquote>
+<h3 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h3><blockquote>
+<p>输出 n 行，每行包含一个整数，表示前 i 个字符串在最优拼接方案中可以得到的 owo 的数量。</p>
+</blockquote>
+<h2 id="测试样例-2"><a href="#测试样例-2" class="headerlink" title="测试样例"></a>测试样例</h2><table>
+<thead>
+<tr>
+<th>样例输入</th>
+<th>样例输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3<br>owo<br>w<br>ow</td>
+<td>1<br>1<br>2</td>
+</tr>
+</tbody></table>
+<h2 id="规模与约定-2"><a href="#规模与约定-2" class="headerlink" title="规模与约定"></a>规模与约定</h2><blockquote>
+<p>对于 10% 的评测用例，$n ≤ 10$；<br>对于 40% 的评测用例，$n ≤ 300$；<br>对于 60% 的评测用例，$n ≤ 5000$；<br>对于所有评测用例，$1 ≤ n ≤ 10^6 ，1 ≤ |s_i| ，\sum|s_i| ≤ 10^6$，其中 $|s_i|$表示字符串$s_i$的长度。</p>
+</blockquote>
+<h2 id="考场思路-4"><a href="#考场思路-4" class="headerlink" title="考场思路"></a>考场思路</h2><p>首先肯定要能计算出每个字符串内部的owo的个数，当然这个是比较好计算的，用kmp或者直接用两个flag就能搞定。</p>
+<p>其实是最重要的，要考虑拼接，不过好在这个owo很短，可用的拼接方式并不多，大致应该只有如下三种：</p>
+<ul>
+<li>以ow结尾+以o开头</li>
+<li>以o结尾+以wo开头</li>
+<li>以o结尾+单独一个字母w+以o开头</li>
+</ul>
+<p>因此我们就统计上面这些可以拼接的字符串的数量就可以了。但是需要注意的是，如果一个字符串既以ow结尾又以o开头，虽然都要计数，但是不能自己和自己拼接在一起，不仅如此，字符串也不能拼接成环。但是这个我在考试的时候想的不多，就没有考虑完全，大概是寄了，因此就不放代码了，如何实现就留给读者思考吧。</p>
+<h1 id="F-题：环境治理"><a href="#F-题：环境治理" class="headerlink" title="F 题：环境治理"></a>F 题：环境治理</h1><h2 id="问题描述-5"><a href="#问题描述-5" class="headerlink" title="问题描述"></a>问题描述</h2><blockquote>
+<p>LQ 国拥有 n 个城市，从 0 到 n − 1 编号，这 n 个城市两两之间都有且仅有一条双向道路连接，这意味着任意两个城市之间都是可达的。每条道路都有一个属性 D ，表示这条道路的灰尘度。当从一个城市 A 前往另一个城市 B 时，可能存在多条路线，每条路线的灰尘度定义为这条路线所经过的所有道路的灰尘度之和，LQ 国的人都很讨厌灰尘，所以他们总会优先选择灰尘度最小的路线。</p>
+<p>LQ 国很看重居民的出行环境，他们用一个指标 P 来衡量 LQ 国的出行环境，P 定义为：<br>$$<br>P = \sum_{i=0}^{n-1}\sum_{j=0}^{n-1}d(i,j)<br>$$<br>其中 d(i, j) 表示城市 i 到城市 j 之间灰尘度最小的路线对应的灰尘度的值。</p>
+<p>为了改善出行环境，每个城市都要有所作为，当某个城市进行道路改善时，会将与这个城市直接相连的所有道路的灰尘度都减少 1，但每条道路都有一个灰尘度的下限值 L，当灰尘度达到道路的下限值时，无论再怎么改善，道路的灰尘度也不会再减小了。</p>
+<p>具体的计划是这样的：<br>第 1 天，0 号城市对与其直接相连的道路环境进行改善；<br>第 2 天，1 号城市对与其直接相连的道路环境进行改善；<br>…<br>第 n 天，n − 1 号城市对与其直接相连的道路环境进行改善；<br>第 n + 1 天，0 号城市对与其直接相连的道路环境进行改善；<br>第 n + 2 天，1 号城市对与其直接相连的道路环境进行改善；<br>…</p>
+<p>LQ 国想要使得 P 指标满足 P ≤ Q。请问最少要经过多少天之后，P 指标可以满足 P ≤ Q。如果在初始时就已经满足条件，则输出 0 ；如果永远不可能满足，则输出 −1。</p>
+</blockquote>
+<h3 id="输入格式-3"><a href="#输入格式-3" class="headerlink" title="输入格式"></a>输入格式</h3><blockquote>
+<p>输入的第一行包含两个整数$n, Q$，用一个空格分隔，分别表示城市个数和期望达到的$P$指标。</p>
+<p>接下来$n$行，每行包含$n$个整数，相邻两个整数之间用一个空格分隔，其中第$i$行第$j$列的值$D_{ij}$ $(D_{ij} = D_{ji}, D_{ii} = 0)$表示城市$i$与城市$j$之间直接相连的那条道路的灰尘度。</p>
+<p>接下来$n$行，每行包含$n$个整数，相邻两个整数之间用一个空格分隔，其中第$i$行第$j$列的值$L_{ij}$ $(L_{ij} = L_{ji}, L_{ii} = 0)$表示城市$i$与城市$j$之间直接相连的那条道路的灰尘度的下限值。</p>
+</blockquote>
+<h3 id="输出格式-3"><a href="#输出格式-3" class="headerlink" title="输出格式"></a>输出格式</h3><blockquote>
+<p>输出一行包含一个整数表示答案。</p>
+</blockquote>
+<h2 id="测试样例-3"><a href="#测试样例-3" class="headerlink" title="测试样例"></a>测试样例</h2><table>
+<thead>
+<tr>
+<th>样例输入</th>
+<th>样例输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3 10<br>0 2 4<br>2 0 1<br>4 1 0<br>0 2 2<br>2 0 0<br>2 0 0</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<h3 id="样例说明-1"><a href="#样例说明-1" class="headerlink" title="样例说明"></a>样例说明</h3><blockquote>
+<p>初始时的图如下所示，每条边上的数字表示这条道路的灰尘度：<br><img src="https://s2.loli.net/2022/06/19/wDqNgLBJd9fFKmH.png"><br>此时每对顶点之间的灰尘度最小的路线对应的灰尘度为：<br>$$<br>d(0, 0) = 0, d(0, 1) = 2, d(0, 2) = 3, \<br>d(1, 0) = 2, d(1, 1) = 0, d(1, 2) = 1, \<br>d(2, 0) = 3, d(2, 1) = 1, d(2, 2) = 0.<br>$$<br>初始时的 P 指标为 (2 + 3 + 1) × 2 = 12，不满足 P ≤ Q = 10；<br>第一天，0 号城市进行道路改善，改善后的图示如下：<br><img src="https://s2.loli.net/2022/06/19/ars39hq7ef68Kg1.png"><br>注意到边 (0, 2) 的值减小了 1 ，但 (0, 1) 并没有减小，因为 L0,1 = 2 ，所以<br>(0, 1) 的值不可以再减小了。此时每对顶点之间的灰尘度最小的路线对应的灰尘<br>度为：<br>$$<br>d(0, 0) = 0, d(0, 1) = 2, d(0, 2) = 3, \<br>d(1, 0) = 2, d(1, 1) = 0, d(1, 2) = 1, \<br>d(2, 0) = 3, d(2, 1) = 1, d(2, 2) = 0.<br>$$<br>此时 P 仍为 12。<br>第二天，1 号城市进行道路改善，改善后的图示如下：<br><img src="https://s2.loli.net/2022/06/19/ftncCIoLR38XSWN.png"><br>此时每对顶点之间的灰尘度最小的路线对应的灰尘度为：<br>$$<br>d(0, 0) = 0, d(0, 1) = 2, d(0, 2) = 2, \<br>d(1, 0) = 2, d(1, 1) = 0, d(1, 2) = 0, \<br>d(2, 0) = 2, d(2, 1) = 0, d(2, 2) = 0.<br>$$<br>此时的 P 指标为 (2 + 2) × 2 = 8 &lt; Q ，此时已经满足条件。<br>所以答案是 2。</p>
+</blockquote>
+<h2 id="规模与约定-3"><a href="#规模与约定-3" class="headerlink" title="规模与约定"></a>规模与约定</h2><blockquote>
+<p>对于 30% 的评测用例，$1 ≤ n ≤ 10 ，0 ≤ L_{ij} ≤ D_{ij} ≤ 10$；<br>对于 60% 的评测用例，$1 ≤ n ≤ 50 ，0 ≤ L_{ij} ≤ D_{ij} ≤ 100000$；<br>对于所有评测用例，$1 ≤ n ≤ 100 ，0 ≤ L_{ij} ≤ D_{ij} ≤ 100000 ，0 ≤ Q ≤ 2^{31} − 1$。</p>
+</blockquote>
+<h2 id="考场思路-5"><a href="#考场思路-5" class="headerlink" title="考场思路"></a>考场思路</h2><p>不得不说这个题长到离谱（其实是样例解释长），所以我最后看的这个题。这个题暴力的话显然就是每天都用Floyd算法求一遍最短路，然后求一遍P就可以了，复杂度上是$O(day \cdot n^3)$，其中Day是需要经历的天数，至于输出-1的情况，完全可以用$L_{ij}$作为边权跑一次Floyd就知道了。问题就是，这个复杂度是无法接受的，甚至连60%的数据都不能通过，只能拿到30%的分。</p>
+<p>这里呢注意到数据规模中$n$是比较小的，但是$D-L$可能是比较大，所以考虑二分答案，理想中复杂度应该是$O(log(\frac12n(D-L))\cdot n^3)$，这样复杂度的话就很可以接受了。这里二分的话最大的天数应该是$\frac12nD=5e6$。check函数的代码大概如下（复杂度是$O(n^2 + n^3)$）：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">check</span><span class="token punctuation">(</span><span class="token keyword">int</span> day<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> turn <span class="token operator">=</span> day <span class="token operator">/</span> n<span class="token punctuation">;</span> <span class="token comment">// 每一轮，每条道路灰尘度下降2</span>
+    day <span class="token operator">%=</span> n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            dis<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> D<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">2</span> <span class="token operator">*</span> turn<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>day <span class="token operator">&gt;</span> i<span class="token punctuation">)</span> dis<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span> <span class="token comment">// 如果这一轮城市i还进行了清理</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>day <span class="token operator">&gt;</span> j<span class="token punctuation">)</span> dis<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span> <span class="token comment">// 如果这一轮城市j还进行了清理</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>dis<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> L<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> dis<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> L<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 注意灰尘度是有下限的</span>
+        <span class="token punctuation">}</span>
+    <span class="token function">floyd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> P <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+            P <span class="token operator">+=</span> dis<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>P <span class="token operator">&lt;=</span> Q<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="G-题：选素数"><a href="#G-题：选素数" class="headerlink" title="G 题：选素数"></a>G 题：选素数</h1><h2 id="问题描述-6"><a href="#问题描述-6" class="headerlink" title="问题描述"></a>问题描述</h2><blockquote>
+<p>小蓝有一个数 x，每次操作小蓝会选择一个小于 x 的素数 p，然后在 x 成为 p 的倍数前不断将 x 加 1，(如果 x 一开始就是 p 的倍数则 x 不变)。</p>
+<p>小乔看到了小蓝进行了 2 次上述操作后得到的结果 n，他想知道 x 在一开始是多少。如果有多种可能，他想知道 x 一开始最小可以是多少，而如果不存在任何解，说明小乔看错了，此时请输出 −1。</p>
+</blockquote>
+<h3 id="输入格式-4"><a href="#输入格式-4" class="headerlink" title="输入格式"></a>输入格式</h3><blockquote>
+<p>输入一行包含一个整数 n ，表示经过两次操作后 x 的值。</p>
+</blockquote>
+<h3 id="输出格式-4"><a href="#输出格式-4" class="headerlink" title="输出格式"></a>输出格式</h3><blockquote>
+<p>输出一行包含一个整数表示 x 的初始值。如果有多个解，输出最小的。如果不存在解，请输出 −1 。</p>
+</blockquote>
+<h2 id="测试样例-4"><a href="#测试样例-4" class="headerlink" title="测试样例"></a>测试样例</h2><table>
+<thead>
+<tr>
+<th>样例输入</th>
+<th>样例输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>22</td>
+<td>8</td>
+</tr>
+</tbody></table>
+<h2 id="规模与约定-4"><a href="#规模与约定-4" class="headerlink" title="规模与约定"></a>规模与约定</h2><blockquote>
+<p>对于 60% 的评测用例，$1 ≤ n ≤ 5000$；<br>对于所有评测用例，$1 ≤ n ≤ 10^6$。</p>
+</blockquote>
+<h2 id="考场思路-6"><a href="#考场思路-6" class="headerlink" title="考场思路"></a>考场思路</h2><p>这个题的长度就和前面那个题形成了鲜明的对比<span class="github-emoji"><span>😃</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f603.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>。经过一番思考，可以发现，如果数$x=p_1^{k_1}p_2^{k_2}\cdots p_m^{k_m}$且其中$p_1 &lt; p_2 &lt; \cdots &lt; p_m$，则$x$的上一个数可能且只可能位于$[x-p_m+1,x-1]$中，且如果$x$是素数，这上一个数不存在。</p>
+<p>发现这一点之后就可以做了，只需要先把$x$质因数分解，然后找出最大的素因子，得到只经过一轮的数，然后在把所有可能的数都再进行一次操作，就可以得到所有符合要求的原始数了。复杂度应该是$O(\sum_{i=\sqrt n}^{n} \sqrt i)$，不过经过计算可知这个复杂度大约是$O(n^{\frac32})$，其实是过不了全部数据的，但是由于大部分数不是质数，都拥有较小的质因子，所以分解质因数的复杂度应当小于$O(\sqrt x)$，所以我大胆猜测是可以过的。</p>
+<p>考试代码如下：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">unsigned</span> <span class="token function">solve</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> depth<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>depth <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>x <span class="token operator">&lt;=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> prime_i<span class="token punctuation">;</span> <span class="token comment">// 显然是没有必要的</span>
+    <span class="token keyword">int</span> tmp <span class="token operator">=</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">*</span> i <span class="token operator">&lt;=</span> tmp<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>tmp <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            prime_i<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>tmp <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> tmp <span class="token operator">/=</span> i<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>tmp <span class="token operator">!=</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> tmp <span class="token operator">!=</span> x<span class="token punctuation">)</span> prime_i<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// tmp==x说明是x质数</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>prime_i<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> max_p <span class="token operator">=</span> prime_i<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> anss <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> max_p<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        anss <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>anss<span class="token punctuation">,</span> <span class="token function">solve</span><span class="token punctuation">(</span>x <span class="token operator">-</span> i<span class="token punctuation">,</span> depth<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 用unsigned其实就是为了取min方便</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> anss<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>主函数调用<code>solve(n,2)</code>然后把返回值转化为<code>int</code>即可。</p>
+<h1 id="未完待续……"><a href="#未完待续……" class="headerlink" title="未完待续……"></a>未完待续……</h1><p>其实剩下的三个题我都不会了……<span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+
                 
             </div>
             <hr/>
@@ -1257,8 +1403,7 @@ new Valine({
                 <a href="/posts/lanqiaocup2022final.html">
                     <div class="card-image">
                         
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020407.jpg" class="responsive-img" alt="蓝桥杯2022决赛参赛记录">
+                        <img src="https://s2.loli.net/2022/06/19/rmcXhz6YL9NAbGB.png" class="responsive-img" alt="蓝桥杯2022决赛参赛记录">
                         
                         <span class="card-title">蓝桥杯2022决赛参赛记录</span>
                     </div>
@@ -1649,7 +1794,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.5k</span>&nbsp;字
+                class="white-color">7.3k</span>&nbsp;字
             
             
             
