@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="放松一下, TobyShiの博客">
+    <meta name="keywords" content="BUAA学生评教自动化脚本, TobyShiの博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>放松一下 | TobyShiの博客</title>
+    <title>BUAA学生评教自动化脚本 | TobyShiの博客</title>
 
     <link rel="icon" type="image/png" href="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp">
 
@@ -447,12 +447,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928013951.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020152.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">放松一下</h1>
+                    <h1 class="description center-align post-title">BUAA学生评教自动化脚本</h1>
                 </div>
             </div>
         </div>
@@ -571,12 +571,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%84%9A%E6%9C%AC/">
+                                <span class="chip bg-color">脚本</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%84%9A%E6%9C%AC/" class="post-category">
+                                脚本
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -585,21 +598,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-10
+                    2022-07-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-14
+                    2022-07-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6
+                    180
                 </div>
                 
 
@@ -624,8 +637,40 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="影音资源共享"><a href="#影音资源共享" class="headerlink" title="影音资源共享"></a>影音资源共享</h1>
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=2979186&amp;cid=4667585&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div>
+                <h2 id="脚本内容"><a href="#脚本内容" class="headerlink" title="脚本内容"></a>脚本内容</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function-variable function">javascript</span><span class="token operator">:</span><span class="token keyword">function</span> <span class="token function">ttj</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    firrr<span class="token operator">=</span>window<span class="token punctuation">.</span>top<span class="token punctuation">.</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"iframename"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>contentWindow<span class="token punctuation">;</span>
+    firrr<span class="token punctuation">.</span><span class="token function-variable function">alert</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    firrr<span class="token punctuation">.</span><span class="token function-variable function">confirm</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    a<span class="token operator">=</span>firrr<span class="token punctuation">.</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"input[name^=tabmapzb]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    b<span class="token operator">=</span>firrr<span class="token punctuation">.</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"span.yellow"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>length<span class="token operator">!==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span><span class="token number">25</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        b<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>firstElementChild<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">var</span> selections <span class="token operator">=</span> firrr<span class="token punctuation">.</span>document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i<span class="token operator">&lt;</span> selections<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        selections<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    firrr<span class="token punctuation">.</span><span class="token function">tj</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+firrr<span class="token operator">=</span>window<span class="token punctuation">.</span>top<span class="token punctuation">.</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"iframename"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>contentWindow<span class="token punctuation">;</span>
+<span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token string">"firrr.$.onload = ttj()"</span><span class="token punctuation">,</span><span class="token number">1400</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
+<li>登录<a target="_blank" rel="noopener" href="http://jwxt.buaa.edu.cn:8080/ieas2.1">教务系统</a></li>
+<li>请勿更改主题设置</li>
+<li>在“教学评价”中找到“学生评教”</li>
+<li>点击“开始评教”，进入下面这个界面<img src="https://s2.loli.net/2022/07/04/WhLMwfmr4j9qpyO.png"></li>
+<li>按F12打开控制台，并找到Console或者“控制台”</li>
+<li>在控制台中粘贴代码并回车运行</li>
+<li>评教全部完成后刷新网页即可</li>
+</ol>
 
                 
             </div>
@@ -639,7 +684,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%84%9A%E6%9C%AC/">
+                                    <span class="chip bg-color">脚本</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -988,34 +1037,46 @@ new Valine({
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/List/index.html">
+                <a href="/posts/evaluation-automation-script.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928013951.jpg" class="responsive-img" alt="放松一下">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020152.jpg" class="responsive-img" alt="BUAA学生评教自动化脚本">
                         
-                        <span class="card-title">放松一下</span>
+                        <span class="card-title">BUAA学生评教自动化脚本</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            每学期期末BUAA的学生都要进行“学生评教”十分麻烦，不如用脚本一键评教
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-04
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            TobyShi
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%84%9A%E6%9C%AC/" class="post-category">
+                                    脚本
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%84%9A%E6%9C%AC/">
+                        <span class="chip bg-color">脚本</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1023,37 +1084,55 @@ new Valine({
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/List/index.html">
+                <a href="/posts/lanqiaocup2022final.html">
                     <div class="card-image">
                         
+                        <img src="https://s2.loli.net/2022/06/19/rmcXhz6YL9NAbGB.png" class="responsive-img" alt="蓝桥杯2022决赛参赛记录">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928013951.jpg" class="responsive-img" alt="放松一下">
-                        
-                        <span class="card-title">放松一下</span>
+                        <span class="card-title">蓝桥杯2022决赛参赛记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            只是我个人的一点思考。不是题解！
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-18
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            TobyShi
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AB%9E%E8%B5%9B/" class="post-category">
+                                    竞赛
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
+                        <span class="chip bg-color">蓝桥杯</span>
+                    </a>
+                    
+                    <a href="/tags/C-C/">
+                        <span class="chip bg-color">C/C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
