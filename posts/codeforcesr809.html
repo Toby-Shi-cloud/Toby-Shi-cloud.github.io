@@ -447,7 +447,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://api.ixiaowai.cn/api/api.php')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://api.ixiaowai.cn/api/api.php/a')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -613,7 +613,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-21
+                    2022-07-22
                 </div>
                 
 
@@ -869,7 +869,7 @@
 
 
 <h3 id="解析2"><a href="#解析2" class="headerlink" title="解析2"></a>解析2</h3><p>沿用D1的思路，但是我们希望可以在$O(log n)$的复杂度内找出给定$M$情况下的最大$m$。</p>
-<p>要做到这一点，我们要先回过头来看看式子，$\lfloor\frac{a_i}{p_i}\rfloor \le M$但是$\lfloor\frac{a_i}{p_i-1}\rfloor &gt; M$，但是这次我们不解出了$p_i$而是反而解出$a_i$，于是有$(M+1)(p_i-1)\le a_i &lt; (M+1)p_i$。由于对于相同的$p_i$当然是$a_i$越小才能影响到$m$的值，所以对于每一个$M$，遍历$p$（从1开始直到$(p+1)\cdot(M+1)&gt;a_n$为止），然后对于每一个$p$，可以用二分的方式（因为$a_n$有序）找到第一个不小于$(M+1)(p_i-1)$的$a_i$，用$\lfloor\frac{a_i}{p}\rfloor$更新$m$（取min）。</p>
+<p>要做到这一点，我们要先回过头来看看式子，$\lfloor\frac{a_i}{p_i}\rfloor \le M$但是$\lfloor\frac{a_i}{p_i-1}\rfloor &gt; M$，但是这次我们不解出$p_i$而是反而解出$a_i$，于是有$(M+1)(p_i-1)\le a_i &lt; (M+1)p_i$。由于对于相同的$p_i$当然是$a_i$越小才能影响到$m$的值，所以对于每一个$M$，遍历$p$（从1开始直到$(p+1)\cdot(M+1)&gt;a_n$为止），然后对于每一个$p$，可以用二分的方式（因为$a_n$有序）找到第一个不小于$(M+1)(p_i-1)$的$a_i$，用$\lfloor\frac{a_i}{p}\rfloor$更新$m$（取min）。</p>
 <p>于是复杂度来到了$O(\sum\frac{n}{i}log n)$，可以证明$O(\sum\frac{n}{i})=O(nlogn)$所以总的复杂度是$O(nlog^2n)$。但是这个复杂度并不是最优的（虽然对于1e5的数据已经足够了）。我们可以考虑预处理而非每次都二分来寻找$a_i$，这使得复杂度降到$O(nlogn)$。</p>
 <h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstdio&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring&gt;</span></span>
@@ -1372,56 +1372,46 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/codeforcesr809.html">
+                <a href="/posts/movewsltod.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://api.ixiaowai.cn/api/api.php" class="responsive-img" alt="CF R 809 (Div.2) 题解">
+                        <img src="https://api.ixiaowai.cn/api/api.php/2" class="responsive-img" alt="将wsl迁移至D盘">
                         
-                        <span class="card-title">CF R 809 (Div.2) 题解</span>
+                        <span class="card-title">将wsl迁移至D盘</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Codeforces Round 809 (Div.2) 中文题解
+                            总结我将wsl迁移至D盘的经验
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-07
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AB%9E%E8%B5%9B/" class="post-category">
-                                    竞赛
+                            <a href="/categories/%E8%AE%A1%E7%BB%84/" class="post-category">
+                                    计组
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C-C/">
-                        <span class="chip bg-color">C/C++</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/Codeforces/">
-                        <span class="chip bg-color">Codeforces</span>
+                    <a href="/tags/wsl/">
+                        <span class="chip bg-color">wsl</span>
                     </a>
                     
                 </div>
@@ -1439,7 +1429,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://api.ixiaowai.cn/api/api.php" class="responsive-img" alt="学生评教自动化脚本">
+                        <img src="https://api.ixiaowai.cn/api/api.php/9" class="responsive-img" alt="学生评教自动化脚本">
                         
                         <span class="card-title">学生评教自动化脚本</span>
                     </div>
@@ -1764,7 +1754,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.3k</span>&nbsp;字
+                class="white-color">12.8k</span>&nbsp;字
             
             
             
