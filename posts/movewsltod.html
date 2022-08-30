@@ -605,14 +605,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-08
+                    2022-08-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    540
+                    656
                 </div>
                 
 
@@ -686,6 +686,15 @@ Reason: Indicates that the directory trying to be deleted is not empty.<span ari
 
 <p>然后按照要求重启电脑</p>
 <p>造成此错误的原因估计为在未开启WSL的情况下使用资源管理器尝试打开WSL的磁盘镜像文件（.vhdx文件）</p>
+</li>
+<li><p>关于wslg的分辨率</p>
+<p>目前wslg似乎只支持整数倍缩放，这非常不友好，但是可以手动启用非整数倍缩放</p>
+<p>在wsl终端输入<code>sudo vi /mnt/c/ProgramData/Microsoft/WSL/.wslgconfig</code>新建一个文件（或者在Windows中找到<code>C:\ProgramData\Microsoft\WSL</code>，并在其中新建文件<code>.wslgconfig</code>），文件内容如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">[system-distro-env]
+WESTON_RDP_DISABLE_FRACTIONAL_HI_DPI_SCALING=false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>然后关闭wsl终端，打开powershell，输入<code>wsl --shutdown</code>即可</p>
+<p>只不过150%缩放确实有点糊……</p>
 </li>
 </ol>
 
@@ -1443,7 +1452,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">12.8k</span>&nbsp;字
+                class="white-color">13.8k</span>&nbsp;字
             
             
             
