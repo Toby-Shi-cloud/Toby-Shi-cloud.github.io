@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="使用Xcode编译Swift App并分发到iPhone或iPad上, TobyShiの博客">
+    <meta name="keywords" content="使用VScode进行Verilog仿真和波形查看, TobyShiの博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>使用Xcode编译Swift App并分发到iPhone或iPad上 | TobyShiの博客</title>
+    <title>使用VScode进行Verilog仿真和波形查看 | TobyShiの博客</title>
 
     <link rel="icon" type="image/png" href="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp">
 
@@ -447,12 +447,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://api.ixiaowai.cn/api/api.php/6')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://api.ixiaowai.cn/api/api.php/5')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">使用Xcode编译Swift App并分发到iPhone或iPad上</h1>
+                    <h1 class="description center-align post-title">使用VScode进行Verilog仿真和波形查看</h1>
                 </div>
             </div>
         </div>
@@ -573,12 +573,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Swift/">
-                                <span class="chip bg-color">Swift</span>
+                            <a href="/tags/CO/">
+                                <span class="chip bg-color">CO</span>
                             </a>
                         
-                            <a href="/tags/Apple/">
-                                <span class="chip bg-color">Apple</span>
+                            <a href="/tags/VScode/">
+                                <span class="chip bg-color">VScode</span>
                             </a>
                         
                     </div>
@@ -589,8 +589,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Swift%E7%BC%96%E7%A8%8B/" class="post-category">
-                                Swift编程
+                            <a href="/categories/%E8%AE%A1%E7%BB%84/" class="post-category">
+                                计组
                             </a>
                         
                     </div>
@@ -602,21 +602,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-30
+                    2022-09-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-30
+                    2022-09-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    892
+                    750
                 </div>
                 
 
@@ -641,26 +641,95 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这学期成功选上了Swift程序设计这门课。虽然我还只会写Hello World，但是已经非常好奇如何将自己写的程序放在自己的iPhone中运行了，因此我们今天就来尝试一次。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>Mac上的Xcode和iPad上的Playground差距还是有些大的。但是因为我的Mac是虚拟机，运行缓慢，所以我打算现在iPad上编写程序并测试运行。</p>
-<p>由于我对Swift的了解还很少，所以我在网上下载了一个简单的程序作为测试。<a target="_blank" rel="noopener" href="https://github.com/DocRace/playgrounds-covid19-dashboard/">测试软件下载链接</a><sup><a href="#toc-heading-4">[1]</a></sup></p>
-<p>下载好后，在iPad的Playground中尝试导入，几乎都失败了。遂怀疑是版本问题。于是准备重新创建项目后复制粘贴源代码。粘贴好后会提示<code>SwiftyJSON</code>和<code>Alamofire</code>找不到，遂前往GitHub搜索，并在Playground的添加Swift软件包中粘贴链接导入软件包即可。<br>省流：链接分别是<code>https://github.com/SwiftyJSON/SwiftyJSON</code>和<code>https://github.com/Alamofire/Alamofire</code></p>
-<p>点击运行，就能看到软件运行成功了。</p>
-<h2 id="分发"><a href="#分发" class="headerlink" title="分发"></a>分发</h2><p>由于iPad的Playground只能将应用发布到App Store，而这个需要用户成为Apple Developer Member，不仅需要验证和审核，还需要688元/年的会费，对学生来说没有必要，邃转向Xcode。</p>
-<p>首先在Playground中将刚刚<del>抄</del>的App导出并存放在iCloud中（存什么地方不重要，方便导入电脑即可，也可以直接AirDrop）。随后打开Mac上的Xcode，打开项目，选择我们刚刚的导出的软件。项目导入后，Xcode会提示正在fetch SwiftyJSON和Alamofire，fetch结束后就可以<code>command+R</code>运行了。可见App在Simulator中运行状态也是正常的。</p>
-<p>之后点击<code>Xcode-Preferences</code>或者使用快捷键<code>command+,</code>打开偏好设置，在Accounts中添加自己的AppleID，添加成功后关闭偏好设置。</p>
-<p>在左侧视图中点击App的名称，选中<code>signing &amp; Capabilities</code>，在Signing栏的Development Team中选中自己AppleID的名字，在Bundle Identifier中填入应用唯一标识符，命名规范一般是<code>com.AppName.DeveloperName</code></p>
-<p>随后鼠标悬停在中间正上方，会出现为什么构建应用程序，选中Any iOS Device，然后点击菜单栏<code>Product-Archive</code>，编译成功后在Finder中打开文件夹，文件夹位置默认在<code>~/Library/Developer/Xcode/Archives</code>下的今天日期文件夹中（可在偏好设置的Location栏更改）。此可以看见一个扩展名为<code>xcarchive</code>的文件即说明编译成功。</p>
-<p>最后，打开终端，cd到<code>.xcarchive</code>文件所在文件夹，输入以下命令：<sup><a href="#toc-heading-4">[2]</a></sup></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">xcodebuild -exportArchive -exportOptionsPlist Info.plist -archivePath *.xcarchive -exportPath myApp.ipa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>计组课程官方推荐的Verilog仿真工具是ISE和VCS，评测机使用ISE。</p>
+<p>但是在尝试在win11的wslg上安装ISE后，虽然成功了，但是难用的一批，而且还有bug，仿真总是失败等问题。而课程虚拟机里面的VCS按照课程组提供的方法，又无法生成波形文件，查阅资料后也一筹莫展，弄的我一头雾水。于是开始寻求其他工具。</p>
+<p>在经过不同关键词检索以后，终于看到了本校学长的知乎专栏，推荐了一个VScode上进行Verilog仿真的方法！安装不仅非常简单，而且使用也很简单，爆杀20G的ISE和安装繁琐的VCS！而且是一个开源的，跨平台的软件，简直就是神一般的存在！</p>
+<p>下面的教程参考了<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/414308549">学长的专栏</a></p>
+<h2 id="安装VScode"><a href="#安装VScode" class="headerlink" title="安装VScode"></a>安装VScode</h2><p>不会吧不会吧，不会有人看这篇文章却没有安装VScode吧。</p>
+<h2 id="安装iVerilog"><a href="#安装iVerilog" class="headerlink" title="安装iVerilog"></a>安装iVerilog</h2><p>iVerilog全称Icarus Verilog，官方下载方式<a target="_blank" rel="noopener" href="http://bleyer.org/icarus/">在这里</a></p>
+<p>安装的时候，基本上都可以随意，直接Next都行，不过记得添加PATH。就是一定要勾选“Add executable folders to the user PATH”</p>
+<h2 id="安装VScode插件"><a href="#安装VScode插件" class="headerlink" title="安装VScode插件"></a>安装VScode插件</h2><p>你需要安装以下几个插件：</p>
+<ul>
+<li>Verilog-HDL/SystemVerilog/Bluespec SystemVerilog</li>
+<li>Verilog HDL</li>
+<li>Verilog Snippet</li>
+<li>WaveTrace</li>
+</ul>
+<p>前三个插件，提供代码高亮，代码补全，一键运行等功能。</p>
+<p>第四个插件，提供波形查看。（下载iVerilog的时候应该有下载GTKWave，你也可以用这个软件查看波形）</p>
+<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p>仅需要设置Verilog-HDL/SystemVerilog/Bluespec SystemVerilog插件</p>
+<p>找到插件设置中的Verilog &gt; Linting: Linter</p>
+<p>在下拉菜单中选中iverilog即可</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>写一端.v代码，然后写对应的testbench，然后在testbench里面，点击右上角的绿色的按钮，即可运行。</p>
+<p>若想要生成波形文件，请在testbench中加上以下代码：</p>
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">initial</span> <span class="token keyword">begin</span>
+    <span class="token property">$dumpfile</span><span class="token punctuation">(</span><span class="token string">"*.vcd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// * 是你希望产生的波形文件的名字</span>
+    <span class="token property">$dumpvars</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>其中<code>Info.plist</code>需要随便准备一个（如果你是直接在Xcode中创建的项目会附赠一个，你在项目文件中找到即可，如果是Playground创建的，则需要借用其他项目的），<code>*.xcarchive</code>为你的应用名称。在看到<code>** EXPORT SUCCEEDED **</code>后说明导出ipa成功。</p>
-<p>会在当前文件夹下产生一个叫做myApp.ipa的文件夹，将其中的myApp.ipa文件拿出来，使用爱思助手就可以直接安装在iPad/iPhone中使用。<sup><a href="#toc-heading-4">[3]</a></sup></p>
-<p>注意：根据Apple官方的规定，免费用户只能将同一个程序分发给至多3个设备，且一次签名最多持续7天。</p>
-<h2 id="参考链接或注释"><a href="#参考链接或注释" class="headerlink" title="参考链接或注释"></a>参考链接或注释</h2><ol>
-<li>参考链接：<a target="_blank" rel="noopener" href="https://sspai.com/post/70655">https://sspai.com/post/70655</a></li>
-<li>参考链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0171d6b49771">https://www.jianshu.com/p/0171d6b49771</a></li>
-<li>注释：由于Info.plist不匹配和免费签名的缘故，不能使用iTunes进行安装，只能使用第三方助手</li>
+<p>注意：你必须在testbench的test运行结束之后，使用<code>$finish;</code>结束代码，否则波形文件不会结束，需要手动前往任务管理器，结束<code>vvp.exe</code>进程。</p>
+<p>最后点开<code>*.vcd</code>文件就可以查看波形了（如果你下载了WaveTrace插件的话）</p>
+<p>testbench怎么写我就不教了吧，下面给一个测试代码吧。</p>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token comment">// adder.v</span>
+<span class="token constant">`timescale</span> <span class="token number">1</span>ns<span class="token operator">/</span><span class="token number">1</span>ps
+<span class="token keyword">module</span> adder <span class="token punctuation">(</span>
+  <span class="token keyword">input</span> clk<span class="token punctuation">,</span>
+  <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> in1<span class="token punctuation">,</span>
+  <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> in2<span class="token punctuation">,</span>
+  <span class="token keyword">output</span> <span class="token keyword">reg</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> out
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token important">always @</span><span class="token punctuation">(</span><span class="token keyword">posedge</span> clk<span class="token punctuation">)</span> <span class="token keyword">begin</span>
+    out <span class="token operator">&lt;=</span> in1 <span class="token operator">+</span> in2<span class="token punctuation">;</span>
+  <span class="token keyword">end</span>
+
+<span class="token keyword">endmodule</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token comment">// adder_tb.v</span>
+<span class="token constant">`timescale</span> <span class="token number">1</span>ns<span class="token operator">/</span><span class="token number">1</span>ps
+<span class="token constant">`include</span> <span class="token string">"adder.v"</span>
+<span class="token keyword">module</span> adder_tb<span class="token punctuation">;</span>
+  <span class="token comment">// Dump waveform to file (it would be impossible to view wavefrom without</span>
+  <span class="token comment">// this task)</span>
+  <span class="token keyword">initial</span> <span class="token keyword">begin</span>
+      <span class="token property">$dumpfile</span><span class="token punctuation">(</span><span class="token string">"adder_wave.vcd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">$dumpvars</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">end</span>
+
+  <span class="token comment">// Generate clock</span>
+  <span class="token keyword">reg</span> clk<span class="token punctuation">;</span>
+  <span class="token keyword">initial</span> clk <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token important">always </span><span class="token number">#10</span> clk <span class="token operator">=</span> <span class="token operator">~</span>clk<span class="token punctuation">;</span>
+
+  <span class="token comment">// Input registers</span>
+  <span class="token keyword">reg</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> a<span class="token punctuation">,</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> c<span class="token punctuation">;</span>
+
+  <span class="token keyword">initial</span> <span class="token keyword">begin</span>
+    a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    b <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    @<span class="token punctuation">(</span><span class="token keyword">negedge</span> clk<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    a <span class="token operator">=</span> <span class="token number">32'h631</span><span class="token punctuation">;</span>
+    b <span class="token operator">=</span> <span class="token number">341</span><span class="token punctuation">;</span>
+    @<span class="token punctuation">(</span><span class="token keyword">negedge</span> clk<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">$display</span><span class="token punctuation">(</span><span class="token string">"%d + %d = %d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    a <span class="token operator">=</span> <span class="token number">32'o1461</span><span class="token punctuation">;</span>
+    b <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    @<span class="token punctuation">(</span><span class="token keyword">negedge</span> clk<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">$display</span><span class="token punctuation">(</span><span class="token string">"%d + %d = %d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token number">#20</span><span class="token punctuation">;</span>
+    <span class="token comment">// Exit the simulation</span>
+    <span class="token property">$finish</span><span class="token punctuation">;</span>
+  <span class="token keyword">end</span>
+
+  <span class="token comment">// Device under test (our adder)</span>
+  adder <span class="token function">dut</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token function">clk</span><span class="token punctuation">(</span>clk<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token function">in1</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token function">in2</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token function">out</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">endmodule</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/414308549">https://zhuanlan.zhihu.com/p/414308549</a></li>
 </ol>
 
                 
@@ -676,12 +745,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Swift/">
-                                    <span class="chip bg-color">Swift</span>
+                                <a href="/tags/CO/">
+                                    <span class="chip bg-color">CO</span>
                                 </a>
                             
-                                <a href="/tags/Apple/">
-                                    <span class="chip bg-color">Apple</span>
+                                <a href="/tags/VScode/">
+                                    <span class="chip bg-color">VScode</span>
                                 </a>
                             
                         </div>
@@ -1027,9 +1096,10 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/verilogwithvscode.html">
                     <div class="card-image">
@@ -1047,9 +1117,9 @@ new Valine({
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1062,6 +1132,7 @@ new Valine({
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1084,31 +1155,31 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/install-ise-on-wsl.html">
+                <a href="/posts/swift-xcode-ipa.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://api.ixiaowai.cn/api/api.php/f" class="responsive-img" alt="在WSL上安装ISE">
+                        <img src="https://api.ixiaowai.cn/api/api.php/6" class="responsive-img" alt="使用Xcode编译Swift App并分发到iPhone或iPad上">
                         
-                        <span class="card-title">在WSL上安装ISE</span>
+                        <span class="card-title">使用Xcode编译Swift App并分发到iPhone或iPad上</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            在iPad/Mac的Playground/Xcode中编写一个Swift应用程序，并使用个人签名将App分法到iOS和iPadOS的设备上
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%BB%84/" class="post-category">
-                                    计组
+                            <a href="/categories/Swift%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    Swift编程
                                 </a>
                             
                             
@@ -1118,12 +1189,12 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/wsl/">
-                        <span class="chip bg-color">wsl</span>
+                    <a href="/tags/Swift/">
+                        <span class="chip bg-color">Swift</span>
                     </a>
                     
-                    <a href="/tags/CO/">
-                        <span class="chip bg-color">CO</span>
+                    <a href="/tags/Apple/">
+                        <span class="chip bg-color">Apple</span>
                     </a>
                     
                 </div>
