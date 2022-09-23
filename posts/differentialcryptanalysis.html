@@ -642,13 +642,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>黑历史++<span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
-<p><img src="https://s2.loli.net/2022/09/23/uRJw5VFbSkvoGXD.png" alt="image-20220923181746324"></p>
+<p><img src="https://s2.loli.net/2022/09/23/uRJw5VFbSkvoGXD.png"></p>
 <h2 id="差分分析"><a href="#差分分析" class="headerlink" title="差分分析"></a>差分分析</h2><p>什么是差分分析呢？其实简单来说，就是考察明文的某一或某些位取反对密文的影响，所以这里的差分，实质就是异或的意思。其实感觉差分分析的过程和线性分析是基本一致的，所以这个博客我就写简单一点，实在记不住了还可以翻阅<a href="https://toby-shi-cloud.github.io/posts/linearcryptanalysis.html">上一篇博客</a>。虽然上一篇也不怎么详细（）</p>
 <h2 id="Sbox拟合"><a href="#Sbox拟合" class="headerlink" title="Sbox拟合"></a>Sbox拟合</h2><p>与线性分析一致，我们不得不对sbox进行拟合。同样的，对于输入的每一种可能的差分，我们穷举所有的输入1（输入2=输入1$\oplus$输入差分）并记录由此带来的输出差分值（输出差分=输出1$\oplus$输出2），计算出输入差分和输出差分对应的概率关系。通过16*16的256次计算，我们就可以整理出一张sbox的拟合表格。</p>
 <h2 id="子密钥分析"><a href="#子密钥分析" class="headerlink" title="子密钥分析"></a>子密钥分析</h2><p>同样的，我们选取概率较大的路径，可以得到明文对的一个差分和一个倒数第二轮输出的差分之间的概率，在论文中，选取的是$\Delta P  = [0000\ 1011\ 0000\ 0000]$和$\Delta U4 = [0000\ 0110\ 0000\ 0110]$，概率是$\frac{27}{1024}=0.0264$。</p>
 <p>同样的我们穷举最后一轮相关联的密钥$k_2$和$k_4$，通过倒推得到$U4$，最后计算出当$\Delta P$成立时$\Delta U4$成立的概率即可。</p>
 <p>由于我们选择的是高概率路径，所以最后成立概率最高的密钥就大概率是我们要找的密钥。</p>
-<h3 id="复现结果"><a href="#复现结果" class="headerlink" title="复现结果"></a>复现结果</h3><p><img src="https://s2.loli.net/2022/09/23/UK4adYCN6ZJyBws.png" alt="image-20220923183946970"></p>
+<h3 id="复现结果"><a href="#复现结果" class="headerlink" title="复现结果"></a>复现结果</h3><p><img src="https://s2.loli.net/2022/09/23/UK4adYCN6ZJyBws.png"></p>
 <p>其中子密钥用16进制表示，x表示未知（即和例子的路径无关）。</p>
 <p>可见$k_2=2$且$k_4=4$的概率远超其他密钥组合，而且概率$0.0272863$与理论$\frac{27}{1024}=0.0264$非常接近。</p>
 <h3 id="复现代码"><a href="#复现代码" class="headerlink" title="复现代码"></a>复现代码</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"structure.hh"</span></span>
