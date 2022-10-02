@@ -609,21 +609,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-29
+                    2022-10-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -651,7 +651,7 @@
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39595195/article/details/111313679">IDEA中使用JUnit4单元测试</a></p>
 </blockquote>
 <h2 id="使用junit"><a href="#使用junit" class="headerlink" title="使用junit"></a>使用junit</h2><p>junit最基础的使用，<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39595195/article/details/111313679">IDEA中使用JUnit4单元测试</a>已经说的十分明白了，而且举的例子也非常出色，我在这里就不加赘述了。</p>
-<p>大概来说，就是新建一个测试类，然后搞明白<code>@Before</code>，<code>@After</code>，<code>@Test</code>,<code>assertEquals</code>的基本意思就行了。</p>
+<p>大概来说，就是新建一个测试类，然后搞明白<code>@Before</code>，<code>@After</code>，<code>@Test</code>，<code>assertEquals</code>的基本意思就行了。</p>
 <h2 id="模拟输入和捕获输出"><a href="#模拟输入和捕获输出" class="headerlink" title="模拟输入和捕获输出"></a>模拟输入和捕获输出</h2><p>上面junit的最基本的用法是测试方法或者类的行为是否正常，但是我们希望junit能够帮助我们测试样例数据，而我们的main方法的交互方式是输入和输出，而不是传参和返回，所以不能直接使用上面的方式。</p>
 <p>因此我们通过输入输出重定向的方式来模拟输入和捕获输出。可以写以下代码：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span></span><span class="token class-name">After</span><span class="token punctuation">;</span>
@@ -891,6 +891,13 @@
 <h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p>注意测试是不能添加到平台上进行评测的（会CE），所以我们必须要采用git多分支的方式进行。</p>
 <p>通常的做法是，我们首先master分支中创建README，然后commit，之后进行<code>git checkout -b develop</code>。一切改动都在<code>develop</code>分支进行。测试无误后，执行<code>git checkout master</code>以及<code>git checkout develop src/*</code>即可提交并推送到远程仓库。</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>从课程网站上下载数据非常麻烦，所以如果你有一个自动下载脚本的话……</p>
+<hr>
+<h2 id="2022年10月2日-更新"><a href="#2022年10月2日-更新" class="headerlink" title="2022年10月2日 更新"></a>2022年10月2日 更新</h2><p>如果你运行测试出错了却找不到哪个文件出错了的话，可以在80行左右的位置，runTest方法里面，加入</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"File In: "</span> <span class="token operator">+</span> inputFileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"File Ans: "</span> <span class="token operator">+</span> expectedFileName<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这样就可以看见读入的文件是哪一个了，如下图所示：</p>
+<p><img src="https://s2.loli.net/2022/10/02/1DXyfgjhkOl8MFH.png"></p>
 
                 
             </div>
@@ -1648,7 +1655,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19k</span>&nbsp;字
+                class="white-color">19.1k</span>&nbsp;字
             
             
             
