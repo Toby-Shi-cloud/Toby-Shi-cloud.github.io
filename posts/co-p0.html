@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="【Python】使用socket库实现server-client通讯的联机对战游戏（一）, TobyShiの博客">
+    <meta name="keywords" content="CO review：P0, TobyShiの博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>【Python】使用socket库实现server-client通讯的联机对战游戏（一） | TobyShiの博客</title>
+    <title>CO review：P0 | TobyShiの博客</title>
 
     <link rel="icon" type="image/png" href="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp">
 
@@ -447,12 +447,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://api.ixiaowai.cn/api/api.php/1')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://api.ixiaowai.cn/api/api.php/5')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【Python】使用socket库实现server-client通讯的联机对战游戏（一）</h1>
+                    <h1 class="description center-align post-title">CO review：P0</h1>
                 </div>
             </div>
         </div>
@@ -573,16 +573,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">网络</span>
-                            </a>
-                        
-                            <a href="/tags/server-client/">
-                                <span class="chip bg-color">server-client</span>
+                            <a href="/tags/CO/">
+                                <span class="chip bg-color">CO</span>
                             </a>
                         
                     </div>
@@ -593,8 +585,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Python/" class="post-category">
-                                Python
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" class="post-category">
+                                计算机组成
                             </a>
                         
                     </div>
@@ -606,21 +598,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-16
+                    2022-10-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-16
+                    2022-10-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    857
+                    755
                 </div>
                 
 
@@ -645,94 +637,52 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="socket单对单通讯"><a href="#socket单对单通讯" class="headerlink" title="socket单对单通讯"></a>socket单对单通讯</h1><p>socket是Python内建库之一，用途就是网络通讯。作为实验，我们考虑两个Python程序之间的通讯，一个作为服务器，一个作为客户端，客户端向服务器发送一串字符，服务器收到后将原字符串大写后传回，直到客户端发送空信息，服务器退出。</p>
-<p>服务器端代码：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
-
-ip_port <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token number">8888</span><span class="token punctuation">)</span> <span class="token comment"># 这个tuple的第一项是ip地址，第二项是端口</span>
-s <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span>socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span> <span class="token comment"># 定义socket类型，网络通信，TCP</span>
-s<span class="token punctuation">.</span>bind<span class="token punctuation">(</span>ip_port<span class="token punctuation">)</span> <span class="token comment"># 套接字绑定ip和端口</span>
-s<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># 开始监听连接请求</span>
-conn<span class="token punctuation">,</span> addr <span class="token operator">=</span> s<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 接受连接请求，conn是一个新的套接字，addr是客户端地址</span>
-conn<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">'Hello from the server!'</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 发送打招呼信息，并且用utf-8编码</span>
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        data <span class="token operator">=</span> conn<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token comment"># 接受数据并使用utf-8解码</span>
-        <span class="token keyword">if</span> <span class="token keyword">not</span> data<span class="token punctuation">:</span>
-            <span class="token keyword">break</span> <span class="token comment"># 如果数据为空就退出</span>
-        conn<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span>data<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 把数据大写后返回</span>
-    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token comment"># 如果数据传输出错</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-        exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 关闭套接字</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>客户端代码：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
-
-ip_port <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">8888</span><span class="token punctuation">)</span> <span class="token comment"># 服务器ip和端口</span>
-s <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span>socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span> <span class="token comment"># 定义socket类型，网络通信，TCP</span>
-<span class="token keyword">try</span><span class="token punctuation">:</span>
-    s<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>ip_port<span class="token punctuation">)</span> <span class="token comment"># 尝试连接服务器</span>
-<span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token comment"># 如果连接失败socket.socket.connect会抛出错误</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-    exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-data <span class="token operator">=</span> s<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token comment"># 接受服务器的问候</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        msg <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'&gt;&gt;&gt; '</span><span class="token punctuation">)</span> <span class="token comment"># 此时用户可以在运行客户端的控制台中输入内容</span>
-        s<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span>msg<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 将消息发送</span>
-        <span class="token keyword">if</span> <span class="token keyword">not</span> msg<span class="token punctuation">:</span>
-            <span class="token keyword">break</span> <span class="token comment"># 如果数据为空就退出</span>
-        data <span class="token operator">=</span> s<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token comment"># 接受服务器的结果</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token comment"># 如果数据传输出错</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-        exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-s<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 关闭套接字</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>运行结果：</p>
-<p><img src="https://s2.loli.net/2022/06/16/8S4lKr17fpYLNyw.png" alt="运行结果"></p>
-<h1 id="socketserver多对一通讯"><a href="#socketserver多对一通讯" class="headerlink" title="socketserver多对一通讯"></a>socketserver多对一通讯</h1><p>由于我的目的是打算写一个联机对战游戏，那么一个服务器需要同时和多个（至少是两个）客户端建立连接。一个很容易想到的做法就是服务器多线程。好在Python已经帮我们封装好了多线程和socket库——socketserver库。</p>
-<p>socketserver库的用法和socket几乎一模一样，而且由于只有服务器端需要多线程，所以只需要更改server.py即可。</p>
-<p>下面是server.py的代码：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socketserver
-
-ip_port <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token number">10888</span><span class="token punctuation">)</span>
-
-<span class="token keyword">class</span> <span class="token class-name">MyServer</span><span class="token punctuation">(</span>socketserver<span class="token punctuation">.</span>BaseRequestHandler<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">handle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># 重写RequestHandler中的handle方法用来处理请求</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"conn is :"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>request<span class="token punctuation">)</span>  <span class="token comment"># conn</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"addr is :"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>client_address<span class="token punctuation">)</span>  <span class="token comment"># addr</span>
-
-        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">'Hello from the server!'</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> <span class="token comment"># 处理方面的逻辑都是一样的</span>
-            <span class="token keyword">try</span><span class="token punctuation">:</span>
-                data <span class="token operator">=</span> self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
-                <span class="token keyword">if</span> <span class="token keyword">not</span> data<span class="token punctuation">:</span>
-                    <span class="token keyword">break</span>
-                self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span>data<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-                <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-                <span class="token keyword">break</span>
-        
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"disconnected with"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>client_address<span class="token punctuation">)</span>
-        
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    s <span class="token operator">=</span> socketserver<span class="token punctuation">.</span>ThreadingTCPServer<span class="token punctuation">(</span>ip_port<span class="token punctuation">,</span> MyServer<span class="token punctuation">)</span> <span class="token comment"># 建立TCP协议套接字</span>
-    
-    <span class="token comment"># 使用s.serve_forever()接受无穷次连接（需要按下Ctrl+C中断）</span>
-    <span class="token comment"># 也可以使用一次s.handle_request()接受一次连接</span>
-    s<span class="token punctuation">.</span>serve_forever<span class="token punctuation">(</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<p>运行结果：</p>
-<p><img src="https://s2.loli.net/2022/06/16/qGRdK1ui4zof2W5.png" alt="Server服务器结果"></p>
-<p><img src="https://s2.loli.net/2022/06/16/Bk8IOVmco4bUhjX.png" alt="Client客户端结果"></p>
-<h1 id="服务器内部数据传输"><a href="#服务器内部数据传输" class="headerlink" title="服务器内部数据传输"></a>服务器内部数据传输</h1><p>现在我们已经解决了服务器和客户端之间的数据传输问题了，但是这又引入了新的问题：服务器用多线程和客户端交流，但是socketserver封装的太好了，想要直接从外部操作各个线程显然不显示，那么如何进行服务器各个线程之间的交流呢？</p>
-<p>请听下回分解……</p>
-<p><span class="github-emoji"><span>😀</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f600.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+                <h2 id="L0-五人投票"><a href="#L0-五人投票" class="headerlink" title="L0 五人投票"></a>L0 五人投票</h2><h3 id="题目概述"><a href="#题目概述" class="headerlink" title="题目概述"></a>题目概述</h3><p>裁判组有一个组长和四个组员（组员编号依次为 <code>2'b00,2'b01,2'b10,2'b11</code>）。<br>每个组员都可以赞成、反对或是弃权。组长还拥有屏蔽投票权：屏蔽一位组员的投票，无论该组员投什么票，都视为弃权。投票的输入信息和输入信号对应如下：</p>
+<pre class="line-numbers language-table" data-language="table"><code class="language-table">意义 | 赞成 | 反对 | 弃权 | 屏蔽投票
+组长 | 2'b00 | 2'b01 | 2'b10 | 2'b11
+组员 | 2'b00 | 2'b01, 2'b11 | 2'b10 | -<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>当赞成票大于反对票时，表决结果为通过；反之为不通过。</p>
+<h3 id="输入输出描述"><a href="#输入输出描述" class="headerlink" title="输入输出描述"></a>输入输出描述</h3><pre class="line-numbers language-table" data-language="table"><code class="language-table">端口名称 | 方向 | 位宽 | 功能
+LV | I | [1:0] | 组长投票
+LI | I | [1:0] | 组长屏蔽组员的编号
+T0 | I | [1:0] | 组员 2'b00 的投票
+T1 | I | [1:0] | 组员 2'b01 的投票
+T2 | I | [1:0] | 组员 2'b10 的投票
+T3 | I | [1:0] | 组员 2'b11 的投票
+O | O | - | 表决结果（通过为 1，反之为 0）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="考场思路"><a href="#考场思路" class="headerlink" title="考场思路"></a>考场思路</h3><p>这题几乎就是一个<code>分线器</code>的应用。<br>大概写了 20min 左右。<br>不过呢，为了避免重复四次一样的电路，可以创建一个 circuit 专门用于处理组员投票，注意输入应该是两个，一个投票信号，一个使能端（用于表示组长是否屏蔽了这个人）。</p>
+<h3 id="Bug-分析"><a href="#Bug-分析" class="headerlink" title="Bug 分析"></a>Bug 分析</h3><p>这题又遇到了 logisim 的 bug。有时候连完线发现线红了或者蓝了，还修不好，不过保存后重启解决一切问题。</p>
+<h2 id="L1-文本匹配"><a href="#L1-文本匹配" class="headerlink" title="L1 文本匹配"></a>L1 文本匹配</h2><h3 id="题目概述-1"><a href="#题目概述-1" class="headerlink" title="题目概述"></a>题目概述</h3><p>你需要匹配字符串 0121 和 1210。请使用 Mealy 自动机。<br>输入信号的含义：</p>
+<pre class="line-numbers language-table" data-language="table"><code class="language-table">2'b00 | 2'b01 | 2'b10 | 2'b11
+0 | 1 | 2 | 不会出现<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="输入输出描述-1"><a href="#输入输出描述-1" class="headerlink" title="输入输出描述"></a>输入输出描述</h3><pre class="line-numbers language-table" data-language="table"><code class="language-table">端口名称 | 方向 | 位宽 | 功能
+clk | I | - | 时钟信号，在时钟上升沿转移状态
+rst | I | - | 异步复位信号
+in | I | [1:0] | 当前周期输入
+out(v3) | O(v3) | [1:0](v3) | 0: 无匹配
+1: 匹配 0121
+2: 匹配 1210<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="考场思路-1"><a href="#考场思路-1" class="headerlink" title="考场思路"></a>考场思路</h3><p>列出状态转移就可以啦。如下图所示：</p>
+<p><a target="_blank" rel="noopener" href="https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNptkjFrwzAQhf-KubHEoKdRQ7107NSOUQZhK60htosjF0rIf88pVqU4nEFgPr177w7dhdqp82ToHFzwb737mt1Q_2o7Vvx1_ezb0E9j9f6xEqWU4WPtaKlpGkv_GIyRMDIGq5HU0AWzGqsaOqvB3sjeqmAwTt6qqNkbyVsV7_3Loarr19ho1t0BX-T0J6BUKkFlKmwhN8RQPSsj1Hl2SQnJM0E8lkMKSjD2WsohpUNKh5QOIR3SmAU-lEOaHdLsGd6DsIVrS3r7NmpTLs2-VWra0eDnwfUdr-4lSiyFbz94S4Z_O390yynEnbiy1C1h-vwbWzJhXvyOlp-uLDuZozud_fUGMpytuQ"><img src="https://mermaid.ink/img/pako:eNptkjFrwzAQhf-KubHEoKdRQ7107NSOUQZhK60htosjF0rIf88pVqU4nEFgPr177w7dhdqp82ToHFzwb737mt1Q_2o7Vvx1_ezb0E9j9f6xEqWU4WPtaKlpGkv_GIyRMDIGq5HU0AWzGqsaOqvB3sjeqmAwTt6qqNkbyVsV7_3Loarr19ho1t0BX-T0J6BUKkFlKmwhN8RQPSsj1Hl2SQnJM0E8lkMKSjD2WsohpUNKh5QOIR3SmAU-lEOaHdLsGd6DsIVrS3r7NmpTLs2-VWra0eDnwfUdr-4lSiyFbz94S4Z_O390yynEnbiy1C1h-vwbWzJhXvyOlp-uLDuZozud_fUGMpytuQ"></a></p>
+<ul>
+<li>当 $st=110$ 且 $in=10$ 时，输出 1</li>
+<li>当 $st=011$ 且 $in=00$ 时，输出 2</li>
+<li>其他时候输出 0 <h3 id="bug-分析"><a href="#bug-分析" class="headerlink" title="bug 分析"></a>bug 分析</h3>这个题 WA 了一次，错在串 <code>01210</code>。<br>因为我的 <code>110</code> 在 $in=1$ 时转移去了 <code>001</code> 而不是 <code>011</code>……</li>
+</ul>
+<h2 id="L2-斐波那契数列改"><a href="#L2-斐波那契数列改" class="headerlink" title="L2 斐波那契数列改"></a>L2 斐波那契数列改</h2><h3 id="题目概述-2"><a href="#题目概述-2" class="headerlink" title="题目概述"></a>题目概述</h3><p>数列 ${s_n}$ 定义如下:</p>
+<pre class="line-numbers language-math" data-language="math"><code class="language-math">s_n = 
+\begin{cases}
+0 &amp; n=0,2 \\
+1 &amp; n=1,3 \\
+s_{n-1} + (s_{n-2} \oplus s_{n-3}) &amp; \text{if $n$ is even} \\
+(s_{n-1} \oplus s_{n-2}) + s_{n-3} &amp; \text{if $n$ is odd}
+\end{cases}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输入 $n$ 输出 $s_n$，时限：64 个周期。</p>
+<h3 id="输入输出描述-2"><a href="#输入输出描述-2" class="headerlink" title="输入输出描述"></a>输入输出描述</h3><pre class="line-numbers language-table" data-language="table"><code class="language-table">端口名称 | 方向 | 位宽 | 功能
+in | I | [4:0] | 输入
+out | O | [31:0] | 输出<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="考场思路-2"><a href="#考场思路-2" class="headerlink" title="考场思路"></a>考场思路</h3><p>同预习的斐波那契数列。<br>就是递推转移啦……<br>不过有人似乎直接打表……</p>
+<h3 id="bug-分析-1"><a href="#bug-分析-1" class="headerlink" title="bug 分析"></a>bug 分析</h3><p>还是要搭建好一会儿的，主要是保存并维持输出，还有计数，以及电路延迟问题。</p>
 
                 
             </div>
@@ -747,16 +697,8 @@ ip_port <span class="token operator">=</span> <span class="token punctuation">(<
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">网络</span>
-                                </a>
-                            
-                                <a href="/tags/server-client/">
-                                    <span class="chip bg-color">server-client</span>
+                                <a href="/tags/CO/">
+                                    <span class="chip bg-color">CO</span>
                                 </a>
                             
                         </div>
@@ -1102,53 +1044,48 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/lanqiaocup2022final.html">
+                <a href="/posts/co-p0.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.loli.net/2022/06/19/rmcXhz6YL9NAbGB.png" class="responsive-img" alt="蓝桥杯2022决赛参赛记录">
                         
-                        <span class="card-title">蓝桥杯2022决赛参赛记录</span>
+                        <img src="https://api.ixiaowai.cn/api/api.php/5" class="responsive-img" alt="CO review：P0">
+                        
+                        <span class="card-title">CO review：P0</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            只是我个人的一点思考。不是题解！
+                            计算机组成 P0 上机
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AB%9E%E8%B5%9B/" class="post-category">
-                                    竞赛
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" class="post-category">
+                                    计算机组成
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
-                        <span class="chip bg-color">蓝桥杯</span>
-                    </a>
-                    
-                    <a href="/tags/C-C/">
-                        <span class="chip bg-color">C/C++</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/CO/">
+                        <span class="chip bg-color">CO</span>
                     </a>
                     
                 </div>
@@ -1162,30 +1099,31 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/helloblog.html">
+                <a href="/posts/junittestforobjectoriented.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.loli.net/2022/07/20/n7ZoRb95vSiKjhP.png" class="responsive-img" alt="你好博客！Hello Blog!">
                         
-                        <span class="card-title">你好博客！Hello Blog!</span>
+                        <img src="https://api.ixiaowai.cn/api/api.php/e" class="responsive-img" alt="使用junit4对java程序进行测试">
+                        
+                        <span class="card-title">使用junit4对java程序进行测试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是我的第一篇博客，用于记录如何搭建博客
+                            涉及输入模拟，输出捕获，文件读取，junit4应用，junit4 Parameterized
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
+                            <a href="/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-category">
+                                    面向对象
                                 </a>
                             
                             
@@ -1195,8 +1133,12 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/OO/">
+                        <span class="chip bg-color">OO</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
