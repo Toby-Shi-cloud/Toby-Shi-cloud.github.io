@@ -612,7 +612,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    755
+                    764
                 </div>
                 
 
@@ -669,14 +669,7 @@ out(v3) | O(v3) | [1:0](v3) | 0: 无匹配
 <li>当 $st=011$ 且 $in=00$ 时，输出 2</li>
 <li>其他时候输出 0 <h3 id="bug-分析"><a href="#bug-分析" class="headerlink" title="bug 分析"></a>bug 分析</h3>这个题 WA 了一次，错在串 <code>01210</code>。<br>因为我的 <code>110</code> 在 $in=1$ 时转移去了 <code>001</code> 而不是 <code>011</code>……</li>
 </ul>
-<h2 id="L2-斐波那契数列改"><a href="#L2-斐波那契数列改" class="headerlink" title="L2 斐波那契数列改"></a>L2 斐波那契数列改</h2><h3 id="题目概述-2"><a href="#题目概述-2" class="headerlink" title="题目概述"></a>题目概述</h3><p>数列 ${s_n}$ 定义如下:</p>
-<pre class="line-numbers language-math" data-language="math"><code class="language-math">s_n = 
-\begin{cases}
-0 &amp; n=0,2 \\
-1 &amp; n=1,3 \\
-s_{n-1} + (s_{n-2} \oplus s_{n-3}) &amp; \text{if $n$ is even} \\
-(s_{n-1} \oplus s_{n-2}) + s_{n-3} &amp; \text{if $n$ is odd}
-\end{cases}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="L2-斐波那契数列改"><a href="#L2-斐波那契数列改" class="headerlink" title="L2 斐波那契数列改"></a>L2 斐波那契数列改</h2><h3 id="题目概述-2"><a href="#题目概述-2" class="headerlink" title="题目概述"></a>题目概述</h3><p>数列 ${s_n}$ 定义如下:<br>$$<br>s_n =<br>\begin{cases}<br>0 &amp; n=0,2 \<br>1 &amp; n=1,3 \<br>s_{n-1} + (s_{n-2} \oplus s_{n-3}) &amp; \text{if $n$ is even} \<br>(s_{n-1} \oplus s_{n-2}) + s_{n-3} &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$<br>其中 $\oplus$ 表示按位异或。</p>
 <p>输入 $n$ 输出 $s_n$，时限：64 个周期。</p>
 <h3 id="输入输出描述-2"><a href="#输入输出描述-2" class="headerlink" title="输入输出描述"></a>输入输出描述</h3><pre class="line-numbers language-table" data-language="table"><code class="language-table">端口名称 | 方向 | 位宽 | 功能
 in | I | [4:0] | 输入
