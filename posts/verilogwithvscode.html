@@ -40,7 +40,7 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="TobyShiの博客" type="application/atom+xml">
 </head>
@@ -663,8 +663,8 @@
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>写一端.v代码，然后写对应的testbench，然后在testbench里面，点击右上角的绿色的按钮，即可运行。</p>
 <p>若想要生成波形文件，请在testbench中加上以下代码：</p>
 <pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">initial</span> <span class="token keyword">begin</span>
-    <span class="token property">$dumpfile</span><span class="token punctuation">(</span><span class="token string">"*.vcd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// * 是你希望产生的波形文件的名字</span>
-    <span class="token property">$dumpvars</span><span class="token punctuation">;</span>
+    <span class="token kernel-function property">$dumpfile</span><span class="token punctuation">(</span><span class="token string">"*.vcd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// * 是你希望产生的波形文件的名字</span>
+    <span class="token kernel-function property">$dumpvars</span><span class="token punctuation">;</span>
 <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>注意：你必须在testbench的test运行结束之后，使用<code>$finish;</code>结束代码，否则波形文件不会结束，需要手动前往任务管理器，结束<code>vvp.exe</code>进程。</p>
@@ -692,14 +692,14 @@
   <span class="token comment">// Dump waveform to file (it would be impossible to view wavefrom without</span>
   <span class="token comment">// this task)</span>
   <span class="token keyword">initial</span> <span class="token keyword">begin</span>
-      <span class="token property">$dumpfile</span><span class="token punctuation">(</span><span class="token string">"adder_wave.vcd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">$dumpvars</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token kernel-function property">$dumpfile</span><span class="token punctuation">(</span><span class="token string">"adder_wave.vcd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token kernel-function property">$dumpvars</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">end</span>
 
   <span class="token comment">// Generate clock</span>
   <span class="token keyword">reg</span> clk<span class="token punctuation">;</span>
   <span class="token keyword">initial</span> clk <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-  <span class="token important">always </span><span class="token number">#10</span> clk <span class="token operator">=</span> <span class="token operator">~</span>clk<span class="token punctuation">;</span>
+  <span class="token important">always</span> <span class="token number">#10</span> clk <span class="token operator">=</span> <span class="token operator">~</span>clk<span class="token punctuation">;</span>
 
   <span class="token comment">// Input registers</span>
   <span class="token keyword">reg</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> a<span class="token punctuation">,</span> b<span class="token punctuation">;</span>
@@ -712,15 +712,15 @@
     a <span class="token operator">=</span> <span class="token number">32'h631</span><span class="token punctuation">;</span>
     b <span class="token operator">=</span> <span class="token number">341</span><span class="token punctuation">;</span>
     @<span class="token punctuation">(</span><span class="token keyword">negedge</span> clk<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">$display</span><span class="token punctuation">(</span><span class="token string">"%d + %d = %d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token kernel-function property">$display</span><span class="token punctuation">(</span><span class="token string">"%d + %d = %d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
     a <span class="token operator">=</span> <span class="token number">32'o1461</span><span class="token punctuation">;</span>
     b <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     @<span class="token punctuation">(</span><span class="token keyword">negedge</span> clk<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">$display</span><span class="token punctuation">(</span><span class="token string">"%d + %d = %d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token kernel-function property">$display</span><span class="token punctuation">(</span><span class="token string">"%d + %d = %d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token number">#20</span><span class="token punctuation">;</span>
     <span class="token comment">// Exit the simulation</span>
-    <span class="token property">$finish</span><span class="token punctuation">;</span>
+    <span class="token kernel-function property">$finish</span><span class="token punctuation">;</span>
   <span class="token keyword">end</span>
 
   <span class="token comment">// Device under test (our adder)</span>
@@ -1138,12 +1138,12 @@ new Valine({
                         <span class="chip bg-color">C/C++</span>
                     </a>
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
                     <a href="/tags/%E5%AF%86%E7%A0%81%E5%88%86%E6%9E%90/">
                         <span class="chip bg-color">密码分析</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -1209,43 +1209,6 @@ new Valine({
 
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: TobyShiの博客<br />'
-            + '文章作者: TobyShi<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
 
 <!-- 代码块功能依赖 -->
@@ -1490,7 +1453,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">20.4k</span>&nbsp;字
+                class="white-color">21.6k</span>&nbsp;字
             
             
             

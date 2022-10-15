@@ -40,7 +40,7 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="TobyShiの博客" type="application/atom+xml">
 </head>
@@ -652,7 +652,7 @@
 <p>在左侧视图中点击App的名称，选中<code>signing &amp; Capabilities</code>，在Signing栏的Development Team中选中自己AppleID的名字，在Bundle Identifier中填入应用唯一标识符，命名规范一般是<code>com.AppName.DeveloperName</code></p>
 <p>随后鼠标悬停在中间正上方，会出现为什么构建应用程序，选中Any iOS Device，然后点击菜单栏<code>Product-Archive</code>，编译成功后在Finder中打开文件夹，文件夹位置默认在<code>~/Library/Developer/Xcode/Archives</code>下的今天日期文件夹中（可在偏好设置的Location栏更改）。此可以看见一个扩展名为<code>xcarchive</code>的文件即说明编译成功。</p>
 <p>最后，打开终端，cd到<code>.xcarchive</code>文件所在文件夹，输入以下命令：<sup><a href="#toc-heading-4">[2]</a></sup></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">xcodebuild -exportArchive -exportOptionsPlist Info.plist -archivePath *.xcarchive -exportPath myApp.ipa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">xcodebuild <span class="token parameter variable">-exportArchive</span> <span class="token parameter variable">-exportOptionsPlist</span> Info.plist <span class="token parameter variable">-archivePath</span> *.xcarchive <span class="token parameter variable">-exportPath</span> myApp.ipa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>其中<code>Info.plist</code>需要随便准备一个（如果你是直接在Xcode中创建的项目会附赠一个，你在项目文件中找到即可，如果是Playground创建的，则需要借用其他项目的），<code>*.xcarchive</code>为你的应用名称。在看到<code>** EXPORT SUCCEEDED **</code>后说明导出ipa成功。</p>
 <p>会在当前文件夹下产生一个叫做myApp.ipa的文件夹，将其中的myApp.ipa文件拿出来，使用爱思助手就可以直接安装在iPad/iPhone中使用。<sup><a href="#toc-heading-4">[3]</a></sup></p>
@@ -1118,12 +1118,12 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/wsl/">
-                        <span class="chip bg-color">wsl</span>
-                    </a>
-                    
                     <a href="/tags/CO/">
                         <span class="chip bg-color">CO</span>
+                    </a>
+                    
+                    <a href="/tags/wsl/">
+                        <span class="chip bg-color">wsl</span>
                     </a>
                     
                 </div>
@@ -1136,43 +1136,6 @@ new Valine({
 
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: TobyShiの博客<br />'
-            + '文章作者: TobyShi<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
 
 <!-- 代码块功能依赖 -->
@@ -1417,7 +1380,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">20.4k</span>&nbsp;字
+                class="white-color">21.6k</span>&nbsp;字
             
             
             

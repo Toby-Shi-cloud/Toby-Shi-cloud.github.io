@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="复现 A Tutorial on Linear and Differential Cryptanalysis中差分分析的例子, TobyShiの博客">
+    <meta name="keywords" content="从教务网站上获取课表并导入iCloud日历, TobyShiの博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>复现 A Tutorial on Linear and Differential Cryptanalysis中差分分析的例子 | TobyShiの博客</title>
+    <title>从教务网站上获取课表并导入iCloud日历 | TobyShiの博客</title>
 
     <link rel="icon" type="image/png" href="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp">
 
@@ -447,12 +447,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://api.ixiaowai.cn/api/api.php/8')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://api.ixiaowai.cn/api/api.php/d')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">复现 A Tutorial on Linear and Differential Cryptanalysis中差分分析的例子</h1>
+                    <h1 class="description center-align post-title">从教务网站上获取课表并导入iCloud日历</h1>
                 </div>
             </div>
         </div>
@@ -573,12 +573,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C-C/">
-                                <span class="chip bg-color">C/C++</span>
+                            <a href="/tags/%E8%84%9A%E6%9C%AC/">
+                                <span class="chip bg-color">脚本</span>
                             </a>
                         
-                            <a href="/tags/%E5%AF%86%E7%A0%81%E5%88%86%E6%9E%90/">
-                                <span class="chip bg-color">密码分析</span>
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
                             </a>
                         
                     </div>
@@ -589,8 +589,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" class="post-category">
-                                密码学
+                            <a href="/categories/%E8%84%9A%E6%9C%AC/" class="post-category">
+                                脚本
                             </a>
                         
                     </div>
@@ -602,28 +602,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-09-23
+                    2022-10-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-23
+                    2022-10-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    8 分
                 </div>
                 
 
@@ -641,93 +641,148 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>黑历史++<span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
-<p><img src="https://s2.loli.net/2022/09/23/uRJw5VFbSkvoGXD.png"></p>
-<h2 id="差分分析"><a href="#差分分析" class="headerlink" title="差分分析"></a>差分分析</h2><p>什么是差分分析呢？其实简单来说，就是考察明文的某一或某些位取反对密文的影响，所以这里的差分，实质就是异或的意思。其实感觉差分分析的过程和线性分析是基本一致的，所以这个博客我就写简单一点，实在记不住了还可以翻阅<a href="https://toby-shi-cloud.github.io/posts/linearcryptanalysis.html">上一篇博客</a>。虽然上一篇也不怎么详细（）</p>
-<h2 id="Sbox拟合"><a href="#Sbox拟合" class="headerlink" title="Sbox拟合"></a>Sbox拟合</h2><p>与线性分析一致，我们不得不对sbox进行拟合。同样的，对于输入的每一种可能的差分，我们穷举所有的输入1（输入2=输入1$\oplus$输入差分）并记录由此带来的输出差分值（输出差分=输出1$\oplus$输出2），计算出输入差分和输出差分对应的概率关系。通过16*16的256次计算，我们就可以整理出一张sbox的拟合表格。</p>
-<h2 id="子密钥分析"><a href="#子密钥分析" class="headerlink" title="子密钥分析"></a>子密钥分析</h2><p>同样的，我们选取概率较大的路径，可以得到明文对的一个差分和一个倒数第二轮输出的差分之间的概率，在论文中，选取的是$\Delta P  = [0000\ 1011\ 0000\ 0000]$和$\Delta U4 = [0000\ 0110\ 0000\ 0110]$，概率是$\frac{27}{1024}=0.0264$。</p>
-<p>同样的我们穷举最后一轮相关联的密钥$k_2$和$k_4$，通过倒推得到$U4$，最后计算出当$\Delta P$成立时$\Delta U4$成立的概率即可。</p>
-<p>由于我们选择的是高概率路径，所以最后成立概率最高的密钥就大概率是我们要找的密钥。</p>
-<h3 id="复现结果"><a href="#复现结果" class="headerlink" title="复现结果"></a>复现结果</h3><p><img src="https://s2.loli.net/2022/09/23/UK4adYCN6ZJyBws.png"></p>
-<p>其中子密钥用16进制表示，x表示未知（即和例子的路径无关）。</p>
-<p>可见$k_2=2$且$k_4=4$的概率远超其他密钥组合，而且概率$0.0272863$与理论$\frac{27}{1024}=0.0264$非常接近。</p>
-<h3 id="复现代码"><a href="#复现代码" class="headerlink" title="复现代码"></a>复现代码</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"structure.hh"</span></span>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为我家羽羽说她的课表一天一个样，每次都手动输入到日历中的话非常不方便，所以我打算帮她把课表从教务网站上爬出来，然后写在ics文件中，这样就可以一键导入了。</p>
+<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>打开他们学校的教务网站，我就麻了，因为必须要输入验证码。这对自动化脚本来说是一个非常阴间的事情，所以考虑使用<code>selenium</code>，打开网页后，人工登录，程序检测到网页跳转后开始运行。</p>
+<p>登录完成后就可以看到课表，默认是月课表，所以只需要让脚本自己翻页然后读取网页全部内容即可。通过<code>F12</code>，我们可以看到那些写着有课程信息的元素大致长什么样子，使用正则表达式即可爬取所有课程了。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在经历了漫长了写代码过程之后，终于到了运行的时候啦！看到一个程序能跑起来，真的是很开心的一件事！（大家也可以尝试复制下面的<code>代码</code>，自己运行试试看）</p>
+<p>如果读者想要运行以下代码，需要进行下列步骤：</p>
+<ol>
+<li>安装一个Python（这不是废话吗，建议是3.6以上，我自己用的3.10）</li>
+<li>安装<code>icalendar</code>和<code>selenium</code>（在命令行执行<code>pip install xxx</code>）</li>
+<li>如果你使用<code>Chrome</code>浏览器，请下载和你的<code>Chrome</code>匹配的<code>chromedriver</code>（见参考链接6），并为<code>chromedriver</code>添加环境变量，或放在脚本所在目录下。</li>
+<li>如果你不使用<code>Chrome</code>浏览器，请自行搜索<code>selenium</code>如何使用你的浏览器（<code>FireFox</code>，<code>Edge </code>和<code>Safari</code>等主流浏览器都是支持的，如果你使用其他浏览器，也可以尝试，因为它们大概率和<code>Google Chrome</code>使用同样的内核，只不过版本较老）另外，不要忘记更改<code>chrome = Chrome()</code>这条语句。</li>
+<li>在脚本所在目录下打开命令行，输入<code>python xxx</code>即可运行（<code>xxx</code>是你的脚本名，通常你应该让后缀是<code>.py</code>）（通常安装python时会关联文件，所以双击运行也不是不可以）</li>
+<li>日程会储存在<code>cdutcm.ics</code>中，许多日历App都支持<code>.ics</code>格式</li>
+</ol>
+<h2 id="配置更改"><a href="#配置更改" class="headerlink" title="配置更改"></a>配置更改</h2><p>有如下内容可能需要更改：</p>
+<ol>
+<li>如果你不是使用的<code>Chrome</code>，更改<code>chrome = Chrome()</code>（第68行）</li>
+<li>默认只会获取课程，而不会获取考试，若要获取考试请更改正则表达式中的<code>上课任务</code>（第32行）</li>
+<li>默认是秋季学期课表，若要获取春季学期课表，更改<code>while month != '八月'</code>和<code>while month != '二月'</code>，交换<code>八月</code>金和<code>二月</code>的位置大概就可以了（第76和83行）</li>
+<li>更改<code>begin_date = datetime(2022, 8, 29, tzinfo=UTC8)</code>中的<code>2022, 8, 29</code>为本学期开学第一周星期一的时间（第97行）</li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># coding=utf-8</span>
 
-<span class="token comment">// \delta P  = [0000 1011 0000 0000]</span>
-<span class="token comment">// \delta U4 = [0000 0110 0000 0110]</span>
+<span class="token keyword">import</span> re
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> Any
+<span class="token keyword">import</span> icalendar <span class="token keyword">as</span> ics
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver <span class="token keyword">import</span> Chrome
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>by <span class="token keyword">import</span> By
+<span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime<span class="token punctuation">,</span> timezone<span class="token punctuation">,</span> timedelta
 
-<span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> FileNamePlain <span class="token operator">=</span> <span class="token string">"plaintexts.hex"</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> FileNameCipher <span class="token operator">=</span> <span class="token string">"ciphertexts.hex"</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> FileNameCsv <span class="token operator">=</span> <span class="token string">"diff.csv"</span><span class="token punctuation">;</span>
-ifstream fp<span class="token punctuation">,</span> fc<span class="token punctuation">;</span>
-ofstream fcsv<span class="token punctuation">;</span>
-<span class="token keyword">int</span> pcPair<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// use -1 stands for undefined</span>
-<span class="token keyword">const</span> u16 deltaP <span class="token operator">=</span> <span class="token number">0b0000101100000000</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> u16 deltaU4 <span class="token operator">=</span> <span class="token number">0b0000011000000110</span><span class="token punctuation">;</span>
+UTC8 <span class="token operator">=</span> timezone<span class="token punctuation">(</span>timedelta<span class="token punctuation">(</span>hours<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-<span class="token keyword">inline</span> u16 <span class="token function">getU4</span><span class="token punctuation">(</span>u16 _C<span class="token punctuation">,</span> u16 key<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    _C <span class="token operator">=</span> <span class="token function">key_mixing</span><span class="token punctuation">(</span>_C<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    _C <span class="token operator">=</span> <span class="token function">substitution</span><span class="token punctuation">(</span>_C<span class="token punctuation">,</span> SBOX_INV<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> _C<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token keyword">def</span> <span class="token function">create_event</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> Any<span class="token punctuation">,</span> location<span class="token punctuation">:</span> Any<span class="token punctuation">,</span> dtstart<span class="token punctuation">:</span> Any<span class="token punctuation">,</span> dtend<span class="token punctuation">:</span> Any<span class="token punctuation">,</span> description<span class="token punctuation">:</span> Any<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> ics<span class="token punctuation">.</span>Event<span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    create a single icalendar event
+    
+    :type of params: any Python native type or icalendar property type.
+    '''</span>
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    fp<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>FileNamePlain<span class="token punctuation">,</span> ios<span class="token double-colon punctuation">::</span>binary <span class="token operator">|</span> ios<span class="token double-colon punctuation">::</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    fc<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>FileNameCipher<span class="token punctuation">,</span> ios<span class="token double-colon punctuation">::</span>binary <span class="token operator">|</span> ios<span class="token double-colon punctuation">::</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">memset</span><span class="token punctuation">(</span>pcPair<span class="token punctuation">,</span> <span class="token number">0xff</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> pcPair<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    event <span class="token operator">=</span> ics<span class="token punctuation">.</span>Event<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    event<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'summary'</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
+    event<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'location'</span><span class="token punctuation">,</span> location<span class="token punctuation">)</span>
+    event<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'dtstart'</span><span class="token punctuation">,</span> dtstart<span class="token punctuation">)</span>
+    event<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'dtend'</span><span class="token punctuation">,</span> dtend<span class="token punctuation">)</span>
+    event<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'description'</span><span class="token punctuation">,</span> description<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> event
 
-    <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        u16 P<span class="token punctuation">,</span> U<span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>fp<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>P<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>fc<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>U<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
-        P <span class="token operator">=</span> P <span class="token operator">&lt;&lt;</span> <span class="token number">8</span> <span class="token operator">|</span> P <span class="token operator">&gt;&gt;</span> <span class="token number">8</span><span class="token punctuation">;</span>
-        U <span class="token operator">=</span> U <span class="token operator">&lt;&lt;</span> <span class="token number">8</span> <span class="token operator">|</span> U <span class="token operator">&gt;&gt;</span> <span class="token number">8</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">~</span>pcPair<span class="token punctuation">[</span>P<span class="token punctuation">]</span><span class="token punctuation">)</span> num<span class="token operator">++</span><span class="token punctuation">;</span>
-        pcPair<span class="token punctuation">[</span>P<span class="token punctuation">]</span> <span class="token operator">=</span> U<span class="token punctuation">;</span>
-        <span class="token comment">// cerr &lt;&lt; hex &lt;&lt; P &lt;&lt; "-&gt;" &lt;&lt; U &lt;&lt; endl;</span>
-        <span class="token comment">// if(num == 100) break;</span>
-    <span class="token punctuation">}</span>
-    cerr <span class="token operator">&lt;&lt;</span>  <span class="token string">"num = "</span> <span class="token operator">&lt;&lt;</span> num <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 有效明密文对个数（剔除重复）</span>
+<span class="token keyword">def</span> <span class="token function">get_lesson_from_html</span><span class="token punctuation">(</span>begin_date<span class="token punctuation">:</span> datetime<span class="token punctuation">,</span> html<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> begin_week<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">tuple</span><span class="token punctuation">[</span><span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token operator">|</span>datetime<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+    REGEX <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token string">r'&lt;a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end" lay-tips="'</span>
+        <span class="token string">r'&lt;table class=&amp;quot;kb-tips&amp;quot; border=&amp;quot;1&amp;quot;&gt;'</span>
+        <span class="token string">r'&lt;tr&gt;&lt;th&gt;事件类型：&lt;/th&gt;&lt;td colspan=&amp;quot;3&amp;quot;&gt;上课任务&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;'</span>
+        <span class="token string">r'上课时间：&lt;/th&gt;&lt;td colspan=&amp;quot;3&amp;quot;&gt;(.*?)--(.*?)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;'</span>
+        <span class="token string">r'教学模式：&lt;/th&gt;&lt;td colspan=&amp;quot;3&amp;quot;&gt;.*?&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;'</span>
+        <span class="token string">r'教学形式：&lt;/th&gt;&lt;td colspan=&amp;quot;3&amp;quot;&gt;.*?&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;'</span>
+        <span class="token string">r'星期：&lt;/th&gt;&lt;td&gt;(\d*?)&lt;/td&gt;&lt;th&gt;节次：&lt;/th&gt;&lt;td&gt;\d*?&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;上课周次：&lt;/th&gt;&lt;td &gt;(\d*?)&lt;/td&gt;&lt;th&gt;'</span>
+        <span class="token string">r'课序号：&lt;/th&gt;&lt;td&gt;.*?&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;'</span>
+        <span class="token string">r'课程：&lt;/th&gt;&lt;td  colspan=&amp;quot;3&amp;quot;&gt;\[.*?\]\[.*?\](.*?)\[.*?\]&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;'</span>
+        <span class="token string">r'授课教师：&lt;/th&gt;&lt;td colspan=&amp;quot;3&amp;quot;&gt;(.*?)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;'</span>
+        <span class="token string">r'教学场地：&lt;/th&gt;&lt;td colspan=&amp;quot;3&amp;quot;&gt;(.*?)\(?\)?&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;'</span>
+        <span class="token string">r'上课班级：&lt;/th&gt;&lt;td colspan=&amp;quot;3&amp;quot;&gt;.*?&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;'</span>
+        <span class="token string">r'排课/上课：&lt;/th&gt;&lt;td colspan=&amp;quot;3&amp;quot;&gt;.*?&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;'</span>
+        <span class="token string">r'授课内容：&lt;/th&gt;&lt;td colspan=&amp;quot;3&amp;quot;&gt;((.|\n)*?)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="background-color: rgb\(\d+, \d+, \d+\);"&gt;'</span>
+    <span class="token punctuation">)</span>
+    
+    end_week <span class="token operator">=</span> <span class="token number">0</span>
+    lessons <span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token operator">|</span>datetime<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> <span class="token keyword">match</span> <span class="token keyword">in</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>REGEX<span class="token punctuation">,</span> html<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        day <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token keyword">match</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
+        week <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token keyword">match</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
+        <span class="token keyword">if</span> week <span class="token operator">&lt;=</span> begin_week<span class="token punctuation">:</span> <span class="token keyword">continue</span>
+        end_week <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>end_week<span class="token punctuation">,</span> week<span class="token punctuation">)</span>
+        today <span class="token operator">=</span> begin_date <span class="token operator">+</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">7</span> <span class="token operator">*</span> week <span class="token operator">+</span> day<span class="token punctuation">)</span>
+        start_t <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token keyword">match</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        end_t <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token keyword">match</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        dtstart <span class="token operator">=</span> today <span class="token operator">+</span> timedelta<span class="token punctuation">(</span>hours<span class="token operator">=</span>start_t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> minutes<span class="token operator">=</span>start_t<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> seconds<span class="token operator">=</span>start_t<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        dtend <span class="token operator">=</span> today <span class="token operator">+</span> timedelta<span class="token punctuation">(</span>hours<span class="token operator">=</span>end_t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> minutes<span class="token operator">=</span>end_t<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> seconds<span class="token operator">=</span>end_t<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        name <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token keyword">match</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        teacher <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token keyword">match</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        location <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token keyword">match</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        content <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token keyword">match</span><span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        lessons<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'课程'</span><span class="token punctuation">:</span>name<span class="token punctuation">,</span> <span class="token string">'教学场地'</span><span class="token punctuation">:</span>location<span class="token punctuation">,</span> <span class="token string">'开始时间'</span><span class="token punctuation">:</span>dtstart<span class="token punctuation">,</span> <span class="token string">'结束时间'</span><span class="token punctuation">:</span>dtend<span class="token punctuation">,</span> <span class="token string">'教师'</span><span class="token punctuation">:</span>teacher<span class="token punctuation">,</span> <span class="token string">'授课内容'</span><span class="token punctuation">:</span>content<span class="token punctuation">}</span><span class="token punctuation">)</span>
+        
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>lessons<span class="token punctuation">,</span> end_week<span class="token punctuation">)</span>
 
-    fp<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    fc<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">def</span> <span class="token function">get_lesson</span><span class="token punctuation">(</span>begin_date<span class="token punctuation">:</span> datetime<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token operator">|</span>datetime<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+    <span class="token comment"># 第一步获取网页元素</span>
+    chrome <span class="token operator">=</span> Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    chrome<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://jwweb.cdutcm.edu.cn'</span><span class="token punctuation">)</span>
+    <span class="token keyword">while</span> chrome<span class="token punctuation">.</span>current_url <span class="token operator">!=</span> <span class="token string">'https://jwweb.cdutcm.edu.cn/new/welcome.page'</span><span class="token punctuation">:</span>
+        sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># 这里需要手动输入账号密码验证码！</span>
+    sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment"># 等待加载</span>
+    iframe <span class="token operator">=</span> chrome<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span> <span class="token string">'/html/body/div[3]/div/div/div[2]/div/div/iframe'</span><span class="token punctuation">)</span>
+    chrome<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>frame<span class="token punctuation">(</span>iframe<span class="token punctuation">)</span>
+    month <span class="token operator">=</span> chrome<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span> <span class="token string">'/html/body/div[1]/div/div[1]/div/div/div/div[1]/div[3]/h2'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_attribute<span class="token punctuation">(</span><span class="token string">'textContent'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token keyword">while</span> month <span class="token operator">!=</span> <span class="token string">'八月'</span><span class="token punctuation">:</span>
+        chrome<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span> <span class="token string">'/html/body/div[1]/div/div[1]/div/div/div/div[1]/div[1]/div/button[1]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment"># 等待加载</span>
+        month <span class="token operator">=</span> chrome<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span> <span class="token string">'/html/body/div[1]/div/div[1]/div/div/div/div[1]/div[3]/h2'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_attribute<span class="token punctuation">(</span><span class="token string">'textContent'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    
+    begin_week <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+    lessons <span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token operator">|</span>datetime<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">while</span> month <span class="token operator">!=</span> <span class="token string">'二月'</span><span class="token punctuation">:</span>
+        html <span class="token operator">=</span> chrome<span class="token punctuation">.</span>page_source
+        lessons_gets<span class="token punctuation">,</span> begin_week <span class="token operator">=</span> get_lesson_from_html<span class="token punctuation">(</span>begin_date<span class="token punctuation">,</span> html<span class="token punctuation">,</span> begin_week<span class="token punctuation">)</span>
+        lessons <span class="token operator">+=</span> lessons_gets
+        chrome<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span> <span class="token string">'/html/body/div[1]/div/div[1]/div/div/div/div[1]/div[1]/div/button[2]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment"># 等待加载</span>
+        month <span class="token operator">=</span> chrome<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span> <span class="token string">'/html/body/div[1]/div/div[1]/div/div/div/div[1]/div[3]/h2'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_attribute<span class="token punctuation">(</span><span class="token string">'textContent'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    
+    <span class="token keyword">return</span> lessons
 
-    fcsv<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>FileNameCsv<span class="token punctuation">,</span> ios<span class="token double-colon punctuation">::</span>out<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    fcsv <span class="token operator">&lt;&lt;</span> <span class="token string">"partial subkey"</span> <span class="token operator">&lt;&lt;</span> <span class="token string">","</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"prob"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    calendar <span class="token operator">=</span> ics<span class="token punctuation">.</span>Calendar<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    calendar<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'version'</span><span class="token punctuation">,</span> <span class="token string">'2.0'</span><span class="token punctuation">)</span>
+    
+    begin_date <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2022</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">29</span><span class="token punctuation">,</span> tzinfo<span class="token operator">=</span>UTC8<span class="token punctuation">)</span>
+    lessons <span class="token operator">=</span> get_lesson<span class="token punctuation">(</span>begin_date<span class="token punctuation">)</span>
+    
+    <span class="token keyword">for</span> lesson <span class="token keyword">in</span> lessons<span class="token punctuation">:</span>
+        name <span class="token operator">=</span> lesson<span class="token punctuation">[</span><span class="token string">'课程'</span><span class="token punctuation">]</span>
+        location <span class="token operator">=</span> lesson<span class="token punctuation">[</span><span class="token string">'教学场地'</span><span class="token punctuation">]</span>
+        dtstart <span class="token operator">=</span> lesson<span class="token punctuation">[</span><span class="token string">'开始时间'</span><span class="token punctuation">]</span>
+        dtend <span class="token operator">=</span> lesson<span class="token punctuation">[</span><span class="token string">'结束时间'</span><span class="token punctuation">]</span>
+        description <span class="token operator">=</span> <span class="token string">'教师：'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>lesson<span class="token punctuation">[</span><span class="token string">'教师'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'\n\n授课内容：\n'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>lesson<span class="token punctuation">[</span><span class="token string">'授课内容'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        event <span class="token operator">=</span> create_event<span class="token punctuation">(</span>name<span class="token punctuation">,</span> location<span class="token punctuation">,</span> dtstart<span class="token punctuation">,</span> dtend<span class="token punctuation">,</span> description<span class="token punctuation">)</span>
+        calendar<span class="token punctuation">.</span>add_component<span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+        
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'cdutcm.ics'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>calendar<span class="token punctuation">.</span>to_ical<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    <span class="token keyword">for</span><span class="token punctuation">(</span>u16 k2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k2 <span class="token operator">&lt;</span> <span class="token number">16</span><span class="token punctuation">;</span> k2<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token keyword">for</span><span class="token punctuation">(</span>u16 k4 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k4 <span class="token operator">&lt;</span> <span class="token number">16</span><span class="token punctuation">;</span> k4<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        u16 key <span class="token operator">=</span> k2 <span class="token operator">&lt;&lt;</span> <span class="token number">8</span> <span class="token operator">|</span> k4<span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token generic-function"><span class="token function">i</span> <span class="token generic class-name"><span class="token operator">&lt;</span> <span class="token number">65536</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>pcPair<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>pcPair<span class="token punctuation">[</span>i<span class="token operator">^</span>deltaP<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&gt;</span></span></span> <span class="token punctuation">(</span>i <span class="token operator">^</span> deltaP<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
-            <span class="token comment">// cerr &lt;&lt; (!(pcPair[i] == -1) &amp;&amp; !(pcPair[i^deltaP] == -1)) &lt;&lt; endl;</span>
-            sum<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">getU4</span><span class="token punctuation">(</span>pcPair<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>key<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token function">getU4</span><span class="token punctuation">(</span>pcPair<span class="token punctuation">[</span>i<span class="token operator">^</span>deltaP<span class="token punctuation">]</span><span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> deltaU4<span class="token punctuation">)</span>
-                count<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">double</span> prob <span class="token operator">=</span> count <span class="token operator">*</span> <span class="token number">1.0</span> <span class="token operator">/</span> sum<span class="token punctuation">;</span>
-        fcsv <span class="token operator">&lt;&lt;</span> hex <span class="token operator">&lt;&lt;</span> <span class="token string">"x"</span> <span class="token operator">&lt;&lt;</span> k2 <span class="token operator">&lt;&lt;</span> <span class="token string">"x"</span> <span class="token operator">&lt;&lt;</span> k4 <span class="token operator">&lt;&lt;</span> <span class="token string">","</span> <span class="token operator">&lt;&lt;</span> dec <span class="token operator">&lt;&lt;</span> prob <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>k2 <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>k4<span class="token punctuation">)</span> cerr <span class="token operator">&lt;&lt;</span> <span class="token string">"sum = "</span> <span class="token operator">&lt;&lt;</span> sum <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 有效明密文对组的组数（剔除没有配对成组的）</span>
-    <span class="token punctuation">}</span>
 
-    fcsv<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><code>structure.hh</code>是我自己写的一个头文件，里面是加密解密需要用到的函数以及Sbox和permutation连线的方式。由于加密解密以及分析都需要用到这些函数，所以就放在头文件里面了。</p>
-<p>用cpp的原因是，bluebeen告诉我cpp比python快数十倍……python分析10万组明密文对要1分钟真的难受……</p>
-<p>因为差分分析需要符合要求的明密文对组，即明文需要满足$\Delta P$的那个式子。所以是先把涉及到的明密文对存下来（代码里面是<code>pcPair</code>）然后在进行统计。</p>
-<p>在进行差分分析的复现的时候，我突然想到一个问题，为什么论文上只用了1万对明密文对，而我用了10万对才能找出答案吗？我的复现究竟是出了什么样的问题呢？</p>
-<p>其实在上面的复现代码中，输出<code>num</code>和<code>sum</code>就已经揭晓了答案。根据输出，我的10万对明密文，只有<code>num</code>=5万的有效明密文对，然后再安装$\Delta P$的要求配对后，只有<code>sum</code>=2万组。而论文直接说的就是1万组满足$\Delta P$的明密文组。其实我也就用了两倍的数据而已。所以我的数据看起来比论文中要精确一些，但是也没有精确太多。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1]Heys,  Howard M . A Tutorial on Linear and Differential Cryptanalysis[J]. Cryptologia, 2002, 26(3):189-221.</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013670453/article/details/114671299">「Selenium」- 在页面中，点击按钮（或元素）</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/asdfgh0077/article/details/104178416">使用Python在Selenium WebDriver中获取WebElement的HTML源代码</a></li>
+<li><a target="_blank" rel="noopener" href="https://wnma3mz.github.io/hexo_blog/2020/09/16/ICS%E5%9C%A8%E7%BA%BF%E8%AF%BE%E8%A1%A8%E5%88%B6%E4%BD%9C/">ICS在线课表制作</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/wnma3mz/Tools/blob/master/others/myics.py">ICS在线课表制作 源码</a></li>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT205018">如果意外地从 iCloud 中删除了日历、书签或通讯录</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhoukeguai/article/details/113247342">chromedriver下载与安装方法，亲测可用</a></li>
+</ol>
 
                 
             </div>
@@ -742,12 +797,12 @@ ofstream fcsv<span class="token punctuation">;</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C-C/">
-                                    <span class="chip bg-color">C/C++</span>
+                                <a href="/tags/%E8%84%9A%E6%9C%AC/">
+                                    <span class="chip bg-color">脚本</span>
                                 </a>
                             
-                                <a href="/tags/%E5%AF%86%E7%A0%81%E5%88%86%E6%9E%90/">
-                                    <span class="chip bg-color">密码分析</span>
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
                                 </a>
                             
                         </div>
@@ -1093,50 +1148,52 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/junittestforobjectoriented.html">
+                <a href="/posts/cdutcmcalendar.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://api.ixiaowai.cn/api/api.php/e" class="responsive-img" alt="使用junit4对java程序进行测试">
+                        <img src="https://api.ixiaowai.cn/api/api.php/d" class="responsive-img" alt="从教务网站上获取课表并导入iCloud日历">
                         
-                        <span class="card-title">使用junit4对java程序进行测试</span>
+                        <span class="card-title">从教务网站上获取课表并导入iCloud日历</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            涉及输入模拟，输出捕获，文件读取，junit4应用，junit4 Parameterized
+                            从教务网站上获取课表，保存为iCalendar文件，然后导入iCloud日历
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-category">
-                                    面向对象
+                            <a href="/categories/%E8%84%9A%E6%9C%AC/" class="post-category">
+                                    脚本
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/OO/">
-                        <span class="chip bg-color">OO</span>
+                    <a href="/tags/%E8%84%9A%E6%9C%AC/">
+                        <span class="chip bg-color">脚本</span>
                     </a>
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -1150,31 +1207,31 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/linearcryptanalysis.html">
+                <a href="/posts/co-p0.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://api.ixiaowai.cn/api/api.php/6" class="responsive-img" alt="复现 A Tutorial on Linear and Differential Cryptanalysis中线性分析的例子">
+                        <img src="https://api.ixiaowai.cn/api/api.php/5" class="responsive-img" alt="CO review：P0">
                         
-                        <span class="card-title">复现 A Tutorial on Linear and Differential Cryptanalysis中线性分析的例子</span>
+                        <span class="card-title">CO review：P0</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            复现 A Tutorial on Linear and Differential Cryptanalysis中线性分析的例子
+                            计算机组成 P0 上机
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" class="post-category">
-                                    密码学
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" class="post-category">
+                                    计算机组成
                                 </a>
                             
                             
@@ -1184,16 +1241,8 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C-C/">
-                        <span class="chip bg-color">C/C++</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AF%86%E7%A0%81%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">密码分析</span>
-                    </a>
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/CO/">
+                        <span class="chip bg-color">CO</span>
                     </a>
                     
                 </div>

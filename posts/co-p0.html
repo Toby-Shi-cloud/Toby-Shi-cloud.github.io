@@ -40,7 +40,7 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="TobyShiの博客" type="application/atom+xml">
 </head>
@@ -605,21 +605,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-06
+                    2022-10-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    764
+                    156
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -638,42 +638,30 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="L0-五人投票"><a href="#L0-五人投票" class="headerlink" title="L0 五人投票"></a>L0 五人投票</h2><h3 id="题目概述"><a href="#题目概述" class="headerlink" title="题目概述"></a>题目概述</h3><p>裁判组有一个组长和四个组员（组员编号依次为 <code>2'b00,2'b01,2'b10,2'b11</code>）。<br>每个组员都可以赞成、反对或是弃权。组长还拥有屏蔽投票权：屏蔽一位组员的投票，无论该组员投什么票，都视为弃权。投票的输入信息和输入信号对应如下：</p>
-<pre class="line-numbers language-table" data-language="table"><code class="language-table">意义 | 赞成 | 反对 | 弃权 | 屏蔽投票
-组长 | 2'b00 | 2'b01 | 2'b10 | 2'b11
-组员 | 2'b00 | 2'b01, 2'b11 | 2'b10 | -<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<table class="toolTable table"><tbody><tr><th>意义</th><th>赞成</th><th>反对</th><th>弃权</th><th>屏蔽投票</th></tr><tr><td>组长</td><td>2'b00</td><td>2'b01</td><td>2'b10</td><td>2'b11</td></tr><tr><td>组员</td><td>2'b00</td><td>2'b01, 2'b11</td><td>2'b10</td><td>-</td></tr></tbody></table>
+
 <p>当赞成票大于反对票时，表决结果为通过；反之为不通过。</p>
-<h3 id="输入输出描述"><a href="#输入输出描述" class="headerlink" title="输入输出描述"></a>输入输出描述</h3><pre class="line-numbers language-table" data-language="table"><code class="language-table">端口名称 | 方向 | 位宽 | 功能
-LV | I | [1:0] | 组长投票
-LI | I | [1:0] | 组长屏蔽组员的编号
-T0 | I | [1:0] | 组员 2'b00 的投票
-T1 | I | [1:0] | 组员 2'b01 的投票
-T2 | I | [1:0] | 组员 2'b10 的投票
-T3 | I | [1:0] | 组员 2'b11 的投票
-O | O | - | 表决结果（通过为 1，反之为 0）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="输入输出描述"><a href="#输入输出描述" class="headerlink" title="输入输出描述"></a>输入输出描述</h3><table class="toolTable table" style="text-align:center;" <tbody=""><tbody><tr><th>端口名称</th><th>方向</th><th>位宽</th><th>功能</th></tr><tr><td>LV</td><td>I</td><td>[1:0]</td><td>组长投票</td></tr><tr><td>LI</td><td>I</td><td>[1:0]</td><td>组长屏蔽组员的编号</td></tr><tr><td>T0</td><td>I</td><td>[1:0]</td><td>组员 2'b00 的投票</td></tr><tr><td>T1</td><td>I</td><td>[1:0]</td><td>组员 2'b01 的投票</td></tr><tr><td>T2</td><td>I</td><td>[1:0]</td><td>组员 2'b10 的投票</td></tr><tr><td>T3</td><td>I</td><td>[1:0]</td><td>组员 2'b11 的投票</td></tr><tr><td>O</td><td>O</td><td>-</td><td>表决结果（通过为 1，反之为 0）</td></tr></tbody></table>
+
 <h3 id="考场思路"><a href="#考场思路" class="headerlink" title="考场思路"></a>考场思路</h3><p>这题几乎就是一个<code>分线器</code>的应用。<br>大概写了 20min 左右。<br>不过呢，为了避免重复四次一样的电路，可以创建一个 circuit 专门用于处理组员投票，注意输入应该是两个，一个投票信号，一个使能端（用于表示组长是否屏蔽了这个人）。</p>
 <h3 id="Bug-分析"><a href="#Bug-分析" class="headerlink" title="Bug 分析"></a>Bug 分析</h3><p>这题又遇到了 logisim 的 bug。有时候连完线发现线红了或者蓝了，还修不好，不过保存后重启解决一切问题。</p>
 <h2 id="L1-文本匹配"><a href="#L1-文本匹配" class="headerlink" title="L1 文本匹配"></a>L1 文本匹配</h2><h3 id="题目概述-1"><a href="#题目概述-1" class="headerlink" title="题目概述"></a>题目概述</h3><p>你需要匹配字符串 0121 和 1210。请使用 Mealy 自动机。<br>输入信号的含义：</p>
-<pre class="line-numbers language-table" data-language="table"><code class="language-table">2'b00 | 2'b01 | 2'b10 | 2'b11
-0 | 1 | 2 | 不会出现<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="输入输出描述-1"><a href="#输入输出描述-1" class="headerlink" title="输入输出描述"></a>输入输出描述</h3><pre class="line-numbers language-table" data-language="table"><code class="language-table">端口名称 | 方向 | 位宽 | 功能
-clk | I | - | 时钟信号，在时钟上升沿转移状态
-rst | I | - | 异步复位信号
-in | I | [1:0] | 当前周期输入
-out(v3) | O(v3) | [1:0](v3) | 0: 无匹配
-1: 匹配 0121
-2: 匹配 1210<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="考场思路-1"><a href="#考场思路-1" class="headerlink" title="考场思路"></a>考场思路</h3><p>列出状态转移就可以啦。如下图所示：</p>
-<p><a target="_blank" rel="noopener" href="https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNptkjFrwzAQhf-KubHEoKdRQ7107NSOUQZhK60htosjF0rIf88pVqU4nEFgPr177w7dhdqp82ToHFzwb737mt1Q_2o7Vvx1_ezb0E9j9f6xEqWU4WPtaKlpGkv_GIyRMDIGq5HU0AWzGqsaOqvB3sjeqmAwTt6qqNkbyVsV7_3Loarr19ho1t0BX-T0J6BUKkFlKmwhN8RQPSsj1Hl2SQnJM0E8lkMKSjD2WsohpUNKh5QOIR3SmAU-lEOaHdLsGd6DsIVrS3r7NmpTLs2-VWra0eDnwfUdr-4lSiyFbz94S4Z_O390yynEnbiy1C1h-vwbWzJhXvyOlp-uLDuZozud_fUGMpytuQ"><img src="https://mermaid.ink/img/pako:eNptkjFrwzAQhf-KubHEoKdRQ7107NSOUQZhK60htosjF0rIf88pVqU4nEFgPr177w7dhdqp82ToHFzwb737mt1Q_2o7Vvx1_ezb0E9j9f6xEqWU4WPtaKlpGkv_GIyRMDIGq5HU0AWzGqsaOqvB3sjeqmAwTt6qqNkbyVsV7_3Loarr19ho1t0BX-T0J6BUKkFlKmwhN8RQPSsj1Hl2SQnJM0E8lkMKSjD2WsohpUNKh5QOIR3SmAU-lEOaHdLsGd6DsIVrS3r7NmpTLs2-VWra0eDnwfUdr-4lSiyFbz94S4Z_O390yynEnbiy1C1h-vwbWzJhXvyOlp-uLDuZozud_fUGMpytuQ"></a></p>
+<table class="toolTable table"><tbody><tr><th>2'b00</th><th>2'b01</th><th>2'b10</th><th>2'b11</th></tr><tr><td>0</td><td>1</td><td>2</td><td>不会出现</td></tr></tbody></table>
+
+<h3 id="输入输出描述-1"><a href="#输入输出描述-1" class="headerlink" title="输入输出描述"></a>输入输出描述</h3><table class="toolTable table"><tbody><tr><th>端口名称</th><th>方向</th><th>位宽</th><th>功能</th></tr><tr><td>clk</td><td>I</td><td>-</td><td>时钟信号，在时钟上升沿转移状态</td></tr><tr><td>rst</td><td>I</td><td>-</td><td>异步复位信号</td></tr><tr><td>in</td><td>I</td><td>[1:0]</td><td>当前周期输入</td></tr><tr><td>out</td><td>O</td><td>[1:0]</td><td>0: 无匹配<br>1: 匹配 0121<br>2: 匹配 1210s</td></tr></tbody></table>
+
+<h3 id="考场思路-1"><a href="#考场思路-1" class="headerlink" title="考场思路"></a>考场思路</h3><p>列出状态转移就可以啦。如下图所示：<br><img src="https://mermaid.ink/img/pako:eNptkjFrwzAQhf-KubHEoKdRQ7107NSOUQZhK60htosjF0rIf88pVqU4nEFgPr177w7dhdqp82ToHFzwb737mt1Q_2o7Vvx1_ezb0E9j9f6xEqWU4WPtaKlpGkv_GIyRMDIGq5HU0AWzGqsaOqvB3sjeqmAwTt6qqNkbyVsV7_3Loarr19ho1t0BX-T0J6BUKkFlKmwhN8RQPSsj1Hl2SQnJM0E8lkMKSjD2WsohpUNKh5QOIR3SmAU-lEOaHdLsGd6DsIVrS3r7NmpTLs2-VWra0eDnwfUdr-4lSiyFbz94S4Z_O390yynEnbiy1C1h-vwbWzJhXvyOlp-uLDuZozud_fUGMpytuQ"></p>
 <ul>
 <li>当 $st=110$ 且 $in=10$ 时，输出 1</li>
 <li>当 $st=011$ 且 $in=00$ 时，输出 2</li>
-<li>其他时候输出 0 <h3 id="bug-分析"><a href="#bug-分析" class="headerlink" title="bug 分析"></a>bug 分析</h3>这个题 WA 了一次，错在串 <code>01210</code>。<br>因为我的 <code>110</code> 在 $in=1$ 时转移去了 <code>001</code> 而不是 <code>011</code>……</li>
+<li>其他时候输出 0</li>
 </ul>
-<h2 id="L2-斐波那契数列改"><a href="#L2-斐波那契数列改" class="headerlink" title="L2 斐波那契数列改"></a>L2 斐波那契数列改</h2><h3 id="题目概述-2"><a href="#题目概述-2" class="headerlink" title="题目概述"></a>题目概述</h3><p>数列 ${s_n}$ 定义如下:<br>$$<br>s_n =<br>\begin{cases}<br>0 &amp; n=0,2 \<br>1 &amp; n=1,3 \<br>s_{n-1} + (s_{n-2} \oplus s_{n-3}) &amp; \text{if $n$ is even} \<br>(s_{n-1} \oplus s_{n-2}) + s_{n-3} &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$<br>其中 $\oplus$ 表示按位异或。</p>
+<h3 id="bug-分析"><a href="#bug-分析" class="headerlink" title="bug 分析"></a>bug 分析</h3><p>这个题 WA 了一次，错在串 <code>01210</code>。<br>因为我的 <code>110</code> 在 $in=1$ 时转移去了 <code>001</code> 而不是 <code>011</code>……</p>
+<h2 id="L2-斐波那契数列改"><a href="#L2-斐波那契数列改" class="headerlink" title="L2 斐波那契数列改"></a>L2 斐波那契数列改</h2><h3 id="题目概述-2"><a href="#题目概述-2" class="headerlink" title="题目概述"></a>题目概述</h3><p>数列 ${s_n}$ 定义如下:</p>
+<p>$$<br>s_n =<br>\begin{cases}<br>0 &amp; n=0,2 \\<br>1 &amp; n=1,3 \\<br>s_{n-1} + (s_{n-2} \oplus s_{n-3}) &amp; \text{if $n$ is even} \\<br>(s_{n-1} \oplus s_{n-2}) + s_{n-3} &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$</p>
 <p>输入 $n$ 输出 $s_n$，时限：64 个周期。</p>
-<h3 id="输入输出描述-2"><a href="#输入输出描述-2" class="headerlink" title="输入输出描述"></a>输入输出描述</h3><pre class="line-numbers language-table" data-language="table"><code class="language-table">端口名称 | 方向 | 位宽 | 功能
-in | I | [4:0] | 输入
-out | O | [31:0] | 输出<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="输入输出描述-2"><a href="#输入输出描述-2" class="headerlink" title="输入输出描述"></a>输入输出描述</h3><table class="toolTable table"><tbody><tr><th>端口名称</th><th>方向</th><th>位宽</th><th>功能</th></tr><tr><td>in</td><td>I</td><td>[4:0]</td><td>输入</td></tr><tr><td>out</td><td>O</td><td>[31:0]</td><td>输出</td></tr></tbody></table>
+
 <h3 id="考场思路-2"><a href="#考场思路-2" class="headerlink" title="考场思路"></a>考场思路</h3><p>同预习的斐波那契数列。<br>就是递推转移啦……<br>不过有人似乎直接打表……</p>
 <h3 id="bug-分析-1"><a href="#bug-分析-1" class="headerlink" title="bug 分析"></a>bug 分析</h3><p>还是要搭建好一会儿的，主要是保存并维持输出，还有计数，以及电路延迟问题。</p>
 
@@ -1037,48 +1025,50 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/co-p0.html">
+                <a href="/posts/cdutcmcalendar.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://api.ixiaowai.cn/api/api.php/5" class="responsive-img" alt="CO review：P0">
+                        <img src="https://api.ixiaowai.cn/api/api.php/d" class="responsive-img" alt="从教务网站上获取课表并导入iCloud日历">
                         
-                        <span class="card-title">CO review：P0</span>
+                        <span class="card-title">从教务网站上获取课表并导入iCloud日历</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            计算机组成 P0 上机
+                            从教务网站上获取课表，保存为iCalendar文件，然后导入iCloud日历
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-05
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" class="post-category">
-                                    计算机组成
+                            <a href="/categories/%E8%84%9A%E6%9C%AC/" class="post-category">
+                                    脚本
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CO/">
-                        <span class="chip bg-color">CO</span>
+                    <a href="/tags/%E8%84%9A%E6%9C%AC/">
+                        <span class="chip bg-color">脚本</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -1144,43 +1134,6 @@ new Valine({
 
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: TobyShiの博客<br />'
-            + '文章作者: TobyShi<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
 
 <!-- 代码块功能依赖 -->
@@ -1425,7 +1378,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">20.4k</span>&nbsp;字
+                class="white-color">21.6k</span>&nbsp;字
             
             
             
