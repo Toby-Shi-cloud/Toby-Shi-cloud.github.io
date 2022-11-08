@@ -645,14 +645,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="第十三届蓝桥杯大赛软件赛省赛C-x2F-C-大学-A-组"><a href="#第十三届蓝桥杯大赛软件赛省赛C-x2F-C-大学-A-组" class="headerlink" title="第十三届蓝桥杯大赛软件赛省赛C/C++ 大学 A 组"></a>第十三届蓝桥杯大赛软件赛省赛C/C++ 大学 A 组</h1><h2 id="本文其他链接"><a href="#本文其他链接" class="headerlink" title="本文其他链接"></a>本文其他链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ToAchieveMyDream/article/details/124067956">CSDN</a></p>
+                <h1 id="第十三届蓝桥杯大赛软件赛省赛C-x2F-C-大学-A-组"><a href="#第十三届蓝桥杯大赛软件赛省赛C-x2F-C-大学-A-组" class="headerlink" title="第十三届蓝桥杯大赛软件赛省赛C/C++ 大学 A 组"></a>第十三届蓝桥杯大赛软件赛省赛C/C++ 大学 A 组</h1><h3 id="本文其他链接"><a href="#本文其他链接" class="headerlink" title="本文其他链接"></a>本文其他链接</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ToAchieveMyDream/article/details/124067956">CSDN</a></p>
 <h3 id="纪念我参加的第一次蓝桥杯"><a href="#纪念我参加的第一次蓝桥杯" class="headerlink" title="纪念我参加的第一次蓝桥杯"></a>纪念我参加的第一次蓝桥杯</h3><blockquote>
 <p>2022年4月9日 9:00 - 13:00<br>这次蓝桥杯因为疫情，在线上举行  </p>
 <p>听学长学姐们说蓝桥杯又叫“送钱杯”，省一有手就行<br>那我就在这里先求一个省一吧！<br>2k 奖学金！求求了！</p>
 </blockquote>
 <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>因为鄙人才学不高，所以这份题解中的解法难免有纰漏之处，还望各路神犇指出，鄙人将感激不尽。</p>
 <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1XXhdX5x6rntecZ2SFMtmGg?pwd=fl6d">题目pdf</a></p>
-<h2 id="试题A-裁纸刀"><a href="#试题A-裁纸刀" class="headerlink" title="试题A: 裁纸刀"></a>试题A: 裁纸刀</h2><h3 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h3><p>考虑记忆化搜索。<br><del>后来听说怎么剪都是一样的？？？</del><br>记<code>int mem[n][m]</code>为有$n$行$m$列个二维码时，需要剪多少次（不考虑边框）<br>于是递归公式为<br>$$<br>mem[n][m] = \min{\min_{1 \leq i \leq n-1}{mem[i][m]+mem[n-i][m]+1}, \min_{1 \leq i \leq m-1}{mem[n][i]+mem[n][m-i]+1}}<br>$$<br>最后答案是 $mem[20][22] + 4 = 443$</p>
+<h2 id="试题A-裁纸刀"><a href="#试题A-裁纸刀" class="headerlink" title="试题A: 裁纸刀"></a>试题A: 裁纸刀</h2><h3 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h3><p>考虑记忆化搜索。<br><del>后来听说怎么剪都是一样的？？？</del><br>记<code>int mem[n][m]</code>为有$n$行$m$列个二维码时，需要剪多少次（不考虑边框）<br>于是递归公式为<br>$$<br>mem[n][m] = \min(\min_{1 \leq i \leq n-1}(mem[i][m]+mem[n-i][m]+1), \min_{1 \leq i \leq m-1}(mem[n][i]+mem[n][m-i]+1))<br>$$<br>最后答案是 $mem[20][22] + 4 = 443$</p>
 <h3 id="我的代码"><a href="#我的代码" class="headerlink" title="我的代码"></a>我的代码</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstdio&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm&gt;</span></span>
