@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://toby-shi-cloud.github.io/posts/buaatoolsusage.html</loc>
+    <lastmod>2022-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://toby-shi-cloud.github.io/posts/swift-xcode-ipa.html</loc>
+    <lastmod>2022-11-19</lastmod>
+  </url>
+  <url>
     <loc>https://toby-shi-cloud.github.io/posts/lanqiaocup2022preliminary.html</loc>
     <lastmod>2022-11-08</lastmod>
   </url>
@@ -35,10 +43,6 @@
   <url>
     <loc>https://toby-shi-cloud.github.io/posts/linearcryptanalysis.html</loc>
     <lastmod>2022-09-23</lastmod>
-  </url>
-  <url>
-    <loc>https://toby-shi-cloud.github.io/posts/swift-xcode-ipa.html</loc>
-    <lastmod>2022-08-30</lastmod>
   </url>
   <url>
     <loc>https://toby-shi-cloud.github.io/posts/evaluation-automation-script.html</loc>

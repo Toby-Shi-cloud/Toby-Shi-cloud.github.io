@@ -6,7 +6,7 @@
   <link href="https://toby-shi-cloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://toby-shi-cloud.github.io/"/>
-  <updated>2022-10-15T03:44:35.697Z</updated>
+  <updated>2022-11-19T16:55:14.872Z</updated>
   <id>https://toby-shi-cloud.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BUAA Tools 使用文档</title>
+    <link href="https://toby-shi-cloud.github.io/posts/buaatoolsusage.html"/>
+    <id>https://toby-shi-cloud.github.io/posts/buaatoolsusage.html</id>
+    <published>2022-11-19T15:30:00.000Z</published>
+    <updated>2022-11-19T16:55:14.872Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本使用指南以 iPad 界面为主。在 iPhone 上使用体验略有不同。可以同时参考 iPhone 实机演示视频。</p><h2 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h2><h3 id="登录界面"><a href="#登录界面" class="headerlink" title="登录界面"></a>登录界面</h3><p>如下图所示，登录界面简单而明显。输入您的统一身份认证的学号和密码即可登录。</p><p><img src="https://s2.loli.net/2022/11/19/Nv69iU8puTFcJeq.jpg"></p><p><strong>Feature</strong></p><ul><li>对于密码错误和网络错误都会给予相应的提示。[^1]</li><li>可以使用 iCloud 钥匙串自动填充学号密码。[^2]</li><li>仅首次启动或手动退出登录后需要登录，再次启动 App 可以自动登录。</li></ul><p>[^1]: 详见视频 $3:53$<br>[^2]: 详见视频 $4:06$</p><h3 id="导航栏"><a href="#导航栏" class="headerlink" title="导航栏"></a>导航栏</h3><p>左侧导航栏会显示信息概览。默认顺序依次为 校园网流量，TD 次数，校园卡余额，健康打卡状态，核酸排队情况。</p><p><img src="https://s2.loli.net/2022/11/20/LYPOgs2BD7R6vlt.png"></p><p><strong>Feature</strong></p><ul><li>导航栏可以简单概览目前状态。[^3]</li><li>点击导航栏可以查看详细页面。[^4]</li><li>导航栏顺序可以设置。[^5]</li></ul><p>[^3]: 详见视频 $0:22$<br>[^4]: 详见视频 $0:50$<br>[^5]: 详见视频 $3:10$</p><h3 id="详细视图"><a href="#详细视图" class="headerlink" title="详细视图"></a>详细视图</h3><p>大部分视图即为对应的官网。这里以点击每日健康打开为例。</p><p><img src="https://s2.loli.net/2022/11/20/N9DizKRXYkrVoCc.png"></p><p><strong>Feature</strong></p><ul><li>会主动询问是否允许访问位置。</li><li>拥有与微信小程序或智慧北航一致的行为。</li><li>可以交互的真实网页。</li></ul><h3 id="设置界面"><a href="#设置界面" class="headerlink" title="设置界面"></a>设置界面</h3><p>可以调整视图顺序和对一些特定视图进行设置。设置界面由右上角任务图像唤出。</p><p><img src="https://s2.loli.net/2022/11/20/wYbV4vImtThN5Cq.png"></p><p><strong>Feature</strong></p><ul><li>自由调整其中的任何设置。[^6]</li><li>醒目的退出登录标识。[^7]</li><li>可以取消设置。[^8]</li></ul><p>[^6]: 详见视频 $2:22$，$2:55$，$3:10$<br>[^7]: 详见视频 $3:45$<br>[^8]: 详见视频 $3:21$</p><h3 id="其他-Feature"><a href="#其他-Feature" class="headerlink" title="其他 Feature"></a>其他 <strong>Feature</strong></h3><ul><li>自由的在深色主题和浅色主题之间切换（跟随系统）。</li><li>自适应屏幕大小变化（支持台前调度的各个大小）。</li><li>可在  iPhone，iPad，以及 Mac 上运行。[^9]</li></ul><p><img src="https://s2.loli.net/2022/11/20/bkFj7oVvKGdsqAy.png"></p><p><img src="https://s2.loli.net/2022/11/20/Lh62XHpnR1FPWkQ.jpg"></p><p>[^9]: 仅在 <img src="https://img.shields.io/badge/platforms-iOS%2016.0%2B%20%7C%20iPadOS%2016.0%2B%20%7C%20macOS%2013.0%2B-red.svg" alt="image">可用</p><h2 id="从源代码安装"><a href="#从源代码安装" class="headerlink" title="从源代码安装"></a>从源代码安装</h2><ol><li>打开 <code>Xcode</code> 点击<code>Xcode-Preferences</code>或者使用快捷键<code>command+,</code>打开偏好设置，在 <code>Accounts</code> 中添加自己的 <code>AppleID</code>，添加成功后关闭偏好设置。</li><li>在左侧视图中点击App的名称，选中<code>signing &amp; Capabilities</code>，在 <code>Signing</code> 栏的 <code>Development Team</code> 中选中自己 <code>AppleID</code> 的名字。</li><li>鼠标悬停在中间正上方，会出现为什么构建应用程序，选中Any iOS Device，然后点击菜单栏<code>Product-Archive</code>。</li><li>在弹出菜单出选择 <code>Distribute App</code>，选择 <code>Development</code>，然后一路 <code>Next</code> 下去，就可以看到在相同目录下生成了一个文件夹，点开文件夹，就可以得到由你自己签名的 <code>ipa</code> 安装包。</li><li>自签安装包是可以安装使用的，但是有效期只有 7 天。因此可以考虑使用 <code>AltStore</code> 等自签工具来完成续签。<code>AltStore</code> 使用方法详见<a href="https://altstore.io/">官网</a>。</li></ol><h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p>特别感谢对本软件的提供建议或帮助的所有人。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="Swift编程" scheme="https://toby-shi-cloud.github.io/categories/Swift%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="Swift" scheme="https://toby-shi-cloud.github.io/tags/Swift/"/>
+    
+    <category term="Apple" scheme="https://toby-shi-cloud.github.io/tags/Apple/"/>
+    
+  </entry>
   
   <entry>
     <title>从教务网站上获取课表并导入iCloud日历</title>
@@ -177,7 +203,7 @@
     <link href="https://toby-shi-cloud.github.io/posts/swift-xcode-ipa.html"/>
     <id>https://toby-shi-cloud.github.io/posts/swift-xcode-ipa.html</id>
     <published>2022-08-30T06:00:00.000Z</published>
-    <updated>2022-08-30T07:16:42.043Z</updated>
+    <updated>2022-11-19T15:37:20.960Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这学期成功选上了Swift程序设计这门课。虽然我还只会写Hello World，但是已经非常好奇如何将自己写的程序放在自己的iPhone中运行了，因此我们今天就来尝试一次。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>Mac上的Xcode和iPad上的Playground差距还是有些大的。但是因为我的Mac是虚拟机，运行缓慢，所以我打算现在iPad上编写程序并测试运行。</p><p>由于我对Swift的了解还很少，所以我在网上下载了一个简单的程序作为测试。<a href="https://github.com/DocRace/playgrounds-covid19-dashboard/">测试软件下载链接</a><sup><a href="#toc-heading-4">[1]</a></sup></p><p>下载好后，在iPad的Playground中尝试导入，几乎都失败了。遂怀疑是版本问题。于是准备重新创建项目后复制粘贴源代码。粘贴好后会提示<code>SwiftyJSON</code>和<code>Alamofire</code>找不到，遂前往GitHub搜索，并在Playground的添加Swift软件包中粘贴链接导入软件包即可。<br>省流：链接分别是<code>https://github.com/SwiftyJSON/SwiftyJSON</code>和<code>https://github.com/Alamofire/Alamofire</code></p><p>点击运行，就能看到软件运行成功了。</p><h2 id="分发"><a href="#分发" class="headerlink" title="分发"></a>分发</h2><p>由于iPad的Playground只能将应用发布到App Store，而这个需要用户成为Apple Developer Member，不仅需要验证和审核，还需要688元/年的会费，对学生来说没有必要，邃转向Xcode。</p><p>首先在Playground中将刚刚<del>抄</del>的App导出并存放在iCloud中（存什么地方不重要，方便导入电脑即可，也可以直接AirDrop）。随后打开Mac上的Xcode，打开项目，选择我们刚刚的导出的软件。项目导入后，Xcode会提示正在fetch SwiftyJSON和Alamofire，fetch结束后就可以<code>command+R</code>运行了。可见App在Simulator中运行状态也是正常的。</p><p>之后点击<code>Xcode-Preferences</code>或者使用快捷键<code>command+,</code>打开偏好设置，在Accounts中添加自己的AppleID，添加成功后关闭偏好设置。</p><p>在左侧视图中点击App的名称，选中<code>signing &amp; Capabilities</code>，在Signing栏的Development Team中选中自己AppleID的名字，在Bundle Identifier中填入应用唯一标识符，命名规范一般是<code>com.AppName.DeveloperName</code></p><p>随后鼠标悬停在中间正上方，会出现为什么构建应用程序，选中Any iOS Device，然后点击菜单栏<code>Product-Archive</code>，编译成功后在Finder中打开文件夹，文件夹位置默认在<code>~/Library/Developer/Xcode/Archives</code>下的今天日期文件夹中（可在偏好设置的Location栏更改）。此可以看见一个扩展名为<code>xcarchive</code>的文件即说明编译成功。</p><p>最后，打开终端，cd到<code>.xcarchive</code>文件所在文件夹，输入以下命令：<sup><a href="#toc-heading-4">[2]</a></sup></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">xcodebuild <span class="token parameter variable">-exportArchive</span> <span class="token parameter variable">-exportOptionsPlist</span> Info.plist <span class="token parameter variable">-archivePath</span> *.xcarchive <span class="token parameter variable">-exportPath</span> myApp.ipa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>其中<code>Info.plist</code>需要随便准备一个（如果你是直接在Xcode中创建的项目会附赠一个，你在项目文件中找到即可，如果是Playground创建的，则需要借用其他项目的），<code>*.xcarchive</code>为你的应用名称。在看到<code>** EXPORT SUCCEEDED **</code>后说明导出ipa成功。</p><p>会在当前文件夹下产生一个叫做myApp.ipa的文件夹，将其中的myApp.ipa文件拿出来，使用爱思助手就可以直接安装在iPad/iPhone中使用。<sup><a href="#toc-heading-4">[3]</a></sup></p><p>注意：根据Apple官方的规定，免费用户只能将同一个程序分发给至多3个设备，且一次签名最多持续7天。</p><h2 id="参考链接或注释"><a href="#参考链接或注释" class="headerlink" title="参考链接或注释"></a>参考链接或注释</h2><ol><li>参考链接：<a href="https://sspai.com/post/70655">https://sspai.com/post/70655</a></li><li>参考链接：<a href="https://www.jianshu.com/p/0171d6b49771">https://www.jianshu.com/p/0171d6b49771</a></li><li>注释：由于Info.plist不匹配和免费签名的缘故，不能使用iTunes进行安装，只能使用第三方助手</li></ol>]]></content>
     
