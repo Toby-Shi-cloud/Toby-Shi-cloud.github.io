@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>计组实验的回顾</title>
+      <link href="posts/coreview.html"/>
+      <url>posts/coreview.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="「总结」"><a href="#「总结」" class="headerlink" title="「总结」"></a>「总结」</h2><p><img src="https://s2.loli.net/2022/12/29/rDpC9cK2unPEgFT.png"></p><p>清一色的「通过」。</p><p>可惜没有考 P8。还是太摆烂啦！</p><p>虚假的原因：考期了。</p><p>真实的原因：肝原！</p><h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><h3 id="快速变换模块声明为模块实例"><a href="#快速变换模块声明为模块实例" class="headerlink" title="快速变换模块声明为模块实例"></a>快速变换模块声明为模块实例</h3><p>从使用 Verilog 搭建 CPU 开始，我们就会遇到许多很长很长的模块定义，这个时候由于除了虚拟机上的 Sublime 以外，都没有自动生成模块实例的方式，手动将 <code>input [31:0] addr</code> 之类的模块声明转换为 <code>.addr(addr)</code> 之类的实例声明很困难。有没有什么快速的方案呢？当然是有的。使用正则表达式替换即可。</p><p>如在 VSCode 中：<br>查找 <code>(input|output)\s*(\[.*?\])?\s*(\w+?)(,|\n)</code> 替换为 <code>.$3($3)$4</code> 即可。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机组成 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CO </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>BUAA Tools 使用文档</title>
       <link href="posts/buaatoolsusage.html"/>
       <url>posts/buaatoolsusage.html</url>

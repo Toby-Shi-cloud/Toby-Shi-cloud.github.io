@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://toby-shi-cloud.github.io/posts/coreview.html</loc>
+    <lastmod>2022-12-29</lastmod>
+  </url>
+  <url>
+    <loc>https://toby-shi-cloud.github.io/posts/co-p0.html</loc>
+    <lastmod>2022-12-17</lastmod>
+  </url>
+  <url>
     <loc>https://toby-shi-cloud.github.io/posts/buaatoolsusage.html</loc>
     <lastmod>2022-11-26</lastmod>
   </url>
@@ -19,10 +27,6 @@
   <url>
     <loc>https://toby-shi-cloud.github.io/posts/cdutcmcalendar.html</loc>
     <lastmod>2022-10-15</lastmod>
-  </url>
-  <url>
-    <loc>https://toby-shi-cloud.github.io/posts/co-p0.html</loc>
-    <lastmod>2022-10-14</lastmod>
   </url>
   <url>
     <loc>https://toby-shi-cloud.github.io/posts/junittestforobjectoriented.html</loc>
