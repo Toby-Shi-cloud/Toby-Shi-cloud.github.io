@@ -1450,8 +1450,8 @@ Failed to use hFC53lbVRK because it is empty.
     }
 
     .v[data-class="v"] .vwrap .vheader .vinput {
-      width: 32%;
-      border-bottom: 1px dashed #dedede;
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
     }
 </style>
 
@@ -1467,28 +1467,31 @@ Failed to use hFC53lbVRK because it is empty.
 <script src="/libs/valine/av-min.js"></script>
 <script src="/libs/valine/Valine.min.js"></script>
 <script>
-let metaPlaceholder = {"nick":"昵称(必填)","mail":"邮箱(必填)","link":"网址"} ;
-//这里要换行
-new Valine({
+    let metaPlaceholder = {"nick":"昵称(必填)","mail":"邮箱","link":"网址"} ;
+    var valinePath = "";
+    if (window.location.pathname.length >= 5 && window.location.pathname.substr(-5) === ".html") {
+        valinePath = window.location.pathname.slice(0, -5);
+    } else {
+        valinePath = window.location.pathname;
+    }
+    //这里要换行
+    new Valine({
         el: '#vcomments',
         appId: 'ndwFzMOpYgldH8UE57CLwStA-gzGzoHsz',
         appKey: 'qmOTjnL6pmoozUIm7WCVPPBL',
-        notify: 'true' === 'true',
-        verify: 'true' === 'true',
         visitor: 'true' === 'true',
         avatar: 'monsterid',
         pageSize: '10',
         lang: 'zh-CN',
+        path: valinePath,
         placeholder: '留下你的足迹..',
         meta: ["nick", "mail", "link"],
         recordIP: 'true' === 'true',
-        enableQQ: 'monsterid',
-        requiredFields: ["e6fefa628522c4e4aba9de0388087e22", "bca633fb8c8ee333b2fa2866ef5b66d1", "e8799f1c89cb012426820fd7484618f5"],
+        enableQQ: 'true' === 'true',
         master: ["e6fefa628522c4e4aba9de0388087e22", "bca633fb8c8ee333b2fa2866ef5b66d1", "e8799f1c89cb012426820fd7484618f5"],
         friends: ["acb5381ad226785cf691d48562a2113d", "e79fe1ebac458cca64f5c90527ac6953", "37f356ddeddad414cf734cea8ded0361", "7a51dd88a80de3c90042ec25b960b767"],
         tagMeta: ["博主", "小伙伴", "访客"],
-        metaPlaceholder: metaPlaceholder,
-
+        metaPlaceholder: metaPlaceholder
     });
 
     document.body.addEventListener('click', function(e) {
@@ -1496,8 +1499,21 @@ new Valine({
             const email = document.querySelector('input[type=email]');
             const nick = document.querySelector('input[name=nick]');
             const reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
-            if (!email.value || !nick.value || !reg.test(email.value)) {
-                const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+            const config = 'nick' ;
+            var failed = false;
+            var str;
+            if (config === 'nick,mail') {
+                if (!email.value || !nick.value || !reg.test(email.value)) {
+                    str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+                    failed = true;
+                }
+            } else if (config === 'nick') {
+                if (!nick.value) {
+                    str = `<div class="valert txt-center"><div class="vtext">请填写昵称！</div></div>`;
+                    failed = true;
+                }
+            }
+            if (failed) {
                 const vmark = document.querySelector('.vmark');
                 vmark.innerHTML = str;
                 vmark.style.display = 'block';
@@ -1510,10 +1526,8 @@ new Valine({
                 }, 2500);
             }
         }
-        }, true);
+    }, true);
 </script>
-
-
 
     
 
