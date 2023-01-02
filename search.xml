@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>你好博客 2 ？Hello Again?</title>
+      <link href="posts/helloblog2.html"/>
+      <url>posts/helloblog2.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这次改动的主要目的是提供一个 oopre 的题面查看和数据下载的方式。正好借此机会进一步的了解 hexo 博客的构建机制，为未来的改动打下基础。</p><h2 id="想要做的事儿"><a href="#想要做的事儿" class="headerlink" title="想要做的事儿"></a>想要做的事儿</h2><p>想法是开一个子页面 oopre，然后 index 就是一个介绍，给出每次作业的链接。然后其下的页面就是每次作业，再在每次作业最后加上一个下载数据链接即可。</p><h2 id="关于-Hexo"><a href="#关于-Hexo" class="headerlink" title="关于 Hexo"></a>关于 Hexo</h2><p>这下我基本上是理解了 hexo 的构建思路。首先就是所有的东西都储存在 source 这个目录下（当然可以在 hexo 的 config 里面更改），然后渲染后的成品放在 public 目录下，最后 push 到 github 时，把 public 目录下的东西覆盖 .deploy_git 然后发布即可。所以实际上 github 仓库内容是和 .deploy_git 目录同步的，.deploy_git又是来自 public 的，public 则是由 source 渲染得到的。</p><p>下面重点说一下渲染过程。首先检查 hexo 的 config 下的 <code>skip_render</code> 变量，这个数组里面的内容是绝对不用渲染，会直接复制进 public 目录。（小贴士：** 表示递归遍历文件夹下所有文件和文件夹）然后其他在 source 目录下的文件均会被渲染。渲染方式是首先看 md 文件头部有没有 <code>layout</code> 变量，有 <code>layout</code> 的，在主题目录里的 <code>layout</code> 目录下找到对应的 layout 文件渲染，否则一律按照 posts 渲染。至于 source 目录里两个下划线开头的目录，显然有特殊用处的嘛……</p><p>理解这些简单 Hexo 渲染流程之后，魔改就比较简单了，虽然我还不是很会写网页……</p><h2 id="关于这次的改动"><a href="#关于这次的改动" class="headerlink" title="关于这次的改动"></a>关于这次的改动</h2><p>这次的改动的话主要是新增了 oopre 相关的几个 ejs 文件。</p><ol><li>用于 index 的 <code>oopre.ejs</code>，这个主要功能是网页重定向，重定向至介绍 oopre 的那篇博客。</li><li>用于展示题面的 <code>oopre_hw.ejs</code>，主要由 <code>post.ejs</code> 复制而来，主要改动就是去除了一些不需要的判断语句，另外把内容页换成了 <code>oopre-detail-toc.ejs</code>。</li><li><code>_partial/oopre-detail-toc.ejs</code>，从 <code>_partial/post-detail-toc.ejs</code> 复制而来。主要改动就是把 <code>_partial/post-detail.ejs</code> 换成了 <code>_partial/oopre-detail.ejs</code>。</li><li><code>_partial/oopre-detail.ejs</code>，改动主要是 tag 和 category 恒定为 <code>oopre</code>，然后超链接恒为 <code>/oopre</code>。</li></ol><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol><li>网页重定向：<a href="https://blog.csdn.net/penngrove/article/details/6933860">https://blog.csdn.net/penngrove/article/details/6933860</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+            <tag> 网页 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2022年 C++（即oopre）作业自测</title>
+      <link href="posts/oopre2022selftest.html"/>
+      <url>posts/oopre2022selftest.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言-amp-注意事项"><a href="#前言-amp-注意事项" class="headerlink" title="前言 &amp; 注意事项"></a>前言 &amp; 注意事项</h2><ol><li><p>所有数据均为官方输入+我的 AC 输出。</p></li><li><p>由于第一单元输出的浮点数采用<strong>误差比较</strong>，所以您的答案和我不同也可能是正确的。</p><blockquote><p>您可以考虑自行写一个评测机进行误差比较。</p></blockquote></li><li><p>数据可能不全。通过所有测试点也并不代表您的程序没有问题。</p></li><li><p>本网站没有设置任何自动化评测。</p></li><li><p>推荐大家同时熟悉 Git 的使用。</p></li><li><p>请养成良好的代码风格。这是有分的！</p></li></ol><h2 id="作业框架-amp-题面导航"><a href="#作业框架-amp-题面导航" class="headerlink" title="作业框架 &amp; 题面导航"></a>作业框架 &amp; 题面导航</h2><p>作业分为四个单元，第零单元，第一单元，第二单元，第三单元，其中第一和第二单元均有三次练习，为迭代开发。</p><table>    <tbody><tr> <th> 第零单元 </th> <td> 作业 0 </td> <td> <a href="../oopre/hw0"> hw0 </a> </td> </tr>    <tr> <th rowspan="3"> 第一单元 </th> <td> 作业 1 </td> <td> <a href="../oopre/hw1"> hw1 </a> </td> </tr>    <tr> <td> 作业 2 </td> <td> <a href="../oopre/hw2"> hw2 </a> </td> </tr>    <tr> <td> 作业 3 </td> <td> <a href="../oopre/hw3"> hw3 </a> </td> </tr>    <tr> <th rowspan="3"> 第二单元 </th> <td> 作业 4 </td> <td> <a href="../oopre/hw4"> hw4 </a> </td> </tr>    <tr> <td> 作业 5 </td> <td> <a href="../oopre/hw5"> hw5 </a> </td> </tr>    <tr> <td> 作业 6 </td> <td> <a href="../oopre/hw6"> hw6 </a> </td> </tr>    <tr> <th> 第三单元 </th> <td> 作业 7 </td> <td> <a href="../oopre/hw7"> hw7 </a> </td> </tr></tbody></table>## Tips<ol><li><p><code>IDEA</code> 打不开，提示 <code>Internet Error</code>，试试管理员模式运行这个：</p><pre class="line-numbers language-none"><code class="language-none">net stop winnatnet start winnat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li><li><p>关于课程资料：<a href="../oopre/data/course_system_guidebook.zip">下载链接</a></p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面向对象 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OO </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计组实验的回顾</title>
       <link href="posts/coreview.html"/>
       <url>posts/coreview.html</url>
