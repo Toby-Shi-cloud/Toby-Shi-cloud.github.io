@@ -530,21 +530,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-02
+                    2023-01-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    280
+                    482
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -603,6 +603,45 @@ net start winnat<span aria-hidden="true" class="line-numbers-rows"><span></span>
 </li>
 <li><p>关于课程资料：<a href="../oopre/data/course_system_guidebook.zip">下载链接</a></p>
 </li>
+<li><p>这里有一个简单的 <code>Python</code> 评测机供参考：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">check</span><span class="token punctuation">(</span>src1<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span> src2<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    function check - this function is to check whether src2 is the same as src1 within acceptable error.
+    
+    param src1 - standard answer split by '\\n'
+    param src2 - your answer split by '\\n'
+    '''</span>
+    <span class="token keyword">while</span> src1<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
+        src1 <span class="token operator">=</span> src1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token keyword">while</span> src2<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
+        src2 <span class="token operator">=</span> src2<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>src1<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>src2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">'Your answer is too long/short.'</span>
+    <span class="token keyword">for</span> i<span class="token punctuation">,</span> <span class="token punctuation">(</span>l1<span class="token punctuation">,</span> l2<span class="token punctuation">)</span> <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span><span class="token builtin">zip</span><span class="token punctuation">(</span>src1<span class="token punctuation">,</span> src2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">while</span> l1<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
+            l1 <span class="token operator">=</span> l1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">while</span> l2<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
+            l2 <span class="token operator">=</span> l2<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+        l1 <span class="token operator">=</span> l1<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        l2 <span class="token operator">=</span> l2<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>l1<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f'Your answer is too long/short on line </span><span class="token interpolation"><span class="token punctuation">{</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">}</span></span><span class="token string">.'</span></span>
+        <span class="token keyword">for</span> e1<span class="token punctuation">,</span> e2 <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>l1<span class="token punctuation">,</span> l2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> e1<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">','</span> <span class="token keyword">or</span> e1<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'.'</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> e1<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">!=</span> e2<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f'Your answer differs from the standard answer on line </span><span class="token interpolation"><span class="token punctuation">{</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">}</span></span><span class="token string">.'</span></span>
+                e1 <span class="token operator">=</span> e1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+                e2 <span class="token operator">=</span> e2<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+            <span class="token keyword">if</span> e1 <span class="token operator">==</span> e2<span class="token punctuation">:</span> <span class="token keyword">continue</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                n1 <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>e1<span class="token punctuation">)</span>
+                n2 <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>e2<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>n1 <span class="token operator">-</span> n2<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token builtin">max</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n1<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">1e-5</span><span class="token punctuation">:</span>
+                    <span class="token keyword">continue</span>
+            <span class="token keyword">except</span> ValueError<span class="token punctuation">:</span>
+                <span class="token keyword">pass</span>
+            <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f'Your answer differs from the standard answer on line </span><span class="token interpolation"><span class="token punctuation">{</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">}</span></span><span class="token string">.'</span></span>
+    <span class="token keyword">return</span> <span class="token string">'Your answer is correct!'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -1332,7 +1371,7 @@ net start winnat<span aria-hidden="true" class="line-numbers-rows"><span></span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">25.4k</span>&nbsp;字
+                class="white-color">25.7k</span>&nbsp;字
             
             
             
