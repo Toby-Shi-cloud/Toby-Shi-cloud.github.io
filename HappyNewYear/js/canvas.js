@@ -48,7 +48,7 @@ function drawFires() {
             particle.speed[1] += 98 / 30;
             particle.speed[0] *= 1 - particle.alpha / 30;
             particle.speed[1] *= 1 - particle.alpha / 30;
-            particle.alpha -= 0.01;
+            particle.alpha -= 0.012;
 
             // 如果透明度小于 0 就删除这个粒子
             if (particle.alpha <= 0) {
