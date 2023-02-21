@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>使用 Alist 和 IPV6 搭建私有云盘</title>
+      <link href="posts/alist-with-ipv6.html"/>
+      <url>posts/alist-with-ipv6.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>拥有多个设备的人总是会担心数据同步问题，这也是为什么Apple生态显得那么的出色。可是当你既拥有Windows又拥有Mac的时候，文件同步就困难了起来，特别是两台电脑还不在同一个局域网内时。</p><p>因此我虽然很早就在考虑搭建云盘，但是直到我拥有了Mac我才觉得这件事情非常非常急迫。于是我花了一个下午找到了一个合适的开源私有云——Alist。</p><p>当然仅搭建了一个网站是不够的，还需要做内网穿透，我尝试了cpolar，但是速度实在太慢了。不过好在我们学校校园网有IPV6，这就是得设备之间的直连成为可能。</p><p>下图是完工后的样子。真好看啊。</p><p><img src="https://s2.loli.net/2023/02/21/1NHDF4RBWeVPSM8.png"></p><h2 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h2><p>整个搭建的过程算是十分的轻松加愉快的。因为Alist的官方文档实在是太详细了。</p><p>Alist官网：<a href="https://alist.nn.ci/">https://alist.nn.ci</a></p><p>Alist官方文档：<a href="https://alist.nn.ci/guide/">https://alist.nn.ci/guide/</a></p><p>Alist官方GitHub Release：<a href="https://github.com/Xhofe/alist/releases">https://github.com/Xhofe/alist/releases</a></p><p>安装流程如下：</p><ol><li><p>前往官方<a href="https://github.com/Xhofe/alist/releases">GitHub Release</a>下载最新版。</p><blockquote><p>Mac的话下载Darwin版的，M系列芯片选arm64，Intel芯片选amd64</p><p>安装在服务器或者linux上就选linux的就好</p><p>Windows的也有对应的版本</p></blockquote></li><li><p>对着<a href="https://alist.nn.ci/guide/install/manual.html">教程</a>run一边。</p></li><li><p>Daemon是守护进程的意思，避免进程被杀死，推荐也弄一弄。</p></li><li><p>打开<a href="http://localhost:5244，登陆admin账号开始配置。">http://localhost:5244，登陆admin账号开始配置。</a></p></li><li><p>首先当然是进行存储的配置，安装教程Storage相关的内容配置就可以啦。</p></li></ol><p><img src="https://s2.loli.net/2023/02/21/Uvkx21BqEfZ7Plp.png"></p><ol start="6"><li>然后“索引”可以配置一下，这样可以Ctrl+K或者Command+K搜索。</li><li>最后点击主页就可以开始使用了！</li></ol><h2 id="内网穿透和IPV6"><a href="#内网穿透和IPV6" class="headerlink" title="内网穿透和IPV6"></a>内网穿透和IPV6</h2><p>然而云盘搭建好后，其他电脑还是无法访问。因为两个电脑不在同一个局域网内，服务端又没有公网IP。</p><p>那么就有两种选择，一种是内网穿透，另一种是IPV6直连。</p><p>先说内网穿透，我尝试了免费的内网穿透工具cpolar，成功了，但是效果不太理想，因为cpolar的带宽实在是太低了，用作网页还好，用作云盘……100kb的速度实在不能接受，比度盘还差劲。</p><p>剩下的就是IPV6，这个很简单，IPV6是给每个电脑都分配了唯一地址，所以直接查到本机的IPV6地址就可以访问了。如果你的地址是2aaa:bbb:ccc:ddd:eee:fff:555:666，那么在地址栏输入http://[2aaa:bbb:ccc:ddd:eee:fff:555:666]:5244这样的就可以啦。</p><p>不过我听说需要配置一下光猫的防火墙才行。不过我两台电脑都在校园网里面就不用管这个了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 私有云 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 私有云 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>你好博客 2 ？Hello Again?</title>
       <link href="posts/helloblog2.html"/>
       <url>posts/helloblog2.html</url>

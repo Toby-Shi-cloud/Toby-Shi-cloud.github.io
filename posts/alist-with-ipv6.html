@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: 博客, TobyShiの博客">
+    <meta name="keywords" content="使用 Alist 和 IPV6 搭建私有云盘, TobyShiの博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>分类: 博客 | TobyShiの博客</title>
+    <title>使用 Alist 和 IPV6 搭建私有云盘 | TobyShiの博客</title>
 
     <link rel="icon" type="image/png" href="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp">
 
@@ -375,434 +375,849 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                TobyShiの博客
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['无论什么时候都要直视前方 满怀希望 就会所向披靡','Always look straight ahead and be full of hope, and you will be invincible'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">使用 Alist 和 IPV6 搭建私有云盘</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        background-color: white;
+        width: 345px;
+        padding-left: 20px;
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    
+    #toc-content {
+        height: calc(100vh - 300px);
+        overflow: scroll;
+
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+        bottom: 120px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%A7%81%E6%9C%89%E4%BA%91/">
+                                <span class="chip bg-color">私有云</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%A7%81%E6%9C%89%E4%BA%91/" class="post-category">
+                                私有云
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-02-21
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-02-21
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    708
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    2 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>拥有多个设备的人总是会担心数据同步问题，这也是为什么Apple生态显得那么的出色。可是当你既拥有Windows又拥有Mac的时候，文件同步就困难了起来，特别是两台电脑还不在同一个局域网内时。</p>
+<p>因此我虽然很早就在考虑搭建云盘，但是直到我拥有了Mac我才觉得这件事情非常非常急迫。于是我花了一个下午找到了一个合适的开源私有云——Alist。</p>
+<p>当然仅搭建了一个网站是不够的，还需要做内网穿透，我尝试了cpolar，但是速度实在太慢了。不过好在我们学校校园网有IPV6，这就是得设备之间的直连成为可能。</p>
+<p>下图是完工后的样子。真好看啊。</p>
+<p><img src="https://s2.loli.net/2023/02/21/1NHDF4RBWeVPSM8.png"></p>
+<h2 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h2><p>整个搭建的过程算是十分的轻松加愉快的。因为Alist的官方文档实在是太详细了。</p>
+<p>Alist官网：<a target="_blank" rel="noopener" href="https://alist.nn.ci/">https://alist.nn.ci</a></p>
+<p>Alist官方文档：<a target="_blank" rel="noopener" href="https://alist.nn.ci/guide/">https://alist.nn.ci/guide/</a></p>
+<p>Alist官方GitHub Release：<a target="_blank" rel="noopener" href="https://github.com/Xhofe/alist/releases">https://github.com/Xhofe/alist/releases</a></p>
+<p>安装流程如下：</p>
+<ol>
+<li><p>前往官方<a target="_blank" rel="noopener" href="https://github.com/Xhofe/alist/releases">GitHub Release</a>下载最新版。</p>
+<blockquote>
+<p>Mac的话下载Darwin版的，M系列芯片选arm64，Intel芯片选amd64</p>
+<p>安装在服务器或者linux上就选linux的就好</p>
+<p>Windows的也有对应的版本</p>
+</blockquote>
+</li>
+<li><p>对着<a target="_blank" rel="noopener" href="https://alist.nn.ci/guide/install/manual.html">教程</a>run一边。</p>
+</li>
+<li><p>Daemon是守护进程的意思，避免进程被杀死，推荐也弄一弄。</p>
+</li>
+<li><p>打开<a href="http://localhost:5244，登陆admin账号开始配置。">http://localhost:5244，登陆admin账号开始配置。</a></p>
+</li>
+<li><p>首先当然是进行存储的配置，安装教程Storage相关的内容配置就可以啦。</p>
+</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/02/21/Uvkx21BqEfZ7Plp.png"></p>
+<ol start="6">
+<li>然后“索引”可以配置一下，这样可以Ctrl+K或者Command+K搜索。</li>
+<li>最后点击主页就可以开始使用了！</li>
+</ol>
+<h2 id="内网穿透和IPV6"><a href="#内网穿透和IPV6" class="headerlink" title="内网穿透和IPV6"></a>内网穿透和IPV6</h2><p>然而云盘搭建好后，其他电脑还是无法访问。因为两个电脑不在同一个局域网内，服务端又没有公网IP。</p>
+<p>那么就有两种选择，一种是内网穿透，另一种是IPV6直连。</p>
+<p>先说内网穿透，我尝试了免费的内网穿透工具cpolar，成功了，但是效果不太理想，因为cpolar的带宽实在是太低了，用作网页还好，用作云盘……100kb的速度实在不能接受，比度盘还差劲。</p>
+<p>剩下的就是IPV6，这个很简单，IPV6是给每个电脑都分配了唯一地址，所以直接查到本机的IPV6地址就可以访问了。如果你的地址是2aaa:bbb:ccc:ddd:eee:fff:555:666，那么在地址栏输入http://[2aaa:bbb:ccc:ddd:eee:fff:555:666]:5244这样的就可以啦。</p>
+<p>不过我听说需要配置一下光猫的防火墙才行。不过我两台电脑都在校园网里面就不用管这个了。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%A7%81%E6%9C%89%E4%BA%91/">
+                                    <span class="chip bg-color">私有云</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,twitter,facebook,google,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    let metaPlaceholder = {"nick":"昵称(必填)","mail":"邮箱","link":"网址"} ;
+    var valinePath = "";
+    if (window.location.pathname.length >= 5 && window.location.pathname.substr(-5) === ".html") {
+        valinePath = window.location.pathname.slice(0, -5);
+    } else {
+        valinePath = window.location.pathname;
+    }
+    //这里要换行
+    new Valine({
+        el: '#vcomments',
+        appId: 'ndwFzMOpYgldH8UE57CLwStA-gzGzoHsz',
+        appKey: 'qmOTjnL6pmoozUIm7WCVPPBL',
+        visitor: 'true' === 'true',
+        avatar: 'monsterid',
+        pageSize: '10',
+        lang: 'zh-CN',
+        path: valinePath,
+        placeholder: '留下你的足迹..',
+        meta: ["nick", "mail", "link"],
+        recordIP: 'true' === 'true',
+        enableQQ: 'true' === 'true',
+        master: ["e6fefa628522c4e4aba9de0388087e22", "bca633fb8c8ee333b2fa2866ef5b66d1", "e8799f1c89cb012426820fd7484618f5"],
+        friends: ["acb5381ad226785cf691d48562a2113d", "e79fe1ebac458cca64f5c90527ac6953", "37f356ddeddad414cf734cea8ded0361", "7a51dd88a80de3c90042ec25b960b767"],
+        tagMeta: ["博主", "小伙伴", "访客"],
+        metaPlaceholder: metaPlaceholder
+    });
+
+    document.body.addEventListener('click', function(e) {
+        if (e.target.classList.contains('vsubmit')) {
+            const email = document.querySelector('input[type=email]');
+            const nick = document.querySelector('input[name=nick]');
+            const reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+            const config = 'nick' ;
+            var failed = false;
+            var str;
+            if (config === 'nick,mail') {
+                if (!email.value || !nick.value || !reg.test(email.value)) {
+                    str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+                    failed = true;
+                }
+            } else if (config === 'nick') {
+                if (!nick.value) {
+                    str = `<div class="valert txt-center"><div class="vtext">请填写昵称！</div></div>`;
+                    failed = true;
+                }
+            }
+            if (failed) {
+                const vmark = document.querySelector('.vmark');
+                vmark.innerHTML = str;
+                vmark.style.display = 'block';
+
+                e.stopPropagation();
+
+                setTimeout(function() {
+                    vmark.style.display = 'none';
+                    vmark.innerHTML = '';
+                }, 2500);
+            }
+        }
+    }, true);
 </script>
 
-
-    </div>
-</div>
-
-<main class="content">
+    
 
     
 
-<div id="category-cloud" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
-            <div class="tag-chips">
-                
-                
-                
-                <a href="/categories/Swift%E7%BC%96%E7%A8%8B/" title="Swift编程: 2">
-                  <div class="moleskine-wrapper">
-                      <div class="moleskine-notebook">
-                          <div class="chip notebook-cover center-align waves-effect waves-light
-                           chip-default "
-                                  style="background-color: #427035;">                                               
-                              <div class="notebook-skin
-                                   chip-default "
-                                  >Swift编程                                  
-                              </div>
-                          </div>
-                          <div class="notebook-page dotted"></div>
-                      </div>
-                  </div>
+            <div class="card">
+                <a href="/posts/alist-with-ipv6.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/banner/5.jpg" class="responsive-img" alt="使用 Alist 和 IPV6 搭建私有云盘">
+                        
+                        <span class="card-title">使用 Alist 和 IPV6 搭建私有云盘</span>
+                    </div>
                 </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            使用 Alist 和 IPV6 搭建私有云盘
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A7%81%E6%9C%89%E4%BA%91/" class="post-category">
+                                    私有云
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
                 
-                
-                <a href="/categories/%E8%84%9A%E6%9C%AC/" title="脚本: 2">
-                  <div class="moleskine-wrapper">
-                      <div class="moleskine-notebook">
-                          <div class="chip notebook-cover center-align waves-effect waves-light
-                           chip-default "
-                                  style="background-color: #AD50E6;">                                               
-                              <div class="notebook-skin
-                                   chip-default "
-                                  >脚本                                  
-                              </div>
-                          </div>
-                          <div class="notebook-page dotted"></div>
-                      </div>
-                  </div>
-                </a>
-                
-                
-                <a href="/categories/%E7%AB%9E%E8%B5%9B/" title="竞赛: 3">
-                  <div class="moleskine-wrapper">
-                      <div class="moleskine-notebook">
-                          <div class="chip notebook-cover center-align waves-effect waves-light
-                           chip-default "
-                                  style="background-color: #2C4DD5;">                                               
-                              <div class="notebook-skin
-                                   chip-default "
-                                  >竞赛                                  
-                              </div>
-                          </div>
-                          <div class="notebook-page dotted"></div>
-                      </div>
-                  </div>
-                </a>
-                
-                
-                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" title="计算机组成: 5">
-                  <div class="moleskine-wrapper">
-                      <div class="moleskine-notebook">
-                          <div class="chip notebook-cover center-align waves-effect waves-light
-                           chip-default "
-                                  style="background-color: #3DD5AE;">                                               
-                              <div class="notebook-skin
-                                   chip-default "
-                                  >计算机组成                                  
-                              </div>
-                          </div>
-                          <div class="notebook-page dotted"></div>
-                      </div>
-                  </div>
-                </a>
-                
-                
-                <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" title="密码学: 2">
-                  <div class="moleskine-wrapper">
-                      <div class="moleskine-notebook">
-                          <div class="chip notebook-cover center-align waves-effect waves-light
-                           chip-default "
-                                  style="background-color: #66C36D;">                                               
-                              <div class="notebook-skin
-                                   chip-default "
-                                  >密码学                                  
-                              </div>
-                          </div>
-                          <div class="notebook-page dotted"></div>
-                      </div>
-                  </div>
-                </a>
-                
-                
-                <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="博客: 2">
-                  <div class="moleskine-wrapper">
-                      <div class="moleskine-notebook">
-                          <div class="chip notebook-cover center-align waves-effect waves-light
-                           chip-active "
-                                  style="background-color: #C5B53B;">                                               
-                              <div class="notebook-skin
-                                   chip-active "
-                                  >博客                                  
-                              </div>
-                          </div>
-                          <div class="notebook-page dotted"></div>
-                      </div>
-                  </div>
-                </a>
-                
-                
-                <a href="/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" title="面向对象: 2">
-                  <div class="moleskine-wrapper">
-                      <div class="moleskine-notebook">
-                          <div class="chip notebook-cover center-align waves-effect waves-light
-                           chip-default "
-                                  style="background-color: #DF744E;">                                               
-                              <div class="notebook-skin
-                                   chip-default "
-                                  >面向对象                                  
-                              </div>
-                          </div>
-                          <div class="notebook-page dotted"></div>
-                      </div>
-                  </div>
-                </a>
-                
-                
-                <a href="/categories/Python/" title="Python: 1">
-                  <div class="moleskine-wrapper">
-                      <div class="moleskine-notebook">
-                          <div class="chip notebook-cover center-align waves-effect waves-light
-                           chip-default "
-                                  style="background-color: #DA8849;">                                               
-                              <div class="notebook-skin
-                                   chip-default "
-                                  >Python                                  
-                              </div>
-                          </div>
-                          <div class="notebook-page dotted"></div>
-                      </div>
-                  </div>
-                </a>
-                
-                
-                <a href="/categories/%E7%A7%81%E6%9C%89%E4%BA%91/" title="私有云: 1">
-                  <div class="moleskine-wrapper">
-                      <div class="moleskine-notebook">
-                          <div class="chip notebook-cover center-align waves-effect waves-light
-                           chip-default "
-                                  style="background-color: #513A18;">                                               
-                              <div class="notebook-skin
-                                   chip-default "
-                                  >私有云                                  
-                              </div>
-                          </div>
-                          <div class="notebook-page dotted"></div>
-                      </div>
-                  </div>
-                </a>
-                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A7%81%E6%9C%89%E4%BA%91/">
+                        <span class="chip bg-color">私有云</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
-    </div>
-</div>
-    <style>
-    /* 文章分类书本样式 */
-    .chip-container .tag-chips {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    .chip-container .tag-chips a {
-        margin: 0 7px 10px;
-    }
-    .chip-container .chip {
-        max-width: calc(100% / 4);
-        min-width: 10em;
-        height: 200px;
-        position: relative;
-        transition: .5s linear;
-        padding: 19px 0;
-        line-height: 20px;
-        z-index: 990;
-        border-radius: 5px 15px 15px 5px;
-        transform-origin: left center 0;
-    }
-    .chip-container .notebook-cover::before {
-        content: "";
-        position: absolute;
-        width: 10px;
-        height: calc(100% + 2px);
-        top: -1px;
-        z-index: 100;
-        border-radius: 2px;
-        right: 25px;
-        transition: 2s ease;
-        /* background: linear-gradient(to right,#9c2e2b 0,#cc4b48 12%,#9c2e2b 25%,#cc4b48 37%,#9c2e2b 50%,#cc4b48 62%,#9c2e2b 75%,#cc4b48 87%,#9c2e2b 100%); */
-        background: linear-gradient(to right,#1e606e 0,#2e95aa 12%,#1e606e 25%,#2e95aa 37%,#1e606e 50%,#2e95aa 62%,#1e606e 75%,#2e95aa 87%,#1e606e 100%);
-    }
-
-    .chip .notebook-skin {
-        height: 50px;
-        width: 100%;
-        background: #e8e8e0;
-        margin-top: 42px;
-        padding: 10px 32px 64px 10px;
-        font-size: 19px;
-        position: relative;
-        z-index: 10;
-        color: #222;
-        text-align: left;
-        box-shadow: 0 1px 1px rgba(0,0,0,.2);
-    }
-    .chip .notebook-skin:before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 15px;
-        left: 0;
-        bottom: 0;
-        background: #cddc39;
-    }
-    .notebook-cover {
-        background: #cc4b48;
-        height: 200px;
-        width: 140px;
-        position: absolute;
-        border-radius: 5px 15px 15px 5px;
-        z-index: 10;
-        transition: .5s linear;
-        transform-style: preserve-3d;
-        transform-origin: left center 0;
-    }
-
-    .moleskine-wrapper {
-        max-width: calc(100% / 4);
-        min-width: 10em;
-    }
-    .moleskine-notebook:hover .notebook-cover {
-        transform: rotateY(-50deg);
-        z-index: 99;
-        box-shadow: 20px 10px 50px rgba(0,0,0,.2);
-    }
-    .moleskine-notebook {
-        height: 200px;
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        transition: .5s linear;
-        border-radius: 5px 15px 15px 5px;
-        transform-origin: left center 0;
-    }
-    .moleskine-notebook:hover {
-        transform: rotateZ(-10deg);
-    }
-    .notebook-page.dotted {
-        background: linear-gradient(to bottom,#fbfae8 9px,#e4e4e4 1px);
-        background-size: 100% 10px;
-    }
-    .chip-container .chip:hover {
-        background: none;
-    }
-    .notebook-page {
-        height: 100%;
-        width: 140px;
-        position: absolute;
-        top: 10px;
-        background-color: #fbfae8;
-        z-index: 0;
-        border-radius: 5px 16px 16px 5px;
-        overflow: hidden;
-    }
-    </style>
-
-    
-
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/helloblog2.html">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/banner/3.jpg" class="responsive-img" alt="你好博客 2 ？Hello Again?">
-                            
-                            <span class="card-title">你好博客 2 ？Hello Again?</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                记录新年对博客的小小魔改。
-                            
-                        </div>
-                        <div class="publish-info">
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/helloblog2.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/banner/3.jpg" class="responsive-img" alt="你好博客 2 ？Hello Again?">
+                        
+                        <span class="card-title">你好博客 2 ？Hello Again?</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            记录新年对博客的小小魔改。
+                        
+                    </div>
+                    <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2023-01-02
                             </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
                                     博客
                                 </a>
-                                
-                                
-                            </span>
-                        </div>
+                            
+                            
+                        </span>
                     </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                            <span class="chip bg-color">博客</span>
-                        </a>
-                        
-                        <a href="/tags/%E7%BD%91%E9%A1%B5/">
-                            <span class="chip bg-color">网页</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/helloblog.html">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://s2.loli.net/2022/07/20/n7ZoRb95vSiKjhP.png" class="responsive-img" alt="你好博客！Hello Blog!">
-                            
-                            <span class="card-title">你好博客！Hello Blog!</span>
-                        </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                这是我的第一篇博客，用于记录如何搭建博客
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                            <span class="chip bg-color">博客</span>
-                        </a>
-                        
-                    </div>
+                    <a href="/tags/%E7%BD%91%E9%A1%B5/">
+                        <span class="chip bg-color">网页</span>
+                    </a>
                     
                 </div>
+                
             </div>
-            
         </div>
-    </article>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$']]}
+    });
+</script>
 
 
 
