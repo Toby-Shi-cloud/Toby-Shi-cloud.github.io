@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Object Oriented 2023 第一单元总结</title>
+      <link href="posts/oounit1.html"/>
+      <url>posts/oounit1.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一单元作业主要要求是进行表达式化简。一共三次作业。第一次是较为简单的表达式，只涉及一层括号，加减乘和乘方。第二次作业增加了三角函数和嵌套括号。第三次作业增加了求导因子。</p><p>总结一下我的成果，很高兴在没有出现任何 Bug 的情况下通关第一单元，当然这很大程度上要归功于搭建了评测机。搭建一个好的评测机，一个人的努力是不够的，所以我在 GitHub 上开了一个私有的仓困，并邀请了几个朋友一起参与开发。当然了最后还是我写了绝大部分，有的朋友只是在白嫖，甚至还有的连白嫖都没有学会。但是也要感谢所有做出贡献的朋友，帮我发现了几个 Bug，还让我成功的 Hack 到了房友。</p><h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>一个好的架构是整个项目成功的关键。<a href="https://toby-shi-cloud.github.io/posts/oohw1.html">第一次作业</a>时我的架构就不太理想，十分混乱。于是在第二次作业中狠心重构。于是在效率和复杂度上都得到了极大层度的提升。</p><p>老师说很多同学的 Bug 都是因为深浅拷贝处理不当。所以我重构后的第二次作业，不再进行任何拷贝，一是减少了深拷贝开销，而是也不需要考虑拷贝出错的问题。</p><p>下面是我的架构的 UML 图：</p><p><img src="https://s2.loli.net/2023/03/19/ADxSkIsu1y25cr3.png" alt="UML"></p><p>简而言之，我所有的表达式相关类都是不可被 public 方法修改的，所有计算都将生成新的表达式。这样就不存在拷贝的问题了。当然了频繁运算会带来海量开销，所以我引入了 <code>ExpressionBuilder</code> 类，可以支持表达式加法，方法是直接修改，而不是拷贝。<code>Expression</code> 和 <code>ExpressionBuilder</code> 之间的关系是仿照 <code>String</code> 和 <code>StrinBuilder</code> 建立的。</p><p>另外，为了方便三角函数化简的实现，我的表达式存储方式是 <code>整式*若干项三角函数+...+整式*若干项三角函数</code>，这样就可以把三角函数单独拿出来化简了。</p><h2 id="评测机"><a href="#评测机" class="headerlink" title="评测机"></a>评测机</h2><p>使用 sympy 进行评测。使用递归下降和正则表达式 check 表达式的合法性。使用递归下降 generate 数据。这些都是较为常规的思路，就不再赘述了。</p><p>特别的一点是，我挑选出几十组特殊的数据，然后每次在本地评测后都将评测记录上传到云端，然后从云端索取当前最好的有效长度，以此为依据计算性能分。这在第一次作业还是发挥了一些作用，后续作业中，由于我们开发小组的集体摆烂式优化，所以大家都没那么在乎性能分，这个功能也就没有发挥出太大作用了。</p><h2 id="得分"><a href="#得分" class="headerlink" title="得分"></a>得分</h2><ul><li>作业 1，强测 100 分，互测 +0 分；</li><li>作业 2，强测 97.9019 分，互测 8.5 分；</li><li>作业 3，强测 94.5088 分，互测 10.5 分。</li></ul><h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p><img src="https://s2.loli.net/2023/03/18/SsZax1IyVFAXMDl.png" alt="Contributors"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面向对象 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OO </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mac launchctl 自动后台任务</title>
       <link href="posts/mac-launchctl-auto-background-task.html"/>
       <url>posts/mac-launchctl-auto-background-task.html</url>
