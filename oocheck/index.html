@@ -412,7 +412,7 @@
     </div>
 </div>
 
-
+<!-- 这是博客内容 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.js"></script>
 <style>
     @import url("https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.css") layer(semantic);
@@ -1276,7 +1276,23 @@
             }
         });
     }
+
+    $(function () {
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
 </script>
+
 
 
     <footer class="page-footer bg-color">
