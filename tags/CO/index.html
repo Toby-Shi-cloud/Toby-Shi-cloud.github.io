@@ -154,6 +154,17 @@
   
   <li class="hide-on-med-and-down nav-item">
     
+    <a href="/oocheck" class="waves-effect waves-light">
+      
+      <i class="fas fa-check" style="zoom: 0.6;"></i>
+      
+      <span>面向对象评测机</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
     <a href="/friends" class="waves-effect waves-light">
       
       <i class="fas fa-link" style="zoom: 0.6;"></i>
@@ -274,6 +285,17 @@
 			    <i class="fa-fw fas fa-envelope"></i>
 			
 			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/oocheck" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-check"></i>
+			
+			面向对象评测机
 		</a>
           
         </li>
@@ -466,10 +488,19 @@
                 </a>
                 
                 
+                <a href="/tags/CO/" title="CO: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="CO" style="background-color: #FEF9E7;">CO
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/C-C/" title="C/C++: 5">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="C/C++" style="background-color: #FEF9E7;">C/C++
+                            data-tagname="C/C++" style="background-color: #F8F9F9;">C/C++
                         <span class="tag-length">5</span>
                     </span>
                 </a>
@@ -478,7 +509,7 @@
                 <a href="/tags/Codeforces/" title="Codeforces: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Codeforces" style="background-color: #F8F9F9;">Codeforces
+                            data-tagname="Codeforces" style="background-color: #82E0AA;">Codeforces
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -487,17 +518,8 @@
                 <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="算法" style="background-color: #82E0AA;">算法
+                            data-tagname="算法" style="background-color: #D7BDE2;">算法
                         <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/CO/" title="CO: 4">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="CO" style="background-color: #D7BDE2;">CO
-                        <span class="tag-length">4</span>
                     </span>
                 </a>
                 
@@ -1083,9 +1105,9 @@ $(function () {
         if (localStorage.getItem('dark') === '1') {
         document.body.classList.add('dark');
         }
-        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
-        document.body.classList.add('dark');
-        } 
+        // else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+        // document.body.classList.add('dark');
+        // }
         else if (matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
         }

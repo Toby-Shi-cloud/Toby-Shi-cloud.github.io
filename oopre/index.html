@@ -154,6 +154,17 @@
   
   <li class="hide-on-med-and-down nav-item">
     
+    <a href="/oocheck" class="waves-effect waves-light">
+      
+      <i class="fas fa-check" style="zoom: 0.6;"></i>
+      
+      <span>面向对象评测机</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
     <a href="/friends" class="waves-effect waves-light">
       
       <i class="fas fa-link" style="zoom: 0.6;"></i>
@@ -280,6 +291,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/oocheck" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-check"></i>
+			
+			面向对象评测机
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/friends" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-link"></i>
@@ -375,14 +397,14 @@
 
 </header>
 
-    <script language="javascript">
+    <script>
     location.replace("../posts/oopre2022selftest.html");
 </script>
 
 <meta http-equiv="refresh" content="1; url=../posts/oopre2022selftest.html">
 
 <a href="../posts/oopre2022selftest.html">
-    <font face="arial,helvetica">My new page is here...</font>
+    <span style="font-family: arial,helvetica,serif; ">My new page is here...</span>
 </a>
 
 
@@ -724,9 +746,9 @@ $(function () {
         if (localStorage.getItem('dark') === '1') {
         document.body.classList.add('dark');
         }
-        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
-        document.body.classList.add('dark');
-        } 
+        // else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+        // document.body.classList.add('dark');
+        // }
         else if (matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
         }

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="在WSL上安装ISE, TobyShiの博客">
+    <meta name="keywords" content="Object Oriented, TobyShiの博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>在WSL上安装ISE | TobyShiの博客</title>
+    <title>Object Oriented | TobyShiの博客</title>
 
     <link rel="icon" type="image/png" href="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp">
 
@@ -397,16 +397,15 @@
 
 </header>
 
-    
+    <!-- 这是博客头部 -->
 
 
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/picture/5.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/picture/1.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">在WSL上安装ISE</h1>
+                    <h1 class="description center-align post-title">Object Oriented</h1>
                 </div>
             </div>
         </div>
@@ -414,13 +413,10 @@
 </div>
 
 
-
-
-<main class="post-container content">
-
-    
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.js"></script>
 <style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.css") layer(semantic);
+
     #articleContent h1::before,
     #articleContent h2::before,
     #articleContent h3::before,
@@ -462,7 +458,7 @@
         padding: 0;
         list-style: none;
     }
-    
+
     #toc-content {
         height: calc(100vh - 300px);
         overflow: scroll;
@@ -515,217 +511,242 @@
         line-height: 48px;
         font-size: 1.4rem;
     }
+
+    /* PrismJS 1.22.0
+    https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+asciidoc+aspnet+asm6502+autohotkey+autoit+bash+basic+batch+bbcode+birb+bison+bnf+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cil+clojure+cmake+coffeescript+concurnas+csp+crystal+css-extras+cypher+d+dart+dax+dhall+diff+django+dns-zone-file+docker+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+firestore-security-rules+flow+fortran+ftl+gml+gcode+gdscript+gedcom+gherkin+git+glsl+go+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+http+hpkp+hsts+ichigojam+icon+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keyman+kotlin+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+lolcode+lua+makefile+markdown+markup-templating+matlab+mel+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nginx+nim+nix+nsis+objectivec+ocaml+opencl+oz+parigp+parser+pascal+pascaligo+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+q+qml+qore+r+racket+jsx+tsx+reason+regex+renpy+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+stan+iecst+stylus+swift+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+turtle+twig+typescript+typoscript+unrealscript+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+wiki+xeora+xml-doc+xojo+xquery+yaml+yang+zig */
+    /**
+     * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+     * Based on https://github.com/chriskempson/tomorrow-theme
+     * @author Rose Pritchard
+     */
+    code[class*="language-"],
+    pre[class*="language-"] {
+        color: #ccc;
+        background: none;
+        font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        font-size: 1em;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.5;
+
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+
+    }
+
+    /* Code blocks */
+    pre[class*="language-"] {
+        padding: 1em;
+        margin: .5em 0;
+        overflow: auto;
+    }
+
+    :not(pre) > code[class*="language-"],
+    pre[class*="language-"] {
+        background: #2d2d2d;
+    }
+
+    /* Inline code */
+    :not(pre) > code[class*="language-"] {
+        padding: .1em;
+        border-radius: .3em;
+        white-space: normal;
+    }
+
+    .token.comment,
+    .token.block-comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+        color: #999;
+    }
+
+    .token.punctuation {
+        color: #ccc;
+    }
+
+    .token.tag,
+    .token.attr-name,
+    .token.namespace,
+    .token.deleted {
+        color: #e2777a;
+    }
+
+    .token.function-name {
+        color: #6196cc;
+    }
+
+    .token.boolean,
+    .token.number,
+    .token.function {
+        color: #f08d49;
+    }
+
+    .token.property,
+    .token.class-name,
+    .token.constant,
+    .token.symbol {
+        color: #f8c555;
+    }
+
+    .token.selector,
+    .token.important,
+    .token.atrule,
+    .token.keyword,
+    .token.builtin {
+        color: #cc99cd;
+    }
+
+    .token.string,
+    .token.char,
+    .token.attr-value,
+    .token.regex,
+    .token.variable {
+        color: #7ec699;
+    }
+
+    .token.operator,
+    .token.entity,
+    .token.url {
+        color: #67cdcc;
+    }
+
+    .token.important,
+    .token.bold {
+        font-weight: bold;
+    }
+    .token.italic {
+        font-style: italic;
+    }
+
+    .token.entity {
+        cursor: help;
+    }
+
+    .token.inserted {
+        color: green;
+    }
 </style>
+<main class="post-container content" style="min-height: 884px;">
 <div class="row">
+    <!--    content-->
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/CO/">
-                                <span class="chip bg-color">CO</span>
-                            </a>
-                        
-                            <a href="/tags/wsl/">
-                                <span class="chip bg-color">wsl</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" class="post-category">
-                                计算机组成
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+        <div id="artDetail">
+                <div class="card">
+                    <!-- 简介-->
+                    <div class="card-content article-info">
+                        <div class="row tag-cate">
+                            <div class="col s7">
+                                
+                                    <div class="article-tag">
+                                        
+                                            <a href="/tags/OO">
+                                                <span class="chip bg-color">OO</span>
+                                            </a>
+                                        
+                                    </div>
+                                
+                            </div>
+                            <div class="col s5 right-align">
+                                
+                                    <div class="post-cate">
+                                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                        
+                                            <a href="/categories/面向对象" class="post-category">
+                                                面向对象
+                                            </a>
+                                        
+                                    </div>
+                                
+                            </div>
+                        </div>
 
-            <div class="post-info">
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-08
-                </div>
-                
-
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-29
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    912
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
-                </div>
-                
-
-                
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
-            </div>
-        </div>
-        <hr class="clearfix">
-
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
-
-        
-
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为我们计组要使用到ISE，但是ISE和win11不相容，所以我就打算在wslg上安装ISE了。</p>
-<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><ol>
-<li><p>在官网下载<code>Xilinx_ISE_DS_Lin_14.7_1015_1.tar</code>:<a target="_blank" rel="noopener" href="https://china.xilinx.com/support/download/index.html/content/xilinx/zh/downloadNav/vivado-design-tools/archive-ise.html">https://china.xilinx.com/support/download/index.html/content/xilinx/zh/downloadNav/vivado-design-tools/archive-ise.html</a></p>
-</li>
-<li><p>将压缩包解压（我是直接在Nautilus中双击解压的）</p>
-</li>
-<li><p><code>cd</code>到解压后的文件夹里面，通过<code>ls</code>可以看到如下内容</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ls</span>
-bin     data  idata  labtools  msg        planahead_wp  webpack  xsetup
-common  edk   ise    lib       planahead  sysgen        xinfo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>如果xsetup是可运行的，则直接<code>sudo ./xsetup</code>，否则先<code>sudo chmod +x xsetup</code></p>
-</li>
-<li><p>如果安装报错：</p>
-<p><code>error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file</code></p>
-<p>即缺少<code>libncurses.so.5</code>库文件，可以通过以下指令解决</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> apt-file
-$ <span class="token function">sudo</span> apt-file update
-$ <span class="token function">sudo</span> apt-file <span class="token function">find</span> libncurses.so.5
-$ <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> libncurses5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>安装界面是图形界面，按照指引操作即可。全默认就行了，目录就在<code>/opt/</code>，<code>Install cable drivers</code>也不用安装</p>
-</li>
-<li><p>打开终端输入以下指令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">cd</span> /opt/Xilinx/14.7/ISE_DS
-$ <span class="token function">ls</span>
-EDK  ISE  PlanAhead  SysGen  Xilinx.lic  common  settings32.csh  settings32.sh  settings64.csh  settings64.sh
-$ <span class="token builtin class-name">source</span> settings64.sh
-<span class="token builtin class-name">.</span> /opt/Xilinx/14.7/ISE_DS/common/.settings64.sh /opt/Xilinx/14.7/ISE_DS/common
-<span class="token builtin class-name">.</span> /opt/Xilinx/14.7/ISE_DS/EDK/.settings64.sh /opt/Xilinx/14.7/ISE_DS/EDK
-<span class="token builtin class-name">.</span> /opt/Xilinx/14.7/ISE_DS/PlanAhead/.settings64.sh /opt/Xilinx/14.7/ISE_DS/PlanAhead
-<span class="token builtin class-name">.</span> /opt/Xilinx/14.7/ISE_DS/ISE/.settings64.sh /opt/Xilinx/14.7/ISE_DS/ISE
-$ ise<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这里如果你的Ubuntu是32位的，请选择<code>settings32.sh</code></p>
-<p>至此ISE首次运行成功！</p>
-</li>
-<li><p>打开后会提示没有License，那么我们直接需要在官网先申请到一个免费的License，然后在Help -&gt; Manage Licenses里面Load官网通过邮件发给你的<code>Xilinx.lic</code>即可</p>
-</li>
-<li><p>最后界面如下图：</p>
-<p><img src="https://s2.loli.net/2022/08/08/QbNAiT3snMxW5U6.png"></p>
-</li>
-</ol>
-<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>注意到每次重启wsl后都必须重新输入第6步的指令非常麻烦，所以已有大佬写了脚本一键运行：</p>
-<ol>
-<li><p>在任何地方新建文件，我选择的是<code>/opt/Xilinx/14.7/ISE_DS/quickstart</code>，内容如下：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">LD_PRELOAD</span><span class="token operator">=</span>/opt/Xilinx/usb-driver/libusb-driver.so
-<span class="token assign-left variable">ISE_DS_DIR</span><span class="token operator">=</span>/opt/Xilinx/14.7/ISE_DS
-<span class="token builtin class-name">unset</span> LD_PRELOAD
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">gmake</span><span class="token operator">=</span>/usr/bin/make
-
-<span class="token builtin class-name">cd</span> <span class="token string">"<span class="token variable">$ISE_DS_DIR</span>"</span>
-<span class="token builtin class-name">source</span> <span class="token string">"<span class="token variable">$ISE_DS_DIR</span>"</span>/settings64.sh
-
-<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span><span class="token string">''</span>  <span class="token comment"># reset locale to English to fix decimal/comma seperation</span>
-
-<span class="token string">"<span class="token variable">$ISE_DS_DIR</span>"</span>/ISE/bin/lin64/ise<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>并为脚本添加可执行权限：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">chmod</span> a+x /opt/Xilinx/14.7/ISE_DS/quickstart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>在<code>/usr/share/applications</code>新建文件<code>ISE.desktop</code>，内容为：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>Desktop Entry<span class="token punctuation">]</span>
-<span class="token assign-left variable">Version</span><span class="token operator">=</span><span class="token number">1.0</span>
-<span class="token assign-left variable">Name</span><span class="token operator">=</span>ISE
-<span class="token assign-left variable">Exec</span><span class="token operator">=</span>/opt/Xilinx/14.7/ISE_DS/quickstart
-<span class="token assign-left variable">Terminal</span><span class="token operator">=</span>false
-<span class="token assign-left variable">Icon</span><span class="token operator">=</span>/opt/Xilinx/14.7/ISE_DS/ISE/data/images/pn-ise.png
-<span class="token assign-left variable">Type</span><span class="token operator">=</span>Application
-<span class="token assign-left variable">Categories</span><span class="token operator">=</span>Development<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>其中Exec指向的就是上一步建立的脚本文件</p>
-</li>
-<li><p>之后可以使用<code>gtk-launch ISE</code>一键打开</p>
-</li>
-<li><p>还可以在Windows桌面创建快捷方式：</p>
-<p>路径写<code>wslg ~ -d Ubuntu20.04 gtk-launch ISE</code></p>
-<p>不过这个其实是会自动添加到开始菜单的</p>
-</li>
-</ol>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>由于ISE安装包巨大，如果保留非常占据空间，所以考虑删掉。但是删掉后并不能真正释放空间，这个时候需要使用磁盘压缩工具对wsl的虚拟磁盘进行压缩，方法如下：</p>
-<p>以管理员身份运行powershell，并输入</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">PS</span> C:\Windows\System32&gt; wsl <span class="token operator">--</span>shutdown
-<span class="token function">PS</span> C:\Windows\System32&gt; diskpart
-DISKPART&gt; <span class="token function">select</span> vdisk file=<span class="token string">"D:\WSL\ext4.vhdx"</span>
-DISKPART&gt; attach vdisk readonly
-DISKPART&gt; compact vdisk
-DISKPART&gt; detach vdisk<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>其中<code>file=</code>后面是你的wsl虚拟磁盘的位置</p>
-<h2 id="关于驱动"><a href="#关于驱动" class="headerlink" title="关于驱动"></a>关于驱动</h2><p>由于我还没有开始写任何一个测试程序，尚不知驱动是否正常，这里挖一个坑，改日再填。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
-<li>缺少libncurses.so.5怎么办：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36393978/article/details/110948418">https://blog.csdn.net/qq_36393978/article/details/110948418</a></li>
-<li>Ubuntu安装ISE教程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43238031/article/details/89022601">https://blog.csdn.net/weixin_43238031/article/details/89022601</a></li>
-<li>Ubuntu安装ISE教程以及快捷启动脚本：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ixunmo/article/details/82194896">https://blog.csdn.net/ixunmo/article/details/82194896</a></li>
-<li>释放wsl占用空间：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358528257">https://zhuanlan.zhihu.com/p/358528257</a></li>
-<li>清理wsl磁盘占用：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/enrio/p/14222648.html">https://www.cnblogs.com/enrio/p/14222648.html</a></li>
-</ol>
-
-                
-            </div>
-            <hr/>
-
-            
-
-
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
+                        <div class="post-info">
                             
-                                <a href="/tags/CO/">
-                                    <span class="chip bg-color">CO</span>
-                                </a>
+                                <div class="post-date info-break-policy">
+                                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                                    2023-03-31
+                                </div>
                             
-                                <a href="/tags/wsl/">
-                                    <span class="chip bg-color">wsl</span>
-                                </a>
+
+                            
+                                <div class="post-date info-break-policy">
+                                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                                    2023-03-31
+                                </div>
+                            
+
+                            
+                                <div class="info-break-policy">
+                                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                                    54
+                                </div>
+                            
+
+                            
+                                <div class="info-break-policy">
+                                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                                    1 分
+                                </div>
+                            
+
+                            
+                                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                                    <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                                    <span id="busuanzi_value_page_pv"></span>
+                                </div>
                             
                         </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+                    </div>
+                    <hr class="clearfix">
+
+                    <!-- 正文-->
+                    <div class="card-content article-card-content">
+                        <div id="articleContent">
+                            <h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>点击右侧目录的选择测试点编号，然后将测试点输入拷贝到本地运行，将运行结果粘贴到下方的输入框中，点击提交即可。</p>
+
+                            <h1 id="TestCaseHeader">TestCase #?</h1>
+                            <h2>Input</h2>
+                            <pre class="line-numbers language-text" data-language="text"><code id="input-text" class="language-text"></code></pre>
+                            <h2>Output</h2>
+                            <div class="ui fluid icon input">
+                                <textarea id="output-text" style="min-height: 500px; max-height: 500px; font-size: 15px;" placeholder="Your output here..."></textarea>
+                            </div>
+                            <!--
+                            <div class="ui file input right">
+                                <input type="file">
+                            </div>
+                            -->
+                            <br>
+                            <button class="positive fluid ui button" id="submit" onclick="click_submit()">
+                                <i id="submit-icon" class="upload icon"></i>
+                                Submit
+                            </button>
+                        </div>
+                        <br>
+                        <div class="tag_share" style="display: block;">
+                            <div class="post-meta__tag-list" style="display: inline-block;">
+                                
+                                    <div class="article-tag">
+                                        
+                                            <a href="/tags/OO">
+                                                <span class="chip bg-color">OO</span>
+                                            </a>
+                                        
+                                    </div>
+                                
+                            </div>
+                            <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                                <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
     
@@ -737,22 +758,21 @@ DISKPART&gt; detach vdisk<span aria-hidden="true" class="line-numbers-rows"><spa
 
 </div>
 
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-        </div>
-    </div>
 
-    
+                
 
-    
+                
 
-    
+                
 
-    
+                
 
-    
-        <style>
+                
+                    <style>
     .valine-card {
         margin: 1.5rem auto;
     }
@@ -1067,248 +1087,193 @@ DISKPART&gt; detach vdisk<span aria-hidden="true" class="line-numbers-rows"><spa
     }, true);
 </script>
 
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/posts/swift-xcode-ipa.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/banner/5.jpg" class="responsive-img" alt="使用Xcode编译Swift App并分发到iPhone或iPad上">
-                        
-                        <span class="card-title">使用Xcode编译Swift App并分发到iPhone或iPad上</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            在iPad/Mac的Playground/Xcode中编写一个Swift应用程序，并使用个人签名将App分法到iOS和iPadOS的设备上
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-30
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Swift%E7%BC%96%E7%A8%8B/" class="post-category">
-                                    Swift编程
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Swift/">
-                        <span class="chip bg-color">Swift</span>
-                    </a>
-                    
-                    <a href="/tags/Apple/">
-                        <span class="chip bg-color">Apple</span>
-                    </a>
-                    
-                </div>
+
+                
+
                 
             </div>
-        </div>
+
+
+        <!-- 代码块功能依赖 -->
+        <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+        <!-- 代码语言 -->
         
+            <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/movewsltod.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/banner/1.jpg" class="responsive-img" alt="将wsl迁移至D盘">
-                        
-                        <span class="card-title">将wsl迁移至D盘</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            总结我将wsl迁移至D盘的经验
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-07
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" class="post-category">
-                                    计算机组成
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/wsl/">
-                        <span class="chip bg-color">wsl</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
+
+        <!-- 代码块复制 -->
+        
+            <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+        
+
+        <!-- 代码块收缩 -->
+        
+            <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
         
     </div>
-</article>
-
-</div>
-
-
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
-
-    </div>
+    <!--    toc-->
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
         <div class="toc-widget card">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
+            <div class="toc-title">
+                <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            </div>
+            <div id="toc-content">
+                <ol class="toc-list">
+                    
+                    <li class="toc-list-item is-active-link">
+                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(1)">TestCase: 1</a>
+                    </li>
+                    
+                    <li class="toc-list-item is-active-link">
+                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(2)">TestCase: 2</a>
+                    </li>
+                    
+                    <li class="toc-list-item is-active-link">
+                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(3)">TestCase: 3</a>
+                    </li>
+                    
+                    <li class="toc-list-item is-active-link">
+                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(4)">TestCase: 4</a>
+                    </li>
+                    
+                    <li class="toc-list-item is-active-link">
+                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(5)">TestCase: 5</a>
+                    </li>
+                    
+                    <li class="toc-list-item is-active-link">
+                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(6)">TestCase: 6</a>
+                    </li>
+                    
+                    <li class="toc-list-item is-active-link">
+                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(7)">TestCase: 7</a>
+                    </li>
+                    
+                    <li class="toc-list-item is-active-link">
+                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(8)">TestCase: 8</a>
+                    </li>
+                    
+                    <li class="toc-list-item is-active-link">
+                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(9)">TestCase: 9</a>
+                    </li>
+                    
+                    <li class="toc-list-item is-active-link">
+                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(10)">TestCase: 10</a>
+                    </li>
+                    
+                </ol>
+            </div>
         </div>
     </div>
 </div>
+</main>
 
 <!-- TOC 悬浮按钮. -->
 
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fas fa-list-ul"></i>
+        </a>
+    </div>
 
 
-<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h1, h2, h3, h4'
-        });
+    submit_btn_checked = false;
 
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h1, h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
+    function click_toc(idx) {
+        $.ajax({
+            url: "https://toby-oo-check.cpolar.cn/get/" + idx,
+            type: "GET",
+            success: function (data) {
+                submit_btn_checked = false;
+                $("#input-text").text(data);
+                $("#TestCaseHeader").text("TestCase #" + idx);
+                $("#output-text").val("");
+            },
+            error: function (data) {
+                alert("Error: 无法获取测试用例");
             }
         });
+    }
+    click_toc(1);
 
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
+    function click_submit() {
+        if (submit_btn_checked) { return; }
+        let btn_icon = $("#submit-icon");
+        let btn_field = $("#submit");
+        submit_btn_checked = true;
+        btn_icon.removeClass("upload");
+        btn_icon.addClass("search");
+        btn_field.addClass("loading");
+        let idx = $("#TestCaseHeader").text().split("#")[1];
+        $.ajax({
+            url: "https://toby-oo-check.cpolar.cn/check/" + idx,
+            type: "POST",
+            data: {
+                "content": $("textarea").val()
+            },
+            success: function (data) {
+                /*
+                data = {
+                    "message": "Accepted",
+                    "score": 15.0000,
+                    "lastOperatorTime": {
+                        "yours": 100.2000,
+                        "average": 100.2000,
+                        "min": 100.2000,
+                        "max": 100.2000,
+                        "score": 1.1234
+                    },
+                    "maxWaitTime": {
+                        "yours": 100.2000,
+                        "average": 100.2000,
+                        "min": 100.2000,
+                        "max": 100.2000,
+                        "score": 1.1234
+                    },
+                    "powerConsumption": {
+                        "yours": 100.2000,
+                        "average": 100.2000,
+                        "min": 100.2000,
+                        "max": 100.2000,
+                        "score": 1.1234
+                    }
+                }
+                */
+                btn_field.css("background-color", "#A9A9A9");
+                btn_field.text("Reload this page to resubmit");
+                let articleContent = $("#articleContent");
+                articleContent.append("<h2>Result</h2>");
+                if (data["message"] !== "Accepted") {
+                    articleContent.append("<p style=\"color: red;\">" + data["message"] + "</p>");
+                } else {
+                    articleContent.append("<p style=\"color: green;\">" + data["message"] + "</p>");
+                    let table_str = "<table class=\"toolTable table\">";
+                    table_str += "<tr><th>指标</th><th>你的成绩</th><th>平均成绩</th><th>最低成绩</th><th>最高成绩</th><th>得分</th></tr>";
+                    table_str += "<tr><td>系统运行时间</td><td>" + data["lastOperatorTime"]["yours"] + "</td><td>" + data["lastOperatorTime"]["average"] + "</td><td>"
+                        + data["lastOperatorTime"]["min"] + "</td><td>" + data["lastOperatorTime"]["max"] + "</td><td>" + data["lastOperatorTime"]["score"] + "</td></tr>";
+                    table_str += "<tr><td>最长等待时间</td><td>" + data["maxWaitTime"]["yours"] + "</td><td>" + data["maxWaitTime"]["average"] + "</td><td>"
+                        + data["maxWaitTime"]["min"] + "</td><td>" + data["maxWaitTime"]["max"] + "</td><td>" + data["maxWaitTime"]["score"] + "</td></tr>";
+                    table_str += "<tr><td>系统耗电量</td><td>" + data["electricCharge"]["yours"] + "</td><td>" + data["electricCharge"]["average"] + "</td><td>"
+                        + data["electricCharge"]["min"] + "</td><td>" + data["electricCharge"]["max"] + "</td><td>" + data["electricCharge"]["score"] + "</td></tr>";
+                    table_str += "</table>";
+                    articleContent.append(table_str);
+                    articleContent.append("<p>总得分：" + data["score"] + "</p>");
+                }
+            },
+            error: function (data) {
+                alert("Error: 提交失败");
+                submit_btn_checked = false;
+            },
+            complete: function (data) {
+                btn_icon.removeClass("search");
+                btn_icon.addClass("upload");
+                btn_field.removeClass("loading");
             }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
         });
-        
-    });
+    }
 </script>
-
-    
-
-</main>
-
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">

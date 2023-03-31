@@ -154,6 +154,17 @@
   
   <li class="hide-on-med-and-down nav-item">
     
+    <a href="/oocheck" class="waves-effect waves-light">
+      
+      <i class="fas fa-check" style="zoom: 0.6;"></i>
+      
+      <span>面向对象评测机</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
     <a href="/friends" class="waves-effect waves-light">
       
       <i class="fas fa-link" style="zoom: 0.6;"></i>
@@ -274,6 +285,17 @@
 			    <i class="fa-fw fas fa-envelope"></i>
 			
 			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/oocheck" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-check"></i>
+			
+			面向对象评测机
 		</a>
           
         </li>
@@ -436,7 +458,7 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-default "
-                                  style="background-color: #2840C2;">                                               
+                                  style="background-color: #B42135;">                                               
                               <div class="notebook-skin
                                    chip-default "
                                   >Swift编程                                  
@@ -453,27 +475,10 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-default "
-                                  style="background-color: #DE13BF;">                                               
+                                  style="background-color: #9FE4FF;">                                               
                               <div class="notebook-skin
                                    chip-default "
                                   >脚本                                  
-                              </div>
-                          </div>
-                          <div class="notebook-page dotted"></div>
-                      </div>
-                  </div>
-                </a>
-                
-                
-                <a href="/categories/%E7%AB%9E%E8%B5%9B/" title="竞赛: 3">
-                  <div class="moleskine-wrapper">
-                      <div class="moleskine-notebook">
-                          <div class="chip notebook-cover center-align waves-effect waves-light
-                           chip-default "
-                                  style="background-color: #AB703A;">                                               
-                              <div class="notebook-skin
-                                   chip-default "
-                                  >竞赛                                  
                               </div>
                           </div>
                           <div class="notebook-page dotted"></div>
@@ -487,10 +492,27 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-default "
-                                  style="background-color: #AE2443;">                                               
+                                  style="background-color: #855E8D;">                                               
                               <div class="notebook-skin
                                    chip-default "
                                   >计算机组成                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
+                </a>
+                
+                
+                <a href="/categories/%E7%AB%9E%E8%B5%9B/" title="竞赛: 3">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-default "
+                                  style="background-color: #562758;">                                               
+                              <div class="notebook-skin
+                                   chip-default "
+                                  >竞赛                                  
                               </div>
                           </div>
                           <div class="notebook-page dotted"></div>
@@ -504,7 +526,7 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-default "
-                                  style="background-color: #4B8510;">                                               
+                                  style="background-color: #0C7C79;">                                               
                               <div class="notebook-skin
                                    chip-default "
                                   >密码学                                  
@@ -521,7 +543,7 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-default "
-                                  style="background-color: #BE55AE;">                                               
+                                  style="background-color: #E5C8E3;">                                               
                               <div class="notebook-skin
                                    chip-default "
                                   >博客                                  
@@ -538,7 +560,7 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-default "
-                                  style="background-color: #F8DFAE;">                                               
+                                  style="background-color: #D89250;">                                               
                               <div class="notebook-skin
                                    chip-default "
                                   >面向对象                                  
@@ -555,7 +577,7 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-default "
-                                  style="background-color: #42F186;">                                               
+                                  style="background-color: #A01917;">                                               
                               <div class="notebook-skin
                                    chip-default "
                                   >Python                                  
@@ -572,7 +594,7 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-active "
-                                  style="background-color: #693A4F;">                                               
+                                  style="background-color: #41DCD0;">                                               
                               <div class="notebook-skin
                                    chip-active "
                                   >私有云                                  
@@ -589,7 +611,7 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-default "
-                                  style="background-color: #6056DE;">                                               
+                                  style="background-color: #9694D2;">                                               
                               <div class="notebook-skin
                                    chip-default "
                                   >Shell                                  
@@ -1112,9 +1134,9 @@ $(function () {
         if (localStorage.getItem('dark') === '1') {
         document.body.classList.add('dark');
         }
-        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
-        document.body.classList.add('dark');
-        } 
+        // else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+        // document.body.classList.add('dark');
+        // }
         else if (matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
         }

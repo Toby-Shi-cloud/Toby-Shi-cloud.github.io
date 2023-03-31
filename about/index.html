@@ -154,6 +154,17 @@
   
   <li class="hide-on-med-and-down nav-item">
     
+    <a href="/oocheck" class="waves-effect waves-light">
+      
+      <i class="fas fa-check" style="zoom: 0.6;"></i>
+      
+      <span>面向对象评测机</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
     <a href="/friends" class="waves-effect waves-light">
       
       <i class="fas fa-link" style="zoom: 0.6;"></i>
@@ -274,6 +285,17 @@
 			    <i class="fa-fw fas fa-envelope"></i>
 			
 			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/oocheck" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-check"></i>
+			
+			面向对象评测机
 		</a>
           
         </li>
@@ -689,7 +711,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Swift编程","value":2},{"name":"脚本","value":2},{"name":"竞赛","value":3},{"name":"计算机组成","value":5},{"name":"密码学","value":2},{"name":"博客","value":2},{"name":"面向对象","value":4},{"name":"Python","value":1},{"name":"私有云","value":1},{"name":"Shell","value":1}],
+                data: [{"name":"Swift编程","value":2},{"name":"脚本","value":2},{"name":"计算机组成","value":5},{"name":"竞赛","value":3},{"name":"密码学","value":2},{"name":"博客","value":2},{"name":"面向对象","value":4},{"name":"Python","value":1},{"name":"私有云","value":1},{"name":"Shell","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -1105,9 +1127,9 @@ $(function () {
         if (localStorage.getItem('dark') === '1') {
         document.body.classList.add('dark');
         }
-        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
-        document.body.classList.add('dark');
-        } 
+        // else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+        // document.body.classList.add('dark');
+        // }
         else if (matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
         }
