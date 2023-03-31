@@ -1228,21 +1228,21 @@
                     "score": 15.0000,
                     "lastOperatorTime": {
                         "yours": 100.2000,
-                        "ave": 100.2000,
+                        "avg": 100.2000,
                         "min": 100.2000,
                         "max": 100.2000,
                         "score": 1.1234
                     },
                     "maxWaitTime": {
                         "yours": 100.2000,
-                        "ave": 100.2000,
+                        "avg": 100.2000,
                         "min": 100.2000,
                         "max": 100.2000,
                         "score": 1.1234
                     },
                     "powerConsumption": {
                         "yours": 100.2000,
-                        "ave": 100.2000,
+                        "avg": 100.2000,
                         "min": 100.2000,
                         "max": 100.2000,
                         "score": 1.1234
@@ -1260,11 +1260,11 @@
                     articleContent.append("<p style=\"color: green;\">" + data["message"] + "</p>");
                     let table_str = "<table class=\"toolTable table\">";
                     table_str += "<tr><th>指标</th><th>你的成绩</th><th>平均成绩</th><th>最好成绩</th><th>最差成绩</th><th>你的得分百分比</th></tr>";
-                    table_str += "<tr><td>系统运行时间</td><td>" + data["lastOperatorTime"]["yours"] + "</td><td>" + data["lastOperatorTime"]["ave"] + "</td><td>"
+                    table_str += "<tr><td>系统运行时间</td><td>" + data["lastOperatorTime"]["yours"] + "</td><td>" + data["lastOperatorTime"]["avg"] + "</td><td>"
                         + data["lastOperatorTime"]["min"] + "</td><td>" + data["lastOperatorTime"]["max"] + "</td><td>" + data["lastOperatorTime"]["score"] + "</td></tr>";
-                    table_str += "<tr><td>最长等待时间</td><td>" + data["maxWaitTime"]["yours"] + "</td><td>" + data["maxWaitTime"]["ave"] + "</td><td>"
+                    table_str += "<tr><td>最长等待时间</td><td>" + data["maxWaitTime"]["yours"] + "</td><td>" + data["maxWaitTime"]["avg"] + "</td><td>"
                         + data["maxWaitTime"]["min"] + "</td><td>" + data["maxWaitTime"]["max"] + "</td><td>" + data["maxWaitTime"]["score"] + "</td></tr>";
-                    table_str += "<tr><td>系统耗电量</td><td>" + data["electricCharge"]["yours"] + "</td><td>" + data["electricCharge"]["ave"] + "</td><td>"
+                    table_str += "<tr><td>系统耗电量</td><td>" + data["electricCharge"]["yours"] + "</td><td>" + data["electricCharge"]["avg"] + "</td><td>"
                         + data["electricCharge"]["min"] + "</td><td>" + data["electricCharge"]["max"] + "</td><td>" + data["electricCharge"]["score"] + "</td></tr>";
                     table_str += "</table>";
                     articleContent.append(table_str);
