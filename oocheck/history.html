@@ -750,7 +750,7 @@
 
 <script>
     let $userId = $("#userId");
-    if (document.cookie.indexOf("user_id") !== -1) {
+    if (document.cookie.indexOf("userId") !== -1) {
         $("#userId").attr("value", document.cookie.split("userId=")[1].split(";")[0]);
         getAllCommit();
     } else {
