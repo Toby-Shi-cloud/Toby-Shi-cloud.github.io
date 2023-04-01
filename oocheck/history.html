@@ -814,6 +814,7 @@
                 
                     dealCommit(data[10], 10);
                 
+                document.cookie = "userId=" + $userId.val();
             },
             error: function (err) {
                 alert("获取历史提交失败");
