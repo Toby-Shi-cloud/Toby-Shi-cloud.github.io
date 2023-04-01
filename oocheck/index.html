@@ -1243,7 +1243,7 @@
                 if (data["userId"] !== undefined) {
                     articleContent.append("<p>User ID: " + data["userId"] + "</p>");
                     document.cookie = "userId=" + data["userId"];
-                    $("#userId").text(data["userId"]);
+                    $("#userId").attr("value", data["userId"]);
                 }
                 if (data["message"] !== "Accepted") {
                     articleContent.append("<p style=\"color: red;\">" + data["message"] + "</p>");
