@@ -739,7 +739,7 @@
 
 <script>
     if (document.cookie.indexOf("userId") !== -1) {
-        $("#userId").value = document.cookie.split("userId=")[1].split(";")[0];
+        $("#userId").attr("value", document.cookie.split("userId=")[1].split(";")[0]);
     }
 </script>
 
