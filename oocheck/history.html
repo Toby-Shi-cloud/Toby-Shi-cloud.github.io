@@ -751,7 +751,7 @@
 <script>
     let $userId = $("#userId");
     if (document.cookie.indexOf("userId") !== -1) {
-        $("#userId").attr("value", document.cookie.split("userId=")[1].split(";")[0]);
+        $("#userId").val(document.cookie.split("userId=")[1].split(";")[0]);
         getAllCommit();
     } else {
         $userId.focus();
@@ -790,7 +790,7 @@
 
     function getAllCommit() {
         $.ajax({
-            url: "https://toby-oo-check.cpolar.cn/history?userId=" + $userId.attr("value"),
+            url: "https://toby-oo-check.cpolar.cn/history?userId=" + $userId.val(),
             type: "GET",
             success: function (data) {
                 

@@ -739,7 +739,7 @@
 
 <script>
     if (document.cookie.indexOf("userId") !== -1) {
-        $("#userId").attr("value", document.cookie.split("userId=")[1].split(";")[0]);
+        $("#userId").val(document.cookie.split("userId=")[1].split(";")[0]);
     }
 </script>
 
@@ -1228,7 +1228,7 @@
         btn_field.addClass("loading");
         let idx = $("#TestCaseHeader").text().split("#")[1];
         $.ajax({
-            url: "https://toby-oo-check.cpolar.cn/check/" + idx + "?userId=" + $("#userId").attr("value"),
+            url: "https://toby-oo-check.cpolar.cn/check/" + idx + "?userId=" + $("#userId").val(),
             type: "POST",
             data: {
                 "content": $("textarea").val()
@@ -1243,7 +1243,7 @@
                 if (data["userId"] !== undefined) {
                     articleContent.append("<p>User ID: " + data["userId"] + "</p>");
                     document.cookie = "userId=" + data["userId"];
-                    $("#userId").attr("value", data["userId"]);
+                    $("#userId").val(data["userId"]);
                 }
                 if (data["message"] !== "Accepted") {
                     articleContent.append("<p style=\"color: red;\">" + data["message"] + "</p>");
