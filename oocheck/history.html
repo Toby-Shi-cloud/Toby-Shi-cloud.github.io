@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="【Python】使用socket库实现server-client通讯的联机对战游戏（一）, TobyShiの博客">
+    <meta name="keywords" content="Object Oriented, TobyShiの博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>【Python】使用socket库实现server-client通讯的联机对战游戏（一） | TobyShiの博客</title>
+    <title>Object Oriented | TobyShiの博客</title>
 
     <link rel="icon" type="image/png" href="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp">
 
@@ -397,30 +397,25 @@
 
 </header>
 
-    
+    <!-- 这是博客头部 -->
 
 
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/picture/1.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【Python】使用socket库实现server-client通讯的联机对战游戏（一）</h1>
+                    <h1 class="description center-align post-title">Object Oriented</h1>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
-
-
-<main class="post-container content">
-
-    
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<!-- 这是博客内容 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.js"></script>
 <style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.css") layer(semantic);
     #articleContent h1::before,
     #articleContent h2::before,
     #articleContent h3::before,
@@ -462,7 +457,7 @@
         padding: 0;
         list-style: none;
     }
-    
+
     #toc-content {
         height: calc(100vh - 300px);
         overflow: scroll;
@@ -515,214 +510,333 @@
         line-height: 48px;
         font-size: 1.4rem;
     }
+
+    /* PrismJS 1.22.0
+    https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+asciidoc+aspnet+asm6502+autohotkey+autoit+bash+basic+batch+bbcode+birb+bison+bnf+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cil+clojure+cmake+coffeescript+concurnas+csp+crystal+css-extras+cypher+d+dart+dax+dhall+diff+django+dns-zone-file+docker+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+firestore-security-rules+flow+fortran+ftl+gml+gcode+gdscript+gedcom+gherkin+git+glsl+go+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+http+hpkp+hsts+ichigojam+icon+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keyman+kotlin+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+lolcode+lua+makefile+markdown+markup-templating+matlab+mel+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nginx+nim+nix+nsis+objectivec+ocaml+opencl+oz+parigp+parser+pascal+pascaligo+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+q+qml+qore+r+racket+jsx+tsx+reason+regex+renpy+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+stan+iecst+stylus+swift+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+turtle+twig+typescript+typoscript+unrealscript+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+wiki+xeora+xml-doc+xojo+xquery+yaml+yang+zig */
+    /**
+     * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+     * Based on https://github.com/chriskempson/tomorrow-theme
+     * @author Rose Pritchard
+     */
+    code[class*="language-"],
+    pre[class*="language-"] {
+        color: #ccc;
+        background: none;
+        font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        font-size: 1em;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.5;
+
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+
+    }
+
+    /* Code blocks */
+    pre[class*="language-"] {
+        padding: 1em;
+        margin: .5em 0;
+        overflow: auto;
+    }
+
+    :not(pre) > code[class*="language-"],
+    pre[class*="language-"] {
+        background: #2d2d2d;
+    }
+
+    /* Inline code */
+    :not(pre) > code[class*="language-"] {
+        padding: .1em;
+        border-radius: .3em;
+        white-space: normal;
+    }
+
+    .token.comment,
+    .token.block-comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+        color: #999;
+    }
+
+    .token.punctuation {
+        color: #ccc;
+    }
+
+    .token.tag,
+    .token.attr-name,
+    .token.namespace,
+    .token.deleted {
+        color: #e2777a;
+    }
+
+    .token.function-name {
+        color: #6196cc;
+    }
+
+    .token.boolean,
+    .token.number,
+    .token.function {
+        color: #f08d49;
+    }
+
+    .token.property,
+    .token.class-name,
+    .token.constant,
+    .token.symbol {
+        color: #f8c555;
+    }
+
+    .token.selector,
+    .token.important,
+    .token.atrule,
+    .token.keyword,
+    .token.builtin {
+        color: #cc99cd;
+    }
+
+    .token.string,
+    .token.char,
+    .token.attr-value,
+    .token.regex,
+    .token.variable {
+        color: #7ec699;
+    }
+
+    .token.operator,
+    .token.entity,
+    .token.url {
+        color: #67cdcc;
+    }
+
+    .token.important,
+    .token.bold {
+        font-weight: bold;
+    }
+    .token.italic {
+        font-style: italic;
+    }
+
+    .token.entity {
+        cursor: help;
+    }
+
+    .token.inserted {
+        color: green;
+    }
 </style>
+<main class="post-container content" style="min-height: 884px;">
 <div class="row">
+    <!--    content-->
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">网络</span>
-                            </a>
-                        
-                            <a href="/tags/server-client/">
-                                <span class="chip bg-color">server-client</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Python/" class="post-category">
-                                Python
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+        <div id="artDetail">
+                <div class="card">
+                    <!-- 简介-->
+                    <div class="card-content article-info">
+                        <div class="row tag-cate">
+                            <div class="col s7">
+                                
+                                    <div class="article-tag">
+                                        
+                                            <a href="/tags/OO">
+                                                <span class="chip bg-color">OO</span>
+                                            </a>
+                                        
+                                    </div>
+                                
+                            </div>
+                            <div class="col s5 right-align">
+                                
+                                    <div class="post-cate">
+                                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                        
+                                            <a href="/categories/面向对象" class="post-category">
+                                                面向对象
+                                            </a>
+                                        
+                                    </div>
+                                
+                            </div>
+                        </div>
 
-            <div class="post-info">
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-16
-                </div>
-                
-
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-16
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    857
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
-                </div>
-                
-
-                
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
-            </div>
-        </div>
-        <hr class="clearfix">
-
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
-
-        
-
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h1 id="socket单对单通讯"><a href="#socket单对单通讯" class="headerlink" title="socket单对单通讯"></a>socket单对单通讯</h1><p>socket是Python内建库之一，用途就是网络通讯。作为实验，我们考虑两个Python程序之间的通讯，一个作为服务器，一个作为客户端，客户端向服务器发送一串字符，服务器收到后将原字符串大写后传回，直到客户端发送空信息，服务器退出。</p>
-<p>服务器端代码：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
-
-ip_port <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token number">8888</span><span class="token punctuation">)</span> <span class="token comment"># 这个tuple的第一项是ip地址，第二项是端口</span>
-s <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span>socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span> <span class="token comment"># 定义socket类型，网络通信，TCP</span>
-s<span class="token punctuation">.</span>bind<span class="token punctuation">(</span>ip_port<span class="token punctuation">)</span> <span class="token comment"># 套接字绑定ip和端口</span>
-s<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># 开始监听连接请求</span>
-conn<span class="token punctuation">,</span> addr <span class="token operator">=</span> s<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 接受连接请求，conn是一个新的套接字，addr是客户端地址</span>
-conn<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">'Hello from the server!'</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 发送打招呼信息，并且用utf-8编码</span>
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        data <span class="token operator">=</span> conn<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token comment"># 接受数据并使用utf-8解码</span>
-        <span class="token keyword">if</span> <span class="token keyword">not</span> data<span class="token punctuation">:</span>
-            <span class="token keyword">break</span> <span class="token comment"># 如果数据为空就退出</span>
-        conn<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span>data<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 把数据大写后返回</span>
-    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token comment"># 如果数据传输出错</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-        exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 关闭套接字</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>客户端代码：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
-
-ip_port <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">8888</span><span class="token punctuation">)</span> <span class="token comment"># 服务器ip和端口</span>
-s <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span>socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span> <span class="token comment"># 定义socket类型，网络通信，TCP</span>
-<span class="token keyword">try</span><span class="token punctuation">:</span>
-    s<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>ip_port<span class="token punctuation">)</span> <span class="token comment"># 尝试连接服务器</span>
-<span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token comment"># 如果连接失败socket.socket.connect会抛出错误</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-    exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-data <span class="token operator">=</span> s<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token comment"># 接受服务器的问候</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        msg <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'&gt;&gt;&gt; '</span><span class="token punctuation">)</span> <span class="token comment"># 此时用户可以在运行客户端的控制台中输入内容</span>
-        s<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span>msg<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 将消息发送</span>
-        <span class="token keyword">if</span> <span class="token keyword">not</span> msg<span class="token punctuation">:</span>
-            <span class="token keyword">break</span> <span class="token comment"># 如果数据为空就退出</span>
-        data <span class="token operator">=</span> s<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token comment"># 接受服务器的结果</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token comment"># 如果数据传输出错</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-        exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-s<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 关闭套接字</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>运行结果：</p>
-<p><img src="https://s2.loli.net/2022/06/16/8S4lKr17fpYLNyw.png" alt="运行结果"></p>
-<h1 id="socketserver多对一通讯"><a href="#socketserver多对一通讯" class="headerlink" title="socketserver多对一通讯"></a>socketserver多对一通讯</h1><p>由于我的目的是打算写一个联机对战游戏，那么一个服务器需要同时和多个（至少是两个）客户端建立连接。一个很容易想到的做法就是服务器多线程。好在Python已经帮我们封装好了多线程和socket库——socketserver库。</p>
-<p>socketserver库的用法和socket几乎一模一样，而且由于只有服务器端需要多线程，所以只需要更改server.py即可。</p>
-<p>下面是server.py的代码：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socketserver
-
-ip_port <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token number">10888</span><span class="token punctuation">)</span>
-
-<span class="token keyword">class</span> <span class="token class-name">MyServer</span><span class="token punctuation">(</span>socketserver<span class="token punctuation">.</span>BaseRequestHandler<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">handle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># 重写RequestHandler中的handle方法用来处理请求</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"conn is :"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>request<span class="token punctuation">)</span>  <span class="token comment"># conn</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"addr is :"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>client_address<span class="token punctuation">)</span>  <span class="token comment"># addr</span>
-
-        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">'Hello from the server!'</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> <span class="token comment"># 处理方面的逻辑都是一样的</span>
-            <span class="token keyword">try</span><span class="token punctuation">:</span>
-                data <span class="token operator">=</span> self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
-                <span class="token keyword">if</span> <span class="token keyword">not</span> data<span class="token punctuation">:</span>
-                    <span class="token keyword">break</span>
-                self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span>data<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-                <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-                <span class="token keyword">break</span>
-        
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"disconnected with"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>client_address<span class="token punctuation">)</span>
-        
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    s <span class="token operator">=</span> socketserver<span class="token punctuation">.</span>ThreadingTCPServer<span class="token punctuation">(</span>ip_port<span class="token punctuation">,</span> MyServer<span class="token punctuation">)</span> <span class="token comment"># 建立TCP协议套接字</span>
-    
-    <span class="token comment"># 使用s.serve_forever()接受无穷次连接（需要按下Ctrl+C中断）</span>
-    <span class="token comment"># 也可以使用一次s.handle_request()接受一次连接</span>
-    s<span class="token punctuation">.</span>serve_forever<span class="token punctuation">(</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<p>运行结果：</p>
-<p><img src="https://s2.loli.net/2022/06/16/qGRdK1ui4zof2W5.png" alt="Server服务器结果"></p>
-<p><img src="https://s2.loli.net/2022/06/16/Bk8IOVmco4bUhjX.png" alt="Client客户端结果"></p>
-<h1 id="服务器内部数据传输"><a href="#服务器内部数据传输" class="headerlink" title="服务器内部数据传输"></a>服务器内部数据传输</h1><p>现在我们已经解决了服务器和客户端之间的数据传输问题了，但是这又引入了新的问题：服务器用多线程和客户端交流，但是socketserver封装的太好了，想要直接从外部操作各个线程显然不显示，那么如何进行服务器各个线程之间的交流呢？</p>
-<p>请听下回分解……</p>
-<p><span class="github-emoji"><span>😀</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f600.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
-
-                
-            </div>
-            <hr/>
-
-            
-
-
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
+                        <div class="post-info">
                             
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
-                                </a>
+                                <div class="post-date info-break-policy">
+                                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                                    2023-04-01
+                                </div>
                             
-                                <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">网络</span>
-                                </a>
+
                             
-                                <a href="/tags/server-client/">
-                                    <span class="chip bg-color">server-client</span>
-                                </a>
+                                <div class="post-date info-break-policy">
+                                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                                    2023-04-01
+                                </div>
+                            
+
+                            
+                                <div class="info-break-policy">
+                                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                                    0
+                                </div>
+                            
+
+                            
+                                <div class="info-break-policy">
+                                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                                    1 分
+                                </div>
+                            
+
+                            
+                                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                                    <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                                    <span id="busuanzi_value_page_pv"></span>
+                                </div>
                             
                         </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+                    </div>
+                    <hr class="clearfix">
+
+                    <!-- 正文-->
+                    <div class="card-content article-card-content">
+                        <div id="articleContent">
+    <div class="ui icon input">
+        <input type="text" placeholder="Your User ID..." id="userId">
+        <i class="circular search link icon" onclick="getAllCommit()"></i>
+    </div>
+    
+        <h2>TestCase #1</h2>
+        <p id="TestCase1">没有历史提交</p>
+    
+        <h2>TestCase #2</h2>
+        <p id="TestCase2">没有历史提交</p>
+    
+        <h2>TestCase #3</h2>
+        <p id="TestCase3">没有历史提交</p>
+    
+        <h2>TestCase #4</h2>
+        <p id="TestCase4">没有历史提交</p>
+    
+        <h2>TestCase #5</h2>
+        <p id="TestCase5">没有历史提交</p>
+    
+        <h2>TestCase #6</h2>
+        <p id="TestCase6">没有历史提交</p>
+    
+        <h2>TestCase #7</h2>
+        <p id="TestCase7">没有历史提交</p>
+    
+        <h2>TestCase #8</h2>
+        <p id="TestCase8">没有历史提交</p>
+    
+        <h2>TestCase #9</h2>
+        <p id="TestCase9">没有历史提交</p>
+    
+        <h2>TestCase #10</h2>
+        <p id="TestCase10">没有历史提交</p>
+    
+</div>
+
+<script>
+    let $userId = $("#userId");
+    if (document.cookie.indexOf("user_id") !== -1) {
+        $userId.value = document.cookie.split("user_id=")[1].split(";")[0];
+        getAllCommit();
+    } else {
+        $userId.focus();
+    }
+    $userId.keydown(function (e) {
+        if (e.keyCode === 13) {
+            getAllCommit();
+        }
+    });
+
+    function dealCommit(data, id) {
+        let $testCase = $("#TestCase" + id);
+        if (data.length === 0) {
+            $testCase.text("没有历史提交");
+        } else {
+            $testCase.text("");
+            for (let i = 0; i < data.length; i++) {
+                let $commit = $("<div class='ui segment'></div>");
+                let $commitId = $("<div class='ui header'>Commit ID: " + data[i].commitId + " at " + data[i].commitTime + "</div>");
+                let $table = $("<table class='toolTable table'></table>");
+                $table.append("<tr><th>指标</th><th>你的成绩</th><th>平均成绩</th><th>最好成绩</th><th>最差成绩</th><th>你的得分百分比</th></tr>");
+                $table.append("<tr><td>系统运行时间</td><td>" + data[i]["lastOperatorTime"]["yours"] + "</td><td>" + data[i]["lastOperatorTime"]["avg"] + "</td><td>"
+                    + data[i]["lastOperatorTime"]["min"] + "</td><td>" + data[i]["lastOperatorTime"]["max"] + "</td><td>" + data[i]["lastOperatorTime"]["score"] + "</td></tr>");
+                $table.append("<tr><td>最长等待时间</td><td>" + data[i]["maxWaitTime"]["yours"] + "</td><td>" + data[i]["maxWaitTime"]["avg"] + "</td><td>"
+                    + data[i]["maxWaitTime"]["min"] + "</td><td>" + data[i]["maxWaitTime"]["max"] + "</td><td>" + data[i]["maxWaitTime"]["score"] + "</td></tr>");
+                $table.append("<tr><td>系统耗电量</td><td>" + data[i]["electricCharge"]["yours"] + "</td><td>" + data[i]["electricCharge"]["avg"] + "</td><td>"
+                    + data[i]["electricCharge"]["min"] + "</td><td>" + data[i]["electricCharge"]["max"] + "</td><td>" + data[i]["electricCharge"]["score"] + "</td></tr>");
+                $commit.append($commitId);
+                $commit.append($table);
+                $commit.append("<div>总得分：" + data[i]["score"] + "</div>");
+                console.log($commit);
+                $testCase.append($commit);
+            }
+        }
+    }
+
+    function getAllCommit() {
+        $.ajax({
+            url: "https://toby-oo-check.cpolar.cn/history?userId=" + $userId.val(),
+            type: "GET",
+            success: function (data) {
+                
+                    dealCommit(data[1], 1);
+                
+                    dealCommit(data[2], 2);
+                
+                    dealCommit(data[3], 3);
+                
+                    dealCommit(data[4], 4);
+                
+                    dealCommit(data[5], 5);
+                
+                    dealCommit(data[6], 6);
+                
+                    dealCommit(data[7], 7);
+                
+                    dealCommit(data[8], 8);
+                
+                    dealCommit(data[9], 9);
+                
+                    dealCommit(data[10], 10);
+                
+            },
+            error: function (err) {
+                alert("获取历史提交失败");
+            }
+        });
+    }
+</script>
+
+                        <br>
+                        <div class="tag_share" style="display: block;">
+                            <div class="post-meta__tag-list" style="display: inline-block;">
+                                
+                                    <div class="article-tag">
+                                        
+                                            <a href="/tags/OO">
+                                                <span class="chip bg-color">OO</span>
+                                            </a>
+                                        
+                                    </div>
+                                
+                            </div>
+                            <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                                <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
     
@@ -734,22 +848,21 @@ ip_port <span class="token operator">=</span> <span class="token punctuation">(<
 
 </div>
 
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-        </div>
-    </div>
 
-    
+                
 
-    
+                
 
-    
+                
 
-    
+                
 
-    
-        <style>
+                
+                    <style>
     .valine-card {
         margin: 1.5rem auto;
     }
@@ -1064,161 +1177,41 @@ ip_port <span class="token operator">=</span> <span class="token punctuation">(<
     }, true);
 </script>
 
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/posts/lanqiaocup2022final.html">
-                    <div class="card-image">
-                        
-                        <img src="https://s2.loli.net/2022/06/19/rmcXhz6YL9NAbGB.png" class="responsive-img" alt="蓝桥杯2022决赛参赛记录">
-                        
-                        <span class="card-title">蓝桥杯2022决赛参赛记录</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            只是我个人的一点思考。不是题解！
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-18
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AB%9E%E8%B5%9B/" class="post-category">
-                                    竞赛
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/C-C/">
-                        <span class="chip bg-color">C/C++</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
-                        <span class="chip bg-color">蓝桥杯</span>
-                    </a>
-                    
-                </div>
+
+                
+
                 
             </div>
-        </div>
+
+
+        <!-- 代码块功能依赖 -->
+        <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+        <!-- 代码语言 -->
         
+            <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/helloblog.html">
-                    <div class="card-image">
-                        
-                        <img src="https://s2.loli.net/2022/07/20/n7ZoRb95vSiKjhP.png" class="responsive-img" alt="你好博客！Hello Blog!">
-                        
-                        <span class="card-title">你好博客！Hello Blog!</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            这是我的第一篇博客，用于记录如何搭建博客
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-14
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
+
+        <!-- 代码块复制 -->
+        
+            <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+        
+
+        <!-- 代码块收缩 -->
+        
+            <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
         
     </div>
-</article>
+    <!--    toc-->
+    
+        <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+            <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
 
+<div class="toc-widget card">
+    <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+    <div id="toc-content"></div>
 </div>
-
-
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget card">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
 
 <script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
@@ -1296,15 +1289,36 @@ ip_port <span class="token operator">=</span> <span class="token punctuation">(<
     });
 </script>
 
+        </div>
     
-
+</div>
 </main>
 
+<!-- TOC 悬浮按钮. -->
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fas fa-list-ul"></i>
+        </a>
+    </div>
+
+
+
+
 <script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$']]}
+    $(function () {
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
     });
 </script>
 

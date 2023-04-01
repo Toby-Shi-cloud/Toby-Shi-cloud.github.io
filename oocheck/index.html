@@ -416,7 +416,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.js"></script>
 <style>
     @import url("https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.css") layer(semantic);
-
     #articleContent h1::before,
     #articleContent h2::before,
     #articleContent h3::before,
@@ -681,14 +680,14 @@
                             
                                 <div class="post-date info-break-policy">
                                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                                    2023-03-31
+                                    2023-04-01
                                 </div>
                             
 
                             
                                 <div class="info-break-policy">
                                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                                    140
+                                    207
                                 </div>
                             
 
@@ -712,30 +711,38 @@
                     <!-- 正文-->
                     <div class="card-content article-card-content">
                         <div id="articleContent">
-                            <h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>点击右侧目录选择测试点编号，然后将测试点输入拷贝到本地运行，将运行结果粘贴到下方的输入框中，点击提交即可。</p>
+    <h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>点击右侧目录选择测试点编号，然后将测试点输入拷贝到本地运行，将运行结果粘贴到下方的输入框中，点击提交即可。</p>
 <p>提交后，系统会自动判断正确与否，判题结果会显示在提交按钮下方。</p>
+<h2 id="历史提交"><a href="#历史提交" class="headerlink" title="历史提交"></a>历史提交</h2><p>在首次提交后，系统会自动保存你的提交记录，并生成 <code>UserID</code>。</p>
+<p>此后的提交，可通过输入 <code>UserID</code> 在同一个账号下提交。</p>
+<p>通过键入 <code>UserID</code> 你可以<a href="history">点击此处</a>查看历史提交记录。</p>
 <h2 id="测试点"><a href="#测试点" class="headerlink" title="测试点"></a>测试点</h2><p>欢迎提供有强度的测试点，若有好的测试点，请发邮件至 <a href="mailto:toby283901@outlook.com">toby283901@outlook.com</a>.</p>
 <h2 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h2><p>测试点仅供参考，测试成绩仅供参考，与你的最终强测成绩无关。</p>
 
-                            <h1 id="TestCaseHeader">TestCase #?</h1>
-                            <h2>Input</h2>
-                            <pre class="line-numbers language-text" data-language="text"><code id="input-text" class="language-text"></code></pre>
-                            <h2>Output</h2>
-                            <div class="ui fluid icon input">
-                                <textarea id="output-text" style="min-height: 500px; max-height: 500px; font-size: 15px;" placeholder="Your output here..."></textarea>
-                            </div>
-                            <!--
-                            <div class="ui file input right">
-                                <input type="file">
-                            </div>
-                            -->
-                            <br>
-                            <button class="positive fluid ui button" id="submit" onclick="click_submit()">
-                                <i id="submit-icon" class="upload icon"></i>
-                                Submit
-                            </button>
-                            <div id="result"></div>
-                        </div>
+    <h1 id="TestCaseHeader">TestCase #?</h1>
+    <h2>Input</h2>
+    <pre class="line-numbers language-text" data-language="text"><code id="input-text" class="language-text"></code></pre>
+    <h2>Output</h2>
+    <div class="ui icon input">
+        <input type="text" placeholder="Your User ID..." id="userId">
+        <i class="users icon"></i>
+    </div>
+    <div class="ui fluid icon input">
+        <textarea id="output-text" style="min-height: 500px; max-height: 500px; font-size: 15px;" placeholder="Your output here..."></textarea>
+    </div>
+    <button class="positive fluid ui button" id="submit" onclick="click_submit()">
+        <i id="submit-icon" class="upload icon"></i>
+        Submit
+    </button>
+    <div id="result"></div>
+</div>
+
+<script>
+    if (document.cookie.indexOf("user_id") !== -1) {
+        $("#userId").value = document.cookie.split("user_id=")[1].split(";")[0];
+    }
+</script>
+
                         <br>
                         <div class="tag_share" style="display: block;">
                             <div class="post-meta__tag-list" style="display: inline-block;">
@@ -1051,7 +1058,7 @@
         recordIP: 'true' === 'true',
         enableQQ: 'true' === 'true',
         master: ["e6fefa628522c4e4aba9de0388087e22", "bca633fb8c8ee333b2fa2866ef5b66d1", "e8799f1c89cb012426820fd7484618f5"],
-        friends: ["acb5381ad226785cf691d48562a2113d", "e79fe1ebac458cca64f5c90527ac6953", "37f356ddeddad414cf734cea8ded0361", "7a51dd88a80de3c90042ec25b960b767"],
+        friends: ["acb5381ad226785cf691d48562a2113d", "e79fe1ebac458cca64f5c90527ac6953", "37f356ddeddad414cf734cea8ded0361", "7a51dd88a80de3c90042ec25b960b767", "dac7e976998d490d9c92559a601933bf"],
         tagMeta: ["博主", "小伙伴", "访客"],
         metaPlaceholder: metaPlaceholder
     });
@@ -1118,58 +1125,61 @@
         
     </div>
     <!--    toc-->
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget card">
-            <div class="toc-title">
-                <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            </div>
-            <div id="toc-content">
-                <ol class="toc-list">
-                    
-                    <li class="toc-list-item is-active-link">
-                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(1)">TestCase: 1</a>
-                    </li>
-                    
-                    <li class="toc-list-item is-active-link">
-                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(2)">TestCase: 2</a>
-                    </li>
-                    
-                    <li class="toc-list-item is-active-link">
-                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(3)">TestCase: 3</a>
-                    </li>
-                    
-                    <li class="toc-list-item is-active-link">
-                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(4)">TestCase: 4</a>
-                    </li>
-                    
-                    <li class="toc-list-item is-active-link">
-                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(5)">TestCase: 5</a>
-                    </li>
-                    
-                    <li class="toc-list-item is-active-link">
-                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(6)">TestCase: 6</a>
-                    </li>
-                    
-                    <li class="toc-list-item is-active-link">
-                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(7)">TestCase: 7</a>
-                    </li>
-                    
-                    <li class="toc-list-item is-active-link">
-                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(8)">TestCase: 8</a>
-                    </li>
-                    
-                    <li class="toc-list-item is-active-link">
-                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(9)">TestCase: 9</a>
-                    </li>
-                    
-                    <li class="toc-list-item is-active-link">
-                        <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(10)">TestCase: 10</a>
-                    </li>
-                    
-                </ol>
-            </div>
-        </div>
+    
+        <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+            <div class="toc-widget card">
+    <div class="toc-title">
+        <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
     </div>
+    <div id="toc-content">
+        <ol class="toc-list">
+            
+            <li class="toc-list-item is-active-link">
+                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(1)">TestCase: 1</a>
+            </li>
+            
+            <li class="toc-list-item is-active-link">
+                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(2)">TestCase: 2</a>
+            </li>
+            
+            <li class="toc-list-item is-active-link">
+                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(3)">TestCase: 3</a>
+            </li>
+            
+            <li class="toc-list-item is-active-link">
+                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(4)">TestCase: 4</a>
+            </li>
+            
+            <li class="toc-list-item is-active-link">
+                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(5)">TestCase: 5</a>
+            </li>
+            
+            <li class="toc-list-item is-active-link">
+                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(6)">TestCase: 6</a>
+            </li>
+            
+            <li class="toc-list-item is-active-link">
+                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(7)">TestCase: 7</a>
+            </li>
+            
+            <li class="toc-list-item is-active-link">
+                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(8)">TestCase: 8</a>
+            </li>
+            
+            <li class="toc-list-item is-active-link">
+                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(9)">TestCase: 9</a>
+            </li>
+            
+            <li class="toc-list-item is-active-link">
+                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(10)">TestCase: 10</a>
+            </li>
+            
+        </ol>
+    </div>
+</div>
+
+        </div>
+    
 </div>
 </main>
 
@@ -1180,6 +1190,8 @@
             <i class="fas fa-list-ul"></i>
         </a>
     </div>
+
+
 
 
 <script>
@@ -1222,38 +1234,17 @@
                 "content": $("textarea").val()
             },
             success: function (data) {
-                /*
-                data = {
-                    "message": "Accepted",
-                    "score": 15.0000,
-                    "lastOperatorTime": {
-                        "yours": 100.2000,
-                        "avg": 100.2000,
-                        "min": 100.2000,
-                        "max": 100.2000,
-                        "score": 1.1234
-                    },
-                    "maxWaitTime": {
-                        "yours": 100.2000,
-                        "avg": 100.2000,
-                        "min": 100.2000,
-                        "max": 100.2000,
-                        "score": 1.1234
-                    },
-                    "powerConsumption": {
-                        "yours": 100.2000,
-                        "avg": 100.2000,
-                        "min": 100.2000,
-                        "max": 100.2000,
-                        "score": 1.1234
-                    }
-                }
-                */
+                
                 btn_field.css("background-color", "#A9A9A9");
                 btn_field.text("Reload this page to resubmit");
                 let articleContent = $("#result");
                 articleContent.text("");
                 articleContent.append("<h2>Result</h2>");
+                if (data["userId"] !== undefined) {
+                    articleContent.append("<p>User ID: " + data["userId"] + "</p>");
+                    document.cookie = "userId=" + data["userId"];
+                    $("#userId").text(data["userId"]);
+                }
                 if (data["message"] !== "Accepted") {
                     articleContent.append("<p style=\"color: red;\">" + data["message"] + "</p>");
                 } else {
@@ -1282,7 +1273,10 @@
             }
         });
     }
+</script>
 
+
+<script>
     $(function () {
         // Set scroll toc fixed.
         let tocHeight = parseInt($(window).height() * 0.4 - 64);
