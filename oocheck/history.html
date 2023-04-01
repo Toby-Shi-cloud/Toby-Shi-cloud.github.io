@@ -790,7 +790,7 @@
 
     function getAllCommit() {
         $.ajax({
-            url: "https://toby-oo-check.cpolar.cn/history?userId=" + $userId.val(),
+            url: "https://toby-oo-check.cpolar.cn/history?userId=" + $userId.attr("value"),
             type: "GET",
             success: function (data) {
                 

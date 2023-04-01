@@ -1228,7 +1228,7 @@
         btn_field.addClass("loading");
         let idx = $("#TestCaseHeader").text().split("#")[1];
         $.ajax({
-            url: "https://toby-oo-check.cpolar.cn/check/" + idx + "?userId=" + $("#userId").text(),
+            url: "https://toby-oo-check.cpolar.cn/check/" + idx + "?userId=" + $("#userId").attr("value"),
             type: "POST",
             data: {
                 "content": $("textarea").val()
