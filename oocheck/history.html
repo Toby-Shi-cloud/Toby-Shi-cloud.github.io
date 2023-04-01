@@ -770,7 +770,7 @@
             $testCase.text("");
             for (let i = 0; i < data.length; i++) {
                 let $commit = $("<div class='ui segment'></div>");
-                let $commitId = $("<div class='ui header'>Commit ID: " + data[i].commitId + " at " + data[i].commitTime + "</div>");
+                let $commitId = $("<p>Commit: " + data[i].commitId + " at " + data[i].commitTime + "</p>");
                 let $table = $("<table class='toolTable table'></table>");
                 $table.append("<tr><th>指标</th><th>你的成绩</th><th>平均成绩</th><th>最好成绩</th><th>最差成绩</th><th>你的得分百分比</th></tr>");
                 $table.append("<tr><td>系统运行时间</td><td>" + data[i]["lastOperatorTime"]["yours"] + "</td><td>" + data[i]["lastOperatorTime"]["avg"] + "</td><td>"
