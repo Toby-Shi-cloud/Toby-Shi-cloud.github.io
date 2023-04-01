@@ -1242,7 +1242,7 @@
                 articleContent.append("<h2>Result</h2>");
                 if (data["userId"] !== undefined) {
                     articleContent.append("<p>User ID: " + data["userId"] + "</p>");
-                    document.cookie = "userId=" + data["userId"];
+                    document.cookie = "userId=" + data["userId"] + "; expires=" + new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 30).toUTCString();
                     $("#userId").val(data["userId"]);
                 }
                 if (data["message"] !== "Accepted") {
