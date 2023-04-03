@@ -63,7 +63,7 @@
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
+            <div class="brand-logo" style="width: max-content">
                 <a href="/" class="waves-effect waves-light">
                     
                     <img src="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp" class="logo-img" alt="LOGO">
@@ -273,7 +273,7 @@
 			
 			    <i class="fa-fw fas fa-music"></i>
 			
-			Musics
+			音乐
 		</a>
           
         </li>
@@ -715,6 +715,7 @@
         <input type="text" placeholder="Your User ID..." id="userId">
         <i class="circular search link icon" onclick="getAllCommit()"></i>
     </div>
+    <h3 id="error-put" style="color: red"></h3>
     
         <h2>TestCase #1</h2>
         <p id="TestCase1">没有历史提交</p>
@@ -752,7 +753,7 @@
     let $userId = $("#userId");
     if (document.cookie.indexOf("userId") !== -1) {
         $("#userId").val(document.cookie.split("userId=")[1].split(";")[0]);
-        getAllCommit();
+        getAllCommit(false);
     } else {
         $userId.focus();
     }
@@ -788,11 +789,12 @@
         }
     }
 
-    function getAllCommit() {
+    function getAllCommit(alertUser = true) {
         $.ajax({
             url: "https://toby-oo-check.cpolar.cn/history?userId=" + $userId.val(),
             type: "GET",
             success: function (data) {
+                $("#error-put").text("");
                 
                     dealCommit(data[1], 1);
                 
@@ -816,7 +818,11 @@
                 
             },
             error: function (err) {
-                alert("获取历史提交失败");
+                if (alertUser) {
+                    alert("获取历史提交失败");
+                } else {
+                    $("#error-put").text("获取历史提交失败，服务器可能处于维护中");
+                }
             }
         });
     }

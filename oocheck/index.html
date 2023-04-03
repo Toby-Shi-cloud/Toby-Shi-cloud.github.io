@@ -63,7 +63,7 @@
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
+            <div class="brand-logo" style="width: max-content">
                 <a href="/" class="waves-effect waves-light">
                     
                     <img src="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp" class="logo-img" alt="LOGO">
@@ -273,7 +273,7 @@
 			
 			    <i class="fa-fw fas fa-music"></i>
 			
-			Musics
+			音乐
 		</a>
           
         </li>
@@ -1197,7 +1197,7 @@
 <script>
     submit_btn_checked = false;
 
-    function click_toc(idx) {
+    function click_toc(idx, alertUser = true) {
         $.ajax({
             url: "https://toby-oo-check.cpolar.cn/get/" + idx,
             type: "GET",
@@ -1212,11 +1212,15 @@
                 btn_field.css("background-color", "");
             },
             error: function (data) {
-                alert("Error: 无法获取测试用例");
+                if (alertUser) {
+                    alert("Error: 无法获取测试用例");
+                } else {
+                    $("#input-text").text("无法获取测试用例，服务器可能处于维护中");
+                }
             }
         });
     }
-    click_toc(1);
+    click_toc(1, false);
 
     function click_submit() {
         if (submit_btn_checked) { return; }
@@ -1263,7 +1267,9 @@
                 }
             },
             error: function (data) {
-                alert("Error: 提交失败");
+                let articleContent = $("#result");
+                articleContent.text("");
+                articleContent.append("<p style=\"color: red;\">无法提交数据，服务器可能尚在维护中！</p>");
                 submit_btn_checked = false;
             },
             complete: function (data) {
