@@ -680,7 +680,7 @@
                             
                                 <div class="post-date info-break-policy">
                                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                                    2023-04-01
+                                    2023-04-05
                                 </div>
                             
 
@@ -716,50 +716,37 @@
         <i class="circular search link icon" onclick="getAllCommit()"></i>
     </div>
     <h3 id="error-put" style="color: red"></h3>
-    
-        <h2>TestCase #1</h2>
-        <p id="TestCase1">没有历史提交</p>
-    
-        <h2>TestCase #2</h2>
-        <p id="TestCase2">没有历史提交</p>
-    
-        <h2>TestCase #3</h2>
-        <p id="TestCase3">没有历史提交</p>
-    
-        <h2>TestCase #4</h2>
-        <p id="TestCase4">没有历史提交</p>
-    
-        <h2>TestCase #5</h2>
-        <p id="TestCase5">没有历史提交</p>
-    
-        <h2>TestCase #6</h2>
-        <p id="TestCase6">没有历史提交</p>
-    
-        <h2>TestCase #7</h2>
-        <p id="TestCase7">没有历史提交</p>
-    
-        <h2>TestCase #8</h2>
-        <p id="TestCase8">没有历史提交</p>
-    
-        <h2>TestCase #9</h2>
-        <p id="TestCase9">没有历史提交</p>
-    
-        <h2>TestCase #10</h2>
-        <p id="TestCase10">没有历史提交</p>
-    
+    <div id="history-content"></div>
 </div>
 
 <script>
     let $userId = $("#userId");
-    if (document.cookie.indexOf("userId") !== -1) {
-        $("#userId").val(document.cookie.split("userId=")[1].split(";")[0]);
-        getAllCommit(false);
-    } else {
-        $userId.focus();
-    }
-    $userId.keydown(function (e) {
-        if (e.keyCode === 13) {
-            getAllCommit();
+    let $history_content = $("#history-content");
+    let problems = [];
+    $.ajax({
+        url: "https://toby-oo-check.cpolar.cn/api/problems",
+        type: "GET",
+        success: function (data) {
+            for (let i = 0; i < data.length; i++) {
+                problems.push(data[i]);
+                $history_content.append("<h2>TestCase #" + data[i] + "</h2>");
+                $history_content.append("<p id='TestCase" + data[i] + "'>没有历史提交</p>");
+            }
+            // if success, get all commit
+            if (document.cookie.indexOf("userId") !== -1) {
+                $("#userId").val(document.cookie.split("userId=")[1].split(";")[0]);
+                getAllCommit();
+            } else {
+                $userId.focus();
+            }
+            $userId.keydown(function (e) {
+                if (e.keyCode === 13) {
+                    getAllCommit();
+                }
+            });
+        },
+        error: function (err) {
+            $("#error-put").text("获取历史提交失败，服务器可能处于维护中");
         }
     });
 
@@ -789,40 +776,18 @@
         }
     }
 
-    function getAllCommit(alertUser = true) {
+    function getAllCommit() {
         $.ajax({
             url: "https://toby-oo-check.cpolar.cn/history?userId=" + $userId.val(),
             type: "GET",
             success: function (data) {
                 $("#error-put").text("");
-                
-                    dealCommit(data[1], 1);
-                
-                    dealCommit(data[2], 2);
-                
-                    dealCommit(data[3], 3);
-                
-                    dealCommit(data[4], 4);
-                
-                    dealCommit(data[5], 5);
-                
-                    dealCommit(data[6], 6);
-                
-                    dealCommit(data[7], 7);
-                
-                    dealCommit(data[8], 8);
-                
-                    dealCommit(data[9], 9);
-                
-                    dealCommit(data[10], 10);
-                
+                for (let i = 0; i < problems.length; i++) {
+                    dealCommit(data[problems[i]], problems[i]);
+                }
             },
             error: function (err) {
-                if (alertUser) {
-                    alert("获取历史提交失败");
-                } else {
-                    $("#error-put").text("获取历史提交失败，服务器可能处于维护中");
-                }
+                alert("获取历史提交失败");
             }
         });
     }

@@ -680,7 +680,7 @@
                             
                                 <div class="post-date info-break-policy">
                                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                                    2023-04-01
+                                    2023-04-05
                                 </div>
                             
 
@@ -1132,51 +1132,32 @@
         <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
     </div>
     <div id="toc-content">
-        <ol class="toc-list">
-            
-            <li class="toc-list-item is-active-link">
-                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(1)">TestCase: 1</a>
-            </li>
-            
-            <li class="toc-list-item is-active-link">
-                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(2)">TestCase: 2</a>
-            </li>
-            
-            <li class="toc-list-item is-active-link">
-                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(3)">TestCase: 3</a>
-            </li>
-            
-            <li class="toc-list-item is-active-link">
-                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(4)">TestCase: 4</a>
-            </li>
-            
-            <li class="toc-list-item is-active-link">
-                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(5)">TestCase: 5</a>
-            </li>
-            
-            <li class="toc-list-item is-active-link">
-                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(6)">TestCase: 6</a>
-            </li>
-            
-            <li class="toc-list-item is-active-link">
-                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(7)">TestCase: 7</a>
-            </li>
-            
-            <li class="toc-list-item is-active-link">
-                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(8)">TestCase: 8</a>
-            </li>
-            
-            <li class="toc-list-item is-active-link">
-                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(9)">TestCase: 9</a>
-            </li>
-            
-            <li class="toc-list-item is-active-link">
-                <a class="toc-link node-name--H2 is-active-link" onclick="click_toc(10)">TestCase: 10</a>
-            </li>
-            
-        </ol>
+        <ol class="toc-list" id="toc-list"></ol>
     </div>
 </div>
+
+<script>
+    let $toc = $("#toc-list");
+    let problems = [];
+    $.ajax({
+        url: "https://toby-oo-check.cpolar.cn/api/problems",
+        type: "GET",
+        success: function (data) {
+            for (let i = 0; i < data.length; i++) {
+                problems.push(data[i]);
+                let $li = $("<li class=\"toc-list-item is-active-link\"></li>");
+                let $a = $("<a class=\"toc-link node-name--H2 is-active-link\" onclick=\"click_toc(" + data[i] + ")\"></a>");
+                $a.text("TestCase: " + data[i]);
+                $li.append($a);
+                $toc.append($li);
+            }
+            click_toc(problems[0]);
+        },
+        error: function (err) {
+            $("#input-text").text("无法获取测试用例，服务器可能处于维护中");
+        }
+    });
+</script>
 
         </div>
     
@@ -1197,7 +1178,7 @@
 <script>
     submit_btn_checked = false;
 
-    function click_toc(idx, alertUser = true) {
+    function click_toc(idx) {
         $.ajax({
             url: "https://toby-oo-check.cpolar.cn/get/" + idx,
             type: "GET",
@@ -1212,15 +1193,10 @@
                 btn_field.css("background-color", "");
             },
             error: function (data) {
-                if (alertUser) {
-                    alert("Error: 无法获取测试用例");
-                } else {
-                    $("#input-text").text("无法获取测试用例，服务器可能处于维护中");
-                }
+                alert("Error: 无法获取测试用例");
             }
         });
     }
-    click_toc(1, false);
 
     function click_submit() {
         if (submit_btn_checked) { return; }
