@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="你好博客 2 ？Hello Again?, TobyShiの博客">
+    <meta name="keywords" content="OO Unit 2, TobyShiの博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>你好博客 2 ？Hello Again? | TobyShiの博客</title>
+    <title>OO Unit 2 | TobyShiの博客</title>
 
     <link rel="icon" type="image/png" href="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp">
 
@@ -401,12 +401,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.loli.net/2023/02/28/WscQSEzv5wA8CUg.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">你好博客 2 ？Hello Again?</h1>
+                    <h1 class="description center-align post-title">OO Unit 2</h1>
                 </div>
             </div>
         </div>
@@ -527,12 +527,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                                <span class="chip bg-color">博客</span>
+                            <a href="/tags/OO/">
+                                <span class="chip bg-color">OO</span>
                             </a>
                         
-                            <a href="/tags/%E7%BD%91%E9%A1%B5/">
-                                <span class="chip bg-color">网页</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -543,8 +543,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                博客
+                            <a href="/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-category">
+                                面向对象
                             </a>
                         
                     </div>
@@ -556,28 +556,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-02
+                    2023-04-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-02
+                    2023-04-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    627
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -600,21 +600,78 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这次改动的主要目的是提供一个 oopre 的题面查看和数据下载的方式。正好借此机会进一步的了解 hexo 博客的构建机制，为未来的改动打下基础。</p>
-<h2 id="想要做的事儿"><a href="#想要做的事儿" class="headerlink" title="想要做的事儿"></a>想要做的事儿</h2><p>想法是开一个子页面 oopre，然后 index 就是一个介绍，给出每次作业的链接。然后其下的页面就是每次作业，再在每次作业最后加上一个下载数据链接即可。</p>
-<h2 id="关于-Hexo"><a href="#关于-Hexo" class="headerlink" title="关于 Hexo"></a>关于 Hexo</h2><p>这下我基本上是理解了 hexo 的构建思路。首先就是所有的东西都储存在 source 这个目录下（当然可以在 hexo 的 config 里面更改），然后渲染后的成品放在 public 目录下，最后 push 到 github 时，把 public 目录下的东西覆盖 .deploy_git 然后发布即可。所以实际上 github 仓库内容是和 .deploy_git 目录同步的，.deploy_git又是来自 public 的，public 则是由 source 渲染得到的。</p>
-<p>下面重点说一下渲染过程。首先检查 hexo 的 config 下的 <code>skip_render</code> 变量，这个数组里面的内容是绝对不用渲染，会直接复制进 public 目录。（小贴士：** 表示递归遍历文件夹下所有文件和文件夹）然后其他在 source 目录下的文件均会被渲染。渲染方式是首先看 md 文件头部有没有 <code>layout</code> 变量，有 <code>layout</code> 的，在主题目录里的 <code>layout</code> 目录下找到对应的 layout 文件渲染，否则一律按照 posts 渲染。至于 source 目录里两个下划线开头的目录，显然有特殊用处的嘛……</p>
-<p>理解这些简单 Hexo 渲染流程之后，魔改就比较简单了，虽然我还不是很会写网页……</p>
-<h2 id="关于这次的改动"><a href="#关于这次的改动" class="headerlink" title="关于这次的改动"></a>关于这次的改动</h2><p>这次的改动的话主要是新增了 oopre 相关的几个 ejs 文件。</p>
-<ol>
-<li>用于 index 的 <code>oopre.ejs</code>，这个主要功能是网页重定向，重定向至介绍 oopre 的那篇博客。</li>
-<li>用于展示题面的 <code>oopre_hw.ejs</code>，主要由 <code>post.ejs</code> 复制而来，主要改动就是去除了一些不需要的判断语句，另外把内容页换成了 <code>oopre-detail-toc.ejs</code>。</li>
-<li><code>_partial/oopre-detail-toc.ejs</code>，从 <code>_partial/post-detail-toc.ejs</code> 复制而来。主要改动就是把 <code>_partial/post-detail.ejs</code> 换成了 <code>_partial/oopre-detail.ejs</code>。</li>
-<li><code>_partial/oopre-detail.ejs</code>，改动主要是 tag 和 category 恒定为 <code>oopre</code>，然后超链接恒为 <code>/oopre</code>。</li>
-</ol>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li>网页重定向：<a target="_blank" rel="noopener" href="https://blog.csdn.net/penngrove/article/details/6933860">https://blog.csdn.net/penngrove/article/details/6933860</a></li>
-</ol>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这个单元任务量很大，Bug 也很多，让人心累。不过呢确实学到了很多东西，从 Java 多线程，到 C++ 虚类，继承，多态，再到 Html，python flask，都可以有涉及。</p>
+<h2 id="本单元任务简介"><a href="#本单元任务简介" class="headerlink" title="本单元任务简介"></a>本单元任务简介</h2><p>第一次作业：本次作业的基本目标是模拟<strong>多线程实时电梯系统</strong>，熟悉线程的创建、运行等基本操作，熟悉多线程程序的设计方法。</p>
+<p>第二次作业：在第一次作业的基础上，掌握线程安全知识并解决线程安全问题，同时在架构上围绕线程之间的协同设计层次架构。</p>
+<p>第三次作业：在前两次作业的基础上，掌握线程之间的交互，强化线程之间的协同设计层次架构。</p>
+<h2 id="架构分析"><a href="#架构分析" class="headerlink" title="架构分析"></a>架构分析</h2><p><code>Sequence Diagrams</code> 时序图：</p>
+<p><a target="_blank" rel="noopener" href="https://mermaid.live/edit#pako:eNqdWNuO4jgQ_ZUoo5F6JBrlfuFhHqC7VyP17GVAO9KKFydxwGrHZh1nptlW__vaCZDYucCukRCOz6kqH5fLJm9mSjNoLswS_l1BksIHBHYMFFtiiIYpPRhfASLGs_jVPJPtCzlUfLNnEGT3nz__gmkC8B8VrODC-L0q98Y3aazkLWF9LDksVpRwRjGGrMdC6YtgqaTa-4oWwhc0AMmMB1QeAE_3LWTQtjCuP1tc7Hyj4vuKgf6U2jkZSyBC_b6HxFhW5fGqpUcMfwBO2clWfwqQZG3njJ4ycdJKU3iA2aHqSmAopdBtdJd1hCyTgcuE-EI4ZKw68CvBjyZHI-TdxSBlxoYBUuaQfWpsXpSZSLe1ABkrTEtorNGOANwwOpj7voLfAeJGLhw-Fgd-7PsYTKART9eX_FbiiOID9KGIh6gbyApEgMx3c2YWogdQJvb6mzSwNfkeFnBrLsTPDOagwnxrzjpDfwKGQIJhKTFvjdOtmYhl2zFaicWpqT_3SDhoiHL8wFAB2HFFMWUN4sPj6nH19NTBlDClJNNQuWhZ15JIMI5U0L7Ed5E1M2zL-jgz4mDuhJ5vxZHlxh8_9YNYUpZBpvEdTxgIJD8a5V8CHLQQXAy4c9-JPdsOAy9UDJxjH-RH1wM4TWADX3lXI9u1XcsaClRHWqI59kBEGpDtkrt47lunZgtVR3vdADEisOvPrZviTw1IHRWZSJYvu-kEaQG93EhqXe3TcOyG1sOyN-ychoFoinfAGP25Fxtncga52EpPoED42CC2WzErBpMq3UNuFKXsz4wfkGWAgJkhdwvW6Gv0z2mH2cHhtSsfSCBealvpA4zkpwMj4nCekKkerqc6JkSKK1Fm2ISSZ0TXTE-wU314RuRletERx3B81WG2g8-3zRykoph1g6q3rh_PAyewg8hxPHdmiG4YBr4buLYTyf0UzmPLjgMrjDxX2U-NuXEl63FtayRYRKljntW83zF47OZtXaHHBWjGN5Nbo0kN-iqinSyiF9xgkfvfStVmryghb2ZXIIRy2Iusn1g1TJ2oSFAfZBrm-tIgcfwhSvo-gyAYRmpuPflRalBzI_61KhLFon7iiWLVtyfqKrizLUeeVeLL8f2ZYc29WElKzNdD3CsOnFYoTzkMOChf-vP3XS9PUh2mTj4CsZVlGkZq_ox2ez4R2hl3A-QBsJeJJTzDfqt4iTJ4A3KFxU1YXlDUc8-1A1dfcLi5TZoOWBUoydMwzzvIHUPd0wNLnbRikFEyYGoSqUeo4VKGeH8WeR6JpsPUbITK4tIMHLVCpiLqIjCxBOLqX5dTRUzfEU0H6bWuh0oxKEuJGrvi5AjjzfEArbFCeAbYY0fcGeC09dG1vOu3yDPPbXm20_JGL39nntfhhcHt_vyWd_8f3AWdG-btzsJOkFE06k3S3rfkXfyRABWn6yNJzQVnFZyZ1SET_zFOLw7MRQ5weXn6mCFxaF4eHgD5i9IWBOvhr80riPpNxPu_XNQFBA"><img src="https://mermaid.ink/img/pako:eNqdWNuO4jgQ_ZUoo5F6JBrlfuFhHqC7VyP17GVAO9KKFydxwGrHZh1nptlW__vaCZDYucCukRCOz6kqH5fLJm9mSjNoLswS_l1BksIHBHYMFFtiiIYpPRhfASLGs_jVPJPtCzlUfLNnEGT3nz__gmkC8B8VrODC-L0q98Y3aazkLWF9LDksVpRwRjGGrMdC6YtgqaTa-4oWwhc0AMmMB1QeAE_3LWTQtjCuP1tc7Hyj4vuKgf6U2jkZSyBC_b6HxFhW5fGqpUcMfwBO2clWfwqQZG3njJ4ycdJKU3iA2aHqSmAopdBtdJd1hCyTgcuE-EI4ZKw68CvBjyZHI-TdxSBlxoYBUuaQfWpsXpSZSLe1ABkrTEtorNGOANwwOpj7voLfAeJGLhw-Fgd-7PsYTKART9eX_FbiiOID9KGIh6gbyApEgMx3c2YWogdQJvb6mzSwNfkeFnBrLsTPDOagwnxrzjpDfwKGQIJhKTFvjdOtmYhl2zFaicWpqT_3SDhoiHL8wFAB2HFFMWUN4sPj6nH19NTBlDClJNNQuWhZ15JIMI5U0L7Ed5E1M2zL-jgz4mDuhJ5vxZHlxh8_9YNYUpZBpvEdTxgIJD8a5V8CHLQQXAy4c9-JPdsOAy9UDJxjH-RH1wM4TWADX3lXI9u1XcsaClRHWqI59kBEGpDtkrt47lunZgtVR3vdADEisOvPrZviTw1IHRWZSJYvu-kEaQG93EhqXe3TcOyG1sOyN-ychoFoinfAGP25Fxtncga52EpPoED42CC2WzErBpMq3UNuFKXsz4wfkGWAgJkhdwvW6Gv0z2mH2cHhtSsfSCBealvpA4zkpwMj4nCekKkerqc6JkSKK1Fm2ISSZ0TXTE-wU314RuRletERx3B81WG2g8-3zRykoph1g6q3rh_PAyewg8hxPHdmiG4YBr4buLYTyf0UzmPLjgMrjDxX2U-NuXEl63FtayRYRKljntW83zF47OZtXaHHBWjGN5Nbo0kN-iqinSyiF9xgkfvfStVmryghb2ZXIIRy2Iusn1g1TJ2oSFAfZBrm-tIgcfwhSvo-gyAYRmpuPflRalBzI_61KhLFon7iiWLVtyfqKrizLUeeVeLL8f2ZYc29WElKzNdD3CsOnFYoTzkMOChf-vP3XS9PUh2mTj4CsZVlGkZq_ox2ez4R2hl3A-QBsJeJJTzDfqt4iTJ4A3KFxU1YXlDUc8-1A1dfcLi5TZoOWBUoydMwzzvIHUPd0wNLnbRikFEyYGoSqUeo4VKGeH8WeR6JpsPUbITK4tIMHLVCpiLqIjCxBOLqX5dTRUzfEU0H6bWuh0oxKEuJGrvi5AjjzfEArbFCeAbYY0fcGeC09dG1vOu3yDPPbXm20_JGL39nntfhhcHt_vyWd_8f3AWdG-btzsJOkFE06k3S3rfkXfyRABWn6yNJzQVnFZyZ1SET_zFOLw7MRQ5weXn6mCFxaF4eHgD5i9IWBOvhr80riPpNxPu_XNQFBA?type=jpg"></a></p>
+<h2 id="寻路算法分析"><a href="#寻路算法分析" class="headerlink" title="寻路算法分析"></a>寻路算法分析</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Route</span> <span class="token function">compute</span><span class="token punctuation">(</span><span class="token class-name">Passenger</span> p<span class="token punctuation">,</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> accessList<span class="token punctuation">,</span> <span class="token keyword">int</span> startAccess<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">isArrived</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Route</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// already arrived</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">canAccess</span><span class="token punctuation">(</span>startAccess<span class="token punctuation">,</span> p<span class="token punctuation">.</span><span class="token function">getFrom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Route</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> <span class="token number">1000000000</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// cannot access</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">final</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">VisitedFloor</span><span class="token punctuation">&gt;</span></span> deque <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">canAccess</span><span class="token punctuation">(</span>startAccess<span class="token punctuation">,</span> p<span class="token punctuation">.</span><span class="token function">getTo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Route</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// directly</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token class-name">VisitedFloor</span> first <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VisitedFloor</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">getFrom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">11</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>first<span class="token punctuation">.</span>vis<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token function">canAccess</span><span class="token punctuation">(</span>startAccess<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                arr<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        arr<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">comparingInt</span><span class="token punctuation">(</span>o <span class="token operator">-&gt;</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>o <span class="token operator">-</span> p<span class="token punctuation">.</span><span class="token function">getFrom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">:</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span> deque<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">VisitedFloor</span><span class="token punctuation">(</span>first<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>deque<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">VisitedFloor</span> cur <span class="token operator">=</span> deque<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">canAccess</span><span class="token punctuation">(</span>accessList<span class="token punctuation">,</span> cur<span class="token punctuation">.</span>cur<span class="token punctuation">,</span> p<span class="token punctuation">.</span><span class="token function">getTo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Route</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Passenger</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> p<span class="token punctuation">.</span><span class="token function">getFrom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cur<span class="token punctuation">.</span>first<span class="token punctuation">,</span> p<span class="token punctuation">.</span><span class="token function">getTo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                             cur<span class="token punctuation">.</span>count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> cur<span class="token punctuation">.</span>via<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">11</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>cur<span class="token punctuation">.</span>vis<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token function">canAccess</span><span class="token punctuation">(</span>accessList<span class="token punctuation">,</span> cur<span class="token punctuation">.</span>cur<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                deque<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">VisitedFloor</span><span class="token punctuation">(</span>cur<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Route</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> <span class="token number">1000000000</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// cannot access</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对每个请求，对每个电梯作为起始电梯进行广搜，返回乘坐该电梯需要的最小换乘次数以及到达所需楼层所要经过的楼层。</p>
+<p>在 <code>SystemController</code> 中，按照一定的权重给每个电梯一个代价估值，然后选乘代价最小的电梯。为避免一个乘客在一个电梯中来回上下，我为乘客添加了曾经乘坐过的电梯队列，将乘坐过的电梯按照时间顺序依次抬高代价。</p>
+<p>为避免静态分配导致后续加入的电梯没有任何工作可做，当电梯队列人数较多时，决定让新加入的乘客等待，延迟加入队列：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ElevatorQueue<span class="token punctuation">.</span>WaitException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ex<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Global</span><span class="token punctuation">.</span>globalQueue<span class="token punctuation">.</span><span class="token function">pushFront</span><span class="token punctuation">(</span>passenger<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>不过这也是强测挂掉的原因。虽然有些奇怪，因为乘客数最多不会超过 100 人，所以依照此法开的线程数并不会太多。可能是强测波动原因导致新建线程被阻止而造成了乘客丢失，最后 RTLE。</p>
+<h2 id="Bugs"><a href="#Bugs" class="headerlink" title="Bugs"></a>Bugs</h2><p>第一次作业因为二分查找写错了导致电梯请求队列变得无序，进而电梯接人策略出现严重问题，浪费大量时间，导致 RTLE。</p>
+<p>第二次作业没有新的 Bug。</p>
+<p>第三次作业因为开的线程过多被评测机禁止而导致乘客丢失，最后因为检测到请求未完成而一直等待已经丢失的东西而 RTLE。</p>
+<p>互测刀中深搜写的复杂度过高而 CTLE 的。以及随缘写了一些代码而出现大面积漏洞 WA 的。</p>
+<h2 id="评测机"><a href="#评测机" class="headerlink" title="评测机"></a>评测机</h2><p>我搭建了一个线上的网页 “评测机”。准确来说，它并不是评测机，因为它只要求使用者上传对应输出，而无需上传源代码进行评测。</p>
+<p>评测机网页前端搭建在 GitHub 我的博客上，当然这是因为可以借用我的博客的风格，不至于太简陋，另外也是免费的。</p>
+<p>评测机评测后端位于 Mac Mini 上，使用 cpolar 进行了内网穿透。与前端通信使用的 Python + Flask，而评测使用的是 cpp 写的 checker。</p>
+<p>评测机数据库位于 Leancloud，免费，而且有完备的 Python API，虽然有 API 调用次数限制，但是这样的小网站，想必是不可能超过限制的。</p>
+<p>心得：学到很多东西，另外看到很多人使用也很有成绩感。当你不那么注重卷绩点或者分数的时候，多做做额外的工作，真的会很有收获。反对内卷，从我做起。</p>
+<h3 id="访问量"><a href="#访问量" class="headerlink" title="访问量"></a>访问量</h3><blockquote>
+<p>以下是单纯的成就感时间：</p>
+</blockquote>
+<p>Lean Cloud API 访问次数统计：<img src="https://s2.loli.net/2023/04/15/i6zutDYdFhLGHEn.png" alt="Lean Cloud API 访问次数统计"></p>
+<p>博客访问次数统计：<img src="https://s2.loli.net/2023/04/15/nCEPsd1ke5XSMgO.png" alt="Google Analytics"></p>
 
                 
             </div>
@@ -629,12 +686,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                                    <span class="chip bg-color">博客</span>
+                                <a href="/tags/OO/">
+                                    <span class="chip bg-color">OO</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BD%91%E9%A1%B5/">
-                                    <span class="chip bg-color">网页</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -994,77 +1051,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/alist-with-ipv6.html">
+                <a href="/posts/oounit2.html">
                     <div class="card-image">
                         
+                        <img src="https://s2.loli.net/2023/02/28/WscQSEzv5wA8CUg.png" class="responsive-img" alt="OO Unit 2">
                         
-                        <img src="/medias/banner/5.jpg" class="responsive-img" alt="使用 Alist 和 IPV6 搭建私有云盘">
-                        
-                        <span class="card-title">使用 Alist 和 IPV6 搭建私有云盘</span>
+                        <span class="card-title">OO Unit 2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用 Alist 和 IPV6 搭建私有云盘
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-21
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%A7%81%E6%9C%89%E4%BA%91/" class="post-category">
-                                    私有云
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%A7%81%E6%9C%89%E4%BA%91/">
-                        <span class="chip bg-color">私有云</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/oopre2022selftest.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/banner/3.jpg" class="responsive-img" alt="2022年 C++（即oopre）作业自测">
-                        
-                        <span class="card-title">2022年 C++（即oopre）作业自测</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            提供课程组官方的数据，用于希望在寒假补上 oopre 的同学们。
+                            第二单元博客总结
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-15
                             </span>
                         <span class="publish-author">
                             
@@ -1078,6 +1086,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1087,6 +1096,59 @@
                     
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/oslab2.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/picture/4.jpeg" class="responsive-img" alt="Operator System Lab 2 上机实验回顾">
+                        
+                        <span class="card-title">Operator System Lab 2 上机实验回顾</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这次的 extra 确实很有挑战性，所以值得一记
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C-C/">
+                        <span class="chip bg-color">C/C++</span>
+                    </a>
+                    
+                    <a href="/tags/OS/">
+                        <span class="chip bg-color">OS</span>
                     </a>
                     
                 </div>
