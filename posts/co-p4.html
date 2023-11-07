@@ -1,0 +1,2150 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="计算机组成 P4 设计文档 （Verilog 单周期 CPU）, TobyShiの博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WSFH30CBQ8"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-WSFH30CBQ8');
+</script>
+
+
+    <title>计算机组成 P4 设计文档 （Verilog 单周期 CPU） | TobyShiの博客</title>
+
+    <link rel="icon" type="image/png" href="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?aaa6c944b0ed07922901d7fc571a171d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="TobyShiの博客" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo" style="width: max-content">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">TobyShiの博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-paper-plane" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tag" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/music" class="waves-effect waves-light">
+      
+      <i class="fas fa-music" style="zoom: 0.6;"></i>
+      
+      <span>音乐</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-envelope" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-link" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://s2.loli.net/2022/06/14/oACLUnD8hQ6VrzZ.webp" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">TobyShiの博客</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-paper-plane" style="position: absolute;left:50px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tag" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/music" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-music"></i>
+			
+			音乐
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-envelope"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-link"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Toby-Shi-cloud/" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Toby-Shi-cloud/" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">计算机组成 P4 设计文档 （Verilog 单周期 CPU）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        background-color: white;
+        width: 345px;
+        padding-left: 20px;
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    
+    #toc-content {
+        height: calc(100vh - 300px);
+        overflow: scroll;
+
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+        bottom: 120px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CO/">
+                                <span class="chip bg-color">CO</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" class="post-category">
+                                计算机组成
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-04-01
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-11-07
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    13 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="设计文档综述"><a href="#设计文档综述" class="headerlink" title="设计文档综述"></a>设计文档综述</h2><h3 id="数据通路设计"><a href="#数据通路设计" class="headerlink" title="数据通路设计"></a>数据通路设计</h3><p>数据通路设计和参考设计几乎一致，如下图所示：</p>
+<p><img src="https://s2.loli.net/2022/11/07/xmejEK7lrfTtV59.png" alt="image-20221107003221627"></p>
+<h3 id="模块文件结构"><a href="#模块文件结构" class="headerlink" title="模块文件结构"></a>模块文件结构</h3><p>上面数据通路涉及到的模块，<code>PC</code>，<code>RF</code>等等，在下面都有对应的文件实现。然后额外实现了 <code>Controller</code>（就是一个套壳），以及配套的 <code>MUX</code>，当然还有用于全局的 <code>macro</code></p>
+<p><img src="https://s2.loli.net/2022/11/07/3rX6lyGkBKLxQJv.png" alt="文件总览"></p>
+<p><img src="https://s2.loli.net/2022/11/07/QZH8i914JKfz7bx.png" alt="模块结构"></p>
+<h2 id="模块叙述"><a href="#模块叙述" class="headerlink" title="模块叙述"></a>模块叙述</h2><h3 id="PC-v"><a href="#PC-v" class="headerlink" title="PC.v"></a><code>PC.v</code></h3><p>模块声明：</p>
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">module</span> PC <span class="token punctuation">(</span>
+    <span class="token keyword">input</span> clk<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> reset<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> npc<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token keyword">reg</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> pc
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>很简单的模块，只是一个用于存储 <code>pc</code> 的寄存器。</p>
+<p>时钟上升沿到来时，如果 <code>reset</code> 在高电平，<code>pc</code> 置 <code>0x3000</code>，否则 <code>pc</code> 置为 <code>npc</code>。</p>
+<h3 id="PCjump-v"><a href="#PCjump-v" class="headerlink" title="PCjump.v"></a><code>PCjump.v</code></h3><p>模块声明：</p>
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">module</span> PCjump <span class="token punctuation">(</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> pc<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> jpc<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> enable<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> pc4<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token keyword">reg</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> npc
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>很简单的模块，只是一个专用于 <code>pc</code> 的 <code>mux</code> 部件。</p>
+<p>其中 <code>pc4</code> 始终等于 <code>pc + 4</code>。<code>enalbe</code> 为高电平时 <code>npc</code> 的值为 <code>jpc</code>（跳转值），否则为 <code>pc4</code>。</p>
+<h3 id="IM-v"><a href="#IM-v" class="headerlink" title="IM.v"></a><code>IM.v</code></h3><p>模块声明：</p>
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">module</span> IM <span class="token punctuation">(</span>
+    <span class="token keyword">input</span>  <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> programCounter<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> instruction
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>很简单的模块，包含一个储存指令的 <code>ROM</code>。</p>
+<p>首先在 <code>initial</code> 中使用 <code>$readmemh</code> 指令读取指令机器码。然后 <code>assign instruction = ROM[programCounter[13:2]-12'hc00];</code>。其中 <code>0x0c00</code> 就是 <code>0x3000 &gt;&gt; 2</code>。</p>
+<h3 id="DM-v"><a href="#DM-v" class="headerlink" title="DM.v"></a><code>DM.v</code></h3><p>模块声明：</p>
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">module</span> DM <span class="token punctuation">(</span>
+    <span class="token keyword">input</span> clk<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> reset<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> memWrite<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> addr<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> dataWrite<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> programCounter<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> dataRead
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>基础模块。接口意义同 <code>P3</code>。<code>pc</code> 接口只是用于课程要求的输出。</p>
+<p>主要逻辑是，时钟上升沿时，若 <code>reset</code> 为高电平，用 <code>for</code> 循环置零所有数据；否则，检查写使能，考虑是否写入；并且始终读取数据（并非在写数据时读取浮空值）。</p>
+<h3 id="RF-v"><a href="#RF-v" class="headerlink" title="RF.v"></a><code>RF.v</code></h3><p>模块声明：</p>
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">module</span> RF <span class="token punctuation">(</span>
+    <span class="token keyword">input</span> clk<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> reset<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> writeEnable<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> writeAddr<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> readAddr1<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> readAddr2<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> writeData<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> readData1<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> readData2<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> programCounter
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>基础模块。接口意义同 <code>P3</code>。<code>pc</code> 接口只是用于课程要求的输出。</p>
+<p>主要逻辑是，时钟上升沿时，若 <code>reset</code> 为高电平，用 <code>for</code> 循环置零所有数据；否则，检查写使能，考虑是否写入；并且始终读取数据。</p>
+<h3 id="ALU-v"><a href="#ALU-v" class="headerlink" title="ALU.v"></a><code>ALU.v</code></h3><p>模块定义：</p>
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">module</span> ALU <span class="token punctuation">(</span>
+    <span class="token keyword">input</span>      <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> rs<span class="token punctuation">,</span>     <span class="token comment">// %rs, may be $zero</span>
+    <span class="token keyword">input</span>      <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> rt<span class="token punctuation">,</span>     <span class="token comment">// %rt, may be extend(imm)</span>
+    <span class="token keyword">input</span>      <span class="token punctuation">[</span> <span class="token number">4</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> shamt<span class="token punctuation">,</span>  <span class="token comment">// shamt</span>
+    <span class="token keyword">input</span>      <span class="token punctuation">[</span> <span class="token number">3</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> op<span class="token punctuation">,</span>     <span class="token comment">// ALUop</span>
+    <span class="token keyword">output</span> <span class="token keyword">reg</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> rd      <span class="token comment">// %rd, may be %rt if rt is imm</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>基础模块。相较于 <code>P3</code> 做了一些改动。新增 <code>shamt</code> 接口直接实现移位指令。</p>
+<p>对于普通指令 <code>rd = rs op rt</code>，对于移位指令 <code>rd = rt op shamt</code>，对于单目指令 <code>rd op rt</code>。</p>
+<p><code>op</code> 的意义在 <code>macro.v</code> 宏文件中定义。</p>
+<h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a><code>Controller</code></h3><p>模块定义：</p>
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">module</span> Controller <span class="token punctuation">(</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> pc<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> pc4<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> instr<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token keyword">reg</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> npc<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token keyword">reg</span> pcJumpEnable<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> memAddr<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token keyword">reg</span> memWE<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> memRead<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> memWrite<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token keyword">reg</span> grfWE<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> grfRA1<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> grfRA2<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> grfWA<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> grfRD1<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> grfRD2<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> grfWD<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> aluRs<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> aluRt<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> aluRd<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> shamt<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token keyword">reg</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> aluOp
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>几乎就是数据通路了，因此顶层模块实际上只是套壳。</p>
+<p>模块内部代码如下：</p>
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> opcode<span class="token punctuation">,</span> funct<span class="token punctuation">;</span>
+<span class="token keyword">assign</span> opcode <span class="token operator">=</span> instr<span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// one-hot code: RIJ</span>
+<span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> instrType<span class="token punctuation">;</span>
+<span class="token keyword">assign</span> instrType <span class="token operator">=</span> <span class="token operator">{</span>
+  <span class="token comment">// R format</span>
+  opcode <span class="token operator">==</span> <span class="token constant">`MIPS_SPEC</span><span class="token punctuation">,</span>
+  <span class="token comment">// I format</span>
+  opcode <span class="token operator">==</span> <span class="token constant">`MIPS_ORI</span> <span class="token operator">||</span>
+  opcode <span class="token operator">==</span> <span class="token constant">`MIPS_LW</span>  <span class="token operator">||</span>
+  opcode <span class="token operator">==</span> <span class="token constant">`MIPS_SW</span>  <span class="token operator">||</span>
+  opcode <span class="token operator">==</span> <span class="token constant">`MIPS_LUI</span> <span class="token operator">||</span>
+  opcode <span class="token operator">==</span> <span class="token constant">`MIPS_BEQ</span> <span class="token punctuation">,</span>
+  <span class="token comment">// J format</span>
+  opcode <span class="token operator">==</span>
+  <span class="token constant">`MIPS_JAL</span>
+<span class="token operator">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// R format {opcode, rs, rt, rd, shamt, funct} = instr;</span>
+<span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> rs<span class="token punctuation">,</span> rt<span class="token punctuation">,</span> rd<span class="token punctuation">;</span>
+<span class="token keyword">assign</span> rs <span class="token operator">=</span> instr<span class="token punctuation">[</span><span class="token number">25</span><span class="token punctuation">:</span><span class="token number">21</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">assign</span> rt <span class="token operator">=</span> instr<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">assign</span> rd <span class="token operator">=</span> instr<span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">assign</span> shamt <span class="token operator">=</span> instr<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">assign</span> funct <span class="token operator">=</span> instr<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// I format {opcode, rs, rt, imm} = instr;</span>
+<span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> imm<span class="token punctuation">;</span>
+<span class="token keyword">assign</span> imm <span class="token operator">=</span> instr<span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// J format {opcode, jump} = instr;</span>
+<span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">25</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> jump<span class="token punctuation">;</span>
+<span class="token keyword">assign</span> jump <span class="token operator">=</span> instr<span class="token punctuation">[</span><span class="token number">25</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ALU controll</span>
+<span class="token keyword">reg</span> alu_rt_sel<span class="token punctuation">;</span>
+<span class="token keyword">assign</span> aluRs <span class="token operator">=</span> grfRD1<span class="token punctuation">;</span>
+MUX_alu_rt mux_alu_rt <span class="token punctuation">(</span>
+    <span class="token punctuation">.</span><span class="token function">rt</span><span class="token punctuation">(</span>grfRD2<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token function">imm</span><span class="token punctuation">(</span>imm<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token function">sel</span><span class="token punctuation">(</span>alu_rt_sel<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token function">aluRt</span><span class="token punctuation">(</span>aluRt<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// GRF controll</span>
+<span class="token keyword">reg</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> grf_wa_sel<span class="token punctuation">,</span> grf_wd_sel<span class="token punctuation">;</span>
+<span class="token keyword">assign</span> grfRA1 <span class="token operator">=</span> rs<span class="token punctuation">;</span>
+<span class="token keyword">assign</span> grfRA2 <span class="token operator">=</span> rt<span class="token punctuation">;</span>
+MUX_grf_wa mux_grf_wa <span class="token punctuation">(</span>
+    <span class="token punctuation">.</span><span class="token function">rd</span><span class="token punctuation">(</span>rd<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token function">rt</span><span class="token punctuation">(</span>rt<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token function">sel</span><span class="token punctuation">(</span>grf_wa_sel<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token function">grfWA</span><span class="token punctuation">(</span>grfWA<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+MUX_grf_wd mux_grf_wd <span class="token punctuation">(</span>
+    <span class="token punctuation">.</span>alu  <span class="token punctuation">(</span>aluRd<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span>mem  <span class="token punctuation">(</span>memRead<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span>pc4  <span class="token punctuation">(</span>pc4<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span>sel  <span class="token punctuation">(</span>grf_wd_sel<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token function">grfWD</span><span class="token punctuation">(</span>grfWD<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// DM controll</span>
+<span class="token keyword">assign</span> memAddr  <span class="token operator">=</span> grfRD1 <span class="token operator">+</span> <span class="token operator">{{</span><span class="token number">16</span><span class="token operator">{</span>imm<span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token operator">}}</span><span class="token punctuation">,</span> imm<span class="token operator">}</span><span class="token punctuation">;</span>
+<span class="token keyword">assign</span> memWrite <span class="token operator">=</span> grfRD2<span class="token punctuation">;</span>
+
+<span class="token comment">// PC controll</span>
+
+
+<span class="token important">always @</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">begin</span>
+  <span class="token keyword">case</span> <span class="token punctuation">(</span>instrType<span class="token punctuation">)</span>
+    <span class="token constant">`MIPS_RFORMAT</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+      alu_rt_sel <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      grf_wa_sel <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      grf_wd_sel <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      memWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      npc <span class="token operator">=</span> grfRD1<span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token punctuation">(</span>funct<span class="token punctuation">)</span>
+        <span class="token constant">`FUNCT_ADD</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          aluOp <span class="token operator">=</span> <span class="token constant">`ALU_ADD</span><span class="token punctuation">;</span>
+          grfWE <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+        <span class="token constant">`FUNCT_SUB</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          aluOp <span class="token operator">=</span> <span class="token constant">`ALU_SUB</span><span class="token punctuation">;</span>
+          grfWE <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+        <span class="token constant">`FUNCT_SLL</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          aluOp <span class="token operator">=</span> <span class="token constant">`ALU_SLL</span><span class="token punctuation">;</span>
+          grfWE <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+        <span class="token constant">`FUNCT_JR</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          aluOp <span class="token operator">=</span> <span class="token constant">`ALU_NOP</span><span class="token punctuation">;</span>
+          grfWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          aluOp <span class="token operator">=</span> <span class="token constant">`ALU_NOP</span><span class="token punctuation">;</span>
+          grfWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+      <span class="token keyword">endcase</span>
+    <span class="token keyword">end</span>
+    <span class="token constant">`MIPS_IFORMAT</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+      alu_rt_sel <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      grf_wa_sel <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      npc <span class="token operator">=</span> pc4 <span class="token operator">+</span> <span class="token operator">{{</span><span class="token number">14</span><span class="token operator">{</span>imm<span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token operator">}}</span><span class="token punctuation">,</span> imm<span class="token punctuation">,</span> <span class="token number">2'b00</span><span class="token operator">}</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token punctuation">(</span>opcode<span class="token punctuation">)</span>
+        <span class="token constant">`MIPS_ORI</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          aluOp <span class="token operator">=</span> <span class="token constant">`ALU_OR</span><span class="token punctuation">;</span>
+          grfWE <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+          grf_wd_sel <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          memWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+        <span class="token constant">`MIPS_BEQ</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          aluOp <span class="token operator">=</span> <span class="token constant">`ALU_NOP</span><span class="token punctuation">;</span>
+          grfWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          grf_wd_sel <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          memWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> grfRD1 <span class="token operator">==</span> grfRD2<span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+        <span class="token constant">`MIPS_LW</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          aluOp <span class="token operator">=</span> <span class="token constant">`ALU_NOP</span><span class="token punctuation">;</span>
+          grfWE <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+          grf_wd_sel <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+          memWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+        <span class="token constant">`MIPS_SW</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          aluOp <span class="token operator">=</span> <span class="token constant">`ALU_NOP</span><span class="token punctuation">;</span>
+          grfWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          grf_wd_sel <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          memWE <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+        <span class="token constant">`MIPS_LUI</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          aluOp <span class="token operator">=</span> <span class="token constant">`ALU_LUI</span><span class="token punctuation">;</span>
+          grfWE <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+          grf_wd_sel <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          memWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          aluOp <span class="token operator">=</span> <span class="token constant">`ALU_NOP</span><span class="token punctuation">;</span>
+          grfWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          grf_wd_sel <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          memWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+      <span class="token keyword">endcase</span>
+    <span class="token keyword">end</span>
+    <span class="token constant">`MIPS_JFORMAT</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+      alu_rt_sel <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      aluOp <span class="token operator">=</span> <span class="token constant">`ALU_NOP</span><span class="token punctuation">;</span>
+      grf_wa_sel <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+      grf_wd_sel <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+      memWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      npc <span class="token operator">=</span> <span class="token operator">{</span>pc<span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">28</span><span class="token punctuation">]</span><span class="token punctuation">,</span> jump<span class="token punctuation">,</span> <span class="token number">2'b00</span><span class="token operator">}</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token punctuation">(</span>opcode<span class="token punctuation">)</span>
+        <span class="token constant">`MIPS_JAL</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          grfWE <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token keyword">begin</span>
+          grfWE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+          pcJumpEnable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+      <span class="token keyword">endcase</span>
+    <span class="token keyword">end</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>  <span class="token comment">/* default */</span><span class="token punctuation">;</span>
+  <span class="token keyword">endcase</span>
+<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="mips-v"><a href="#mips-v" class="headerlink" title="mips.v"></a><code>mips.v</code></h3><p>顶层模块代码：</p>
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">module</span> mips <span class="token punctuation">(</span>
+    <span class="token keyword">input</span> clk<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> reset
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> pc<span class="token punctuation">,</span> npc<span class="token punctuation">,</span> pc4<span class="token punctuation">,</span> instr<span class="token punctuation">,</span> jpc<span class="token punctuation">;</span>
+  <span class="token keyword">wire</span> jumpEnable<span class="token punctuation">;</span>
+  PC ppc <span class="token punctuation">(</span>
+      <span class="token punctuation">.</span><span class="token function">clk</span><span class="token punctuation">(</span>clk<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span>reset<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">pc</span><span class="token punctuation">(</span>pc<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">npc</span><span class="token punctuation">(</span>npc<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  PCjump pcj <span class="token punctuation">(</span>
+      <span class="token punctuation">.</span><span class="token function">pc</span><span class="token punctuation">(</span>pc<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">npc</span><span class="token punctuation">(</span>npc<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">jpc</span><span class="token punctuation">(</span>jpc<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">enable</span><span class="token punctuation">(</span>jumpEnable<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">pc4</span><span class="token punctuation">(</span>pc4<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  IM im <span class="token punctuation">(</span>
+      <span class="token punctuation">.</span><span class="token function">programCounter</span><span class="token punctuation">(</span>pc<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">instruction</span><span class="token punctuation">(</span>instr<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+  <span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> regRD1<span class="token punctuation">,</span> regRD2<span class="token punctuation">,</span> regWD<span class="token punctuation">,</span> memRD<span class="token punctuation">,</span> memWD<span class="token punctuation">;</span>
+  <span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> regRA1<span class="token punctuation">,</span> regRA2<span class="token punctuation">,</span> regWA<span class="token punctuation">;</span>
+  <span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> memAddr<span class="token punctuation">;</span>
+  <span class="token keyword">wire</span> regWE<span class="token punctuation">,</span> memWE<span class="token punctuation">;</span>
+  DM dm <span class="token punctuation">(</span>
+      <span class="token punctuation">.</span><span class="token function">clk</span><span class="token punctuation">(</span>clk<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span>reset<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">programCounter</span><span class="token punctuation">(</span>pc<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">memWrite</span><span class="token punctuation">(</span>memWE<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">addr</span><span class="token punctuation">(</span>memAddr<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">dataWrite</span><span class="token punctuation">(</span>memWD<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">dataRead</span><span class="token punctuation">(</span>memRD<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  RF rf <span class="token punctuation">(</span>
+      <span class="token punctuation">.</span><span class="token function">clk</span><span class="token punctuation">(</span>clk<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span>reset<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">programCounter</span><span class="token punctuation">(</span>pc<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">writeEnable</span><span class="token punctuation">(</span>regWE<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">writeAddr</span><span class="token punctuation">(</span>regWA<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">readAddr1</span><span class="token punctuation">(</span>regRA1<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">readAddr2</span><span class="token punctuation">(</span>regRA2<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">writeData</span><span class="token punctuation">(</span>regWD<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">readData1</span><span class="token punctuation">(</span>regRD1<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">readData2</span><span class="token punctuation">(</span>regRD2<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+  <span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> aluA<span class="token punctuation">,</span> aluB<span class="token punctuation">,</span> aluC<span class="token punctuation">;</span>
+  <span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> shamt<span class="token punctuation">;</span>
+  <span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> aluOp<span class="token punctuation">;</span>
+  ALU alu <span class="token punctuation">(</span>
+      <span class="token punctuation">.</span><span class="token function">rs</span><span class="token punctuation">(</span>aluA<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">rt</span><span class="token punctuation">(</span>aluB<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">rd</span><span class="token punctuation">(</span>aluC<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">shamt</span><span class="token punctuation">(</span>shamt<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">op</span><span class="token punctuation">(</span>aluOp<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+  Controller controller <span class="token punctuation">(</span>
+      <span class="token punctuation">.</span><span class="token function">pc</span><span class="token punctuation">(</span>pc<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">pc4</span><span class="token punctuation">(</span>pc4<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">instr</span><span class="token punctuation">(</span>instr<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">npc</span><span class="token punctuation">(</span>jpc<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">pcJumpEnable</span><span class="token punctuation">(</span>jumpEnable<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">memAddr</span><span class="token punctuation">(</span>memAddr<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">memWrite</span><span class="token punctuation">(</span>memWD<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">memRead</span><span class="token punctuation">(</span>memRD<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">memWE</span><span class="token punctuation">(</span>memWE<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">grfRA1</span><span class="token punctuation">(</span>regRA1<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">grfRA2</span><span class="token punctuation">(</span>regRA2<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">grfWA</span><span class="token punctuation">(</span>regWA<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">grfRD1</span><span class="token punctuation">(</span>regRD1<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">grfRD2</span><span class="token punctuation">(</span>regRD2<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">grfWD</span><span class="token punctuation">(</span>regWD<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">grfWE</span><span class="token punctuation">(</span>regWE<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">aluRs</span><span class="token punctuation">(</span>aluA<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">aluRt</span><span class="token punctuation">(</span>aluB<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">aluRd</span><span class="token punctuation">(</span>aluC<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">shamt</span><span class="token punctuation">(</span>shamt<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">aluOp</span><span class="token punctuation">(</span>aluOp<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">endmodule</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>顶层模块只是做了一个连线工作，就结束了。只要把名字相同的连在一起就算完工。但是如果不小心连错了的话……</p>
+<h2 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a>自动化测试</h2><h3 id="mips-tb-v"><a href="#mips-tb-v" class="headerlink" title="mips_tb.v"></a><code>mips_tb.v</code></h3><pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token constant">`timescale</span> <span class="token number">1</span>ns <span class="token operator">/</span> <span class="token number">1</span>ps
+
+<span class="token keyword">module</span> mips_tb<span class="token punctuation">;</span>
+
+  <span class="token comment">// Inputs</span>
+  <span class="token keyword">reg</span> clk<span class="token punctuation">;</span>
+  <span class="token keyword">reg</span> reset<span class="token punctuation">;</span>
+
+  <span class="token keyword">initial</span> <span class="token keyword">begin</span>
+    <span class="token kernel-function property">$dumpfile</span><span class="token punctuation">(</span><span class="token string">"mips.vcd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token kernel-function property">$dumpvars</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">end</span>
+
+  <span class="token comment">// Instantiate the Unit Under Test (UUT)</span>
+  mips uut <span class="token punctuation">(</span>
+      <span class="token punctuation">.</span>clk  <span class="token punctuation">(</span>clk<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span>reset<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">initial</span> <span class="token keyword">begin</span>
+    <span class="token comment">// Initialize Inputs</span>
+    clk   <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    reset <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Wait 100 ns for global reset to finish</span>
+    <span class="token number">#100</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Add stimulus here</span>
+    reset <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token number">#100000</span><span class="token punctuation">;</span>
+    <span class="token kernel-function property">$finish</span><span class="token punctuation">;</span>
+  <span class="token keyword">end</span>
+
+  <span class="token important">always</span> <span class="token number">#5</span> clk <span class="token operator">=</span> <span class="token operator">~</span>clk<span class="token punctuation">;</span>
+
+<span class="token keyword">endmodule</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>非常正常的 <code>testbench</code>。因为自动化测试使用的 <code>iverilog</code>，所以查看波形也用的 <code>.vcd</code>。</p>
+<h3 id="randomMIPS-py"><a href="#randomMIPS-py" class="headerlink" title="randomMIPS.py"></a><code>randomMIPS.py</code></h3><p>自动化测试数据生成脚本。强度可以说是很高了。详见中间那个字符串。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
+
+<span class="token keyword">import</span> random
+<span class="token keyword">import</span> os<span class="token punctuation">,</span> sys<span class="token punctuation">,</span> difflib
+
+INSTRUCTIONSET <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'add'</span><span class="token punctuation">,</span> <span class="token string">'sub'</span><span class="token punctuation">,</span> <span class="token string">'ori'</span><span class="token punctuation">,</span> <span class="token string">'lw'</span><span class="token punctuation">,</span>
+                  <span class="token string">'sw'</span><span class="token punctuation">,</span> <span class="token string">'beq'</span><span class="token punctuation">,</span> <span class="token string">'lui'</span><span class="token punctuation">,</span> <span class="token string">'jal'</span><span class="token punctuation">,</span> <span class="token string">'jr'</span><span class="token punctuation">,</span> <span class="token string">'nop'</span><span class="token punctuation">}</span>
+
+
+<span class="token keyword">def</span> <span class="token function">calculationInstr</span><span class="token punctuation">(</span>instrLength<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> readableReg<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span> writableReg<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+    instr<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    myInstr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'adduo'</span><span class="token punctuation">,</span> <span class="token string">'subuo'</span><span class="token punctuation">,</span> <span class="token string">'ori'</span><span class="token punctuation">,</span> <span class="token string">'lui'</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>instrLength<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        randInstr <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>myInstr<span class="token punctuation">)</span>
+        rs <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>readableReg<span class="token punctuation">)</span>
+        rt <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>readableReg<span class="token punctuation">)</span>
+        rd <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>writableReg<span class="token punctuation">)</span>
+        imm <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0xffff</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> randInstr <span class="token operator">==</span> <span class="token string">'ori'</span><span class="token punctuation">:</span>
+            instr<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>randInstr<span class="token punctuation">,</span> rd<span class="token punctuation">,</span> rt<span class="token punctuation">,</span> imm<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> randInstr <span class="token operator">==</span> <span class="token string">'lui'</span><span class="token punctuation">:</span>
+            instr<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>randInstr<span class="token punctuation">,</span> rd<span class="token punctuation">,</span> imm<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            instr<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>randInstr<span class="token punctuation">,</span> rd<span class="token punctuation">,</span> rs<span class="token punctuation">,</span> rt<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">assert</span> <span class="token builtin">len</span><span class="token punctuation">(</span>instr<span class="token punctuation">)</span> <span class="token operator">==</span> instrLength
+    <span class="token keyword">return</span> instr
+
+
+<span class="token keyword">def</span> <span class="token function">memoryInstr</span><span class="token punctuation">(</span>instrLength<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> writeRegs<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span> tempRegs<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+    instr<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    myInstr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'lw'</span><span class="token punctuation">,</span> <span class="token string">'sw'</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>instrLength<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        randInstr <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>myInstr<span class="token punctuation">)</span>
+        rd <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>writeRegs<span class="token punctuation">)</span>
+        base <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>tempRegs<span class="token punctuation">)</span>
+        imm1 <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0xfff</span><span class="token punctuation">,</span> <span class="token number">0xfff</span><span class="token punctuation">)</span>
+        imm2 <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token operator">-</span>imm1<span class="token punctuation">,</span> <span class="token number">0x2fff</span> <span class="token operator">-</span> imm1<span class="token punctuation">)</span>
+        imm2 <span class="token operator">-=</span> <span class="token punctuation">(</span>imm1 <span class="token operator">+</span> imm2<span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">4</span>
+        <span class="token keyword">if</span> imm1 <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            in1 <span class="token operator">=</span> <span class="token string">'ori '</span> <span class="token operator">+</span> base <span class="token operator">+</span> <span class="token string">' $zero '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>imm1<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            in1 <span class="token operator">=</span> <span class="token string">'lui '</span> <span class="token operator">+</span> base <span class="token operator">+</span> <span class="token string">' 0xffff\nori '</span> <span class="token operator">+</span> base <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> base <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>imm1 <span class="token operator">+</span> <span class="token number">0x10000</span><span class="token punctuation">)</span>
+        in2 <span class="token operator">=</span> <span class="token string">' '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>randInstr<span class="token punctuation">,</span> rd<span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">(</span>imm2<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'('</span> <span class="token operator">+</span> base <span class="token operator">+</span> <span class="token string">')'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        instr<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>in1<span class="token punctuation">,</span> in2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">assert</span> <span class="token builtin">len</span><span class="token punctuation">(</span>instr<span class="token punctuation">)</span> <span class="token operator">==</span> instrLength
+    <span class="token keyword">return</span> instr
+
+
+<span class="token triple-quoted-string string">'''
+100 calculationInstr
+jal A
+200 calculationInstr
+100 memoryInstr
+ori $a0 $0 0
+beq $a0 $0 B
+A:
+300 calculationInstr
+300 memoryInstr
+beq $s0 $s1 B
+jr $ra
+B:
+300 calculationInstr
+100 memoryInstr
+jal C
+beq $a0 $a1 END
+jal END
+C:
+300 calculationInstr
+200 memoryInstr
+jr $ra
+END:
+300 calculationInstr
+200 memoryInstr
+'''</span>
+
+REGISTERS <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'$'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span><span class="token string">'$zero'</span><span class="token punctuation">]</span>
+OTHERS <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'$at'</span><span class="token punctuation">,</span> <span class="token string">'$k0'</span><span class="token punctuation">,</span> <span class="token string">'$k1'</span><span class="token punctuation">]</span>
+
+
+<span class="token keyword">def</span> <span class="token function">singleTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    instrList <span class="token operator">=</span> calculationInstr<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> REGISTERS<span class="token punctuation">,</span> REGISTERS<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">[</span><span class="token string">'jal A'</span><span class="token punctuation">]</span>
+    temp <span class="token operator">=</span> calculationInstr<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> REGISTERS<span class="token punctuation">,</span> REGISTERS<span class="token punctuation">)</span> <span class="token operator">+</span> \
+        memoryInstr<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> REGISTERS<span class="token punctuation">,</span> OTHERS<span class="token punctuation">)</span>
+    random<span class="token punctuation">.</span>shuffle<span class="token punctuation">(</span>temp<span class="token punctuation">)</span>
+    instrList <span class="token operator">+=</span> temp
+    instrList <span class="token operator">+=</span> <span class="token punctuation">[</span><span class="token string">'ori $a0 $0 0'</span><span class="token punctuation">,</span> <span class="token string">'beq $a0 $0 B'</span><span class="token punctuation">,</span> <span class="token string">'A:'</span><span class="token punctuation">]</span>
+    temp <span class="token operator">=</span> calculationInstr<span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> REGISTERS<span class="token punctuation">,</span> REGISTERS<span class="token punctuation">)</span> <span class="token operator">+</span> \
+        memoryInstr<span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> REGISTERS<span class="token punctuation">,</span> OTHERS<span class="token punctuation">)</span>
+    random<span class="token punctuation">.</span>shuffle<span class="token punctuation">(</span>temp<span class="token punctuation">)</span>
+    instrList <span class="token operator">+=</span> temp
+    instrList <span class="token operator">+=</span> <span class="token punctuation">[</span><span class="token string">'beq $s0 $s1 B'</span><span class="token punctuation">,</span> <span class="token string">'jr $ra'</span><span class="token punctuation">,</span> <span class="token string">'B:'</span><span class="token punctuation">]</span>
+    temp <span class="token operator">=</span> calculationInstr<span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> REGISTERS<span class="token punctuation">,</span> REGISTERS<span class="token punctuation">)</span> <span class="token operator">+</span> \
+        memoryInstr<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> REGISTERS<span class="token punctuation">,</span> OTHERS<span class="token punctuation">)</span>
+    random<span class="token punctuation">.</span>shuffle<span class="token punctuation">(</span>temp<span class="token punctuation">)</span>
+    instrList <span class="token operator">+=</span> temp
+    instrList <span class="token operator">+=</span> <span class="token punctuation">[</span><span class="token string">'jal C'</span><span class="token punctuation">,</span> <span class="token string">'beq $a0 $a1 END'</span><span class="token punctuation">,</span> <span class="token string">'jal END'</span><span class="token punctuation">,</span> <span class="token string">'C:'</span><span class="token punctuation">]</span>
+    temp <span class="token operator">=</span> calculationInstr<span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> REGISTERS<span class="token punctuation">,</span> REGISTERS<span class="token punctuation">)</span> <span class="token operator">+</span> \
+        memoryInstr<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> REGISTERS<span class="token punctuation">,</span> OTHERS<span class="token punctuation">)</span>
+    random<span class="token punctuation">.</span>shuffle<span class="token punctuation">(</span>temp<span class="token punctuation">)</span>
+    instrList <span class="token operator">+=</span> temp
+    instrList <span class="token operator">+=</span> <span class="token punctuation">[</span><span class="token string">'jr $ra'</span><span class="token punctuation">,</span> <span class="token string">'END:'</span><span class="token punctuation">]</span>
+    temp <span class="token operator">=</span> calculationInstr<span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> REGISTERS<span class="token punctuation">,</span> REGISTERS<span class="token punctuation">)</span> <span class="token operator">+</span> \
+        memoryInstr<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> REGISTERS<span class="token punctuation">,</span> OTHERS<span class="token punctuation">)</span>
+    random<span class="token punctuation">.</span>shuffle<span class="token punctuation">(</span>temp<span class="token punctuation">)</span>
+    instrList <span class="token operator">+=</span> temp
+
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'code.asm'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>instrList<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>
+        <span class="token string">'java -jar mars.jar code.asm np nc mc CompactLargeText cl adduo.class cl subuo.class coL1 &gt; code.ans'</span><span class="token punctuation">)</span>
+    <span class="token comment"># os.system(</span>
+    <span class="token comment">#     'java -jar mars.jar code.asm np mc CompactLargeText cl adduo.class cl subuo.class coL2 &gt; code.log')</span>
+
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'code.asm'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        <span class="token comment"># call a never end loop to makesure my verilog CPU output correct</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'\nlabel_self: beq $0 $0 label_self\n'</span><span class="token punctuation">)</span>
+    os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>
+        <span class="token string">'java -jar mars.jar code.asm np nc mc CompactLargeText a dump .text HexText code.txt cl adduo.class cl subuo.class'</span><span class="token punctuation">)</span>
+    os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'vvp mips &gt; code.out'</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">specialJudge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ans <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'code.ans'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    out <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'code.out'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    out <span class="token operator">=</span> out<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    ans <span class="token operator">=</span> ans<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token keyword">if</span> ans <span class="token operator">==</span> out<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Check failed!'</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>difflib<span class="token punctuation">.</span>context_diff<span class="token punctuation">(</span>out<span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> Ti <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        singleTest<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        flag <span class="token operator">=</span> specialJudge<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> flag <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Failed in #</span><span class="token interpolation"><span class="token punctuation">{</span>Ti<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+            sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Check #</span><span class="token interpolation"><span class="token punctuation">{</span>Ti<span class="token punctuation">}</span></span><span class="token string">: Good!'</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Check over!'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'No difference found!'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Mars-jar"><a href="#Mars-jar" class="headerlink" title="Mars.jar"></a>Mars.jar</h3><p>这个就不展开讲了。发在讨论区和 <code>github</code>了。</p>
+<p>只不过目前 <code>$gp,$sp </code>还没有改，会每次赋得初值（而非 <code>0</code>），所以上面那个 <code>python</code> 脚本也没有生成这两个指令相关代码。</p>
+<h2 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h2><ol>
+<li><p>阅读下面给出的 DM 的输入示例中（示例 DM 容量为 4KB，即 32bit × 1024字），根据你的理解回答，这个 addr 信号又是从哪里来的？地址信号 addr 位数为什么是 [11:2] 而不是 [9:0] ？</p>
+<p><img src="https://s2.loli.net/2022/11/07/GgKZDNaAnstkYu2.png" alt="题目"></p>
+</li>
+</ol>
+<blockquote>
+<p>因为我们的内存是以字为单位寻址的，所以最低两位是无意义的，可以直接舍去。<br><code>addr</code> 端口来源是 <code>GRF[base] + imm</code>，而且由于 <code>MIPS</code> 只用这种访问内存方式，所以只可能是这个值。</p>
+</blockquote>
+<ol start="2">
+<li><p>思考上述两种控制器设计的译码方式，给出代码示例，并尝试对比各方式的优劣。</p>
+<blockquote>
+<p><strong>指令对应的控制信号如何取值</strong>：从指令出发，是正向思维，列表简单高效，查指令集即可获取表格</p>
+<p><strong>控制信号每种取值所对应的指令</strong>：调试是可以看到波形图获取执行的指令是什么，方便快捷。麻烦是获取表格是逆向思维，比较繁琐。</p>
+</blockquote>
+</li>
+<li><p>在相应的部件中，复位信号的设计都是<strong>同步复位</strong>，这与 P3 中的设计要求不同。请对比<strong>同步复位</strong>与<strong>异步复位</strong>这两种方式的 reset 信号与 clk 信号优先级的关系。</p>
+<blockquote>
+<p><strong>同步复位</strong>：clk 信号具有高优先级。如果 reset 信号在 clk 的上升沿以外的时候为高电平，那么是起不到任何作用的。</p>
+<p><strong>异步复位</strong>：reset 信号具有高优先级。无论 clk 信号处于什么阶段，只要 reset 信号来临，就必须进行重置操作。</p>
+</blockquote>
+</li>
+<li><p>C 语言是一种弱类型程序设计语言。C 语言中不对计算结果溢出进行处理，这意味着 C 语言要求程序员必须很清楚计算结果是否会导致溢出。因此，如果仅仅支持 C 语言，MIPS 指令的所有计算指令均可以忽略溢出。 请说明为什么在忽略溢出的前提下，addi 与 addiu 是等价的，add 与 addu 是等价的。提示：阅读《MIPS32® Architecture For Programmers Volume II: The MIPS32® Instruction Set》中相关指令的 Operation 部分。</p>
+<blockquote>
+<p>参考指令集如下：<br><img src="https://s2.loli.net/2022/11/07/UmLHcl4GNhbQsIi.png" alt="指令集"><br><img src="https://s2.loli.net/2022/11/07/w6TdKhHrousYLn8.png" alt="指令2"></p>
+<p>显然除了检测溢出，<code>add</code> 和 <code>addu</code> 执行的操作时一模一样的，<code>addi</code> 和 <code>addiu</code> 执行的操作也是一致的，对立即数都是符号扩展。</p>
+</blockquote>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CO/">
+                                    <span class="chip bg-color">CO</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,twitter,facebook,google,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    let metaPlaceholder = {"nick":"昵称(必填)","mail":"邮箱","link":"网址"} ;
+    var valinePath = "";
+    if (window.location.pathname.length >= 5 && window.location.pathname.substr(-5) === ".html") {
+        valinePath = window.location.pathname.slice(0, -5);
+    } else {
+        valinePath = window.location.pathname;
+    }
+    //这里要换行
+    new Valine({
+        el: '#vcomments',
+        appId: 'ndwFzMOpYgldH8UE57CLwStA-gzGzoHsz',
+        appKey: 'qmOTjnL6pmoozUIm7WCVPPBL',
+        visitor: 'true' === 'true',
+        avatar: 'monsterid',
+        pageSize: '10',
+        lang: 'zh-CN',
+        path: valinePath,
+        placeholder: '留下你的足迹..',
+        meta: ["nick", "mail", "link"],
+        recordIP: 'true' === 'true',
+        enableQQ: 'true' === 'true',
+        master: ["e6fefa628522c4e4aba9de0388087e22", "bca633fb8c8ee333b2fa2866ef5b66d1", "e8799f1c89cb012426820fd7484618f5"],
+        friends: ["acb5381ad226785cf691d48562a2113d", "e79fe1ebac458cca64f5c90527ac6953", "37f356ddeddad414cf734cea8ded0361", "7a51dd88a80de3c90042ec25b960b767", "dac7e976998d490d9c92559a601933bf"],
+        tagMeta: ["博主", "小伙伴", "访客"],
+        metaPlaceholder: metaPlaceholder
+    });
+
+    document.body.addEventListener('click', function(e) {
+        if (e.target.classList.contains('vsubmit')) {
+            const email = document.querySelector('input[type=email]');
+            const nick = document.querySelector('input[name=nick]');
+            const reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+            const config = 'nick' ;
+            var failed = false;
+            var str;
+            if (config === 'nick,mail') {
+                if (!email.value || !nick.value || !reg.test(email.value)) {
+                    str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+                    failed = true;
+                }
+            } else if (config === 'nick') {
+                if (!nick.value) {
+                    str = `<div class="valert txt-center"><div class="vtext">请填写昵称！</div></div>`;
+                    failed = true;
+                }
+            }
+            if (failed) {
+                const vmark = document.querySelector('.vmark');
+                vmark.innerHTML = str;
+                vmark.style.display = 'block';
+
+                e.stopPropagation();
+
+                setTimeout(function() {
+                    vmark.style.display = 'none';
+                    vmark.innerHTML = '';
+                }, 2500);
+            }
+        }
+    }, true);
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/oslab2.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/picture/4.jpeg" class="responsive-img" alt="Operator System Lab 2 上机实验回顾">
+                        
+                        <span class="card-title">Operator System Lab 2 上机实验回顾</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这次的 extra 确实很有挑战性，所以值得一记
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C-C/">
+                        <span class="chip bg-color">C/C++</span>
+                    </a>
+                    
+                    <a href="/tags/OS/">
+                        <span class="chip bg-color">OS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/oounit1.html">
+                    <div class="card-image">
+                        
+                        <img src="https://s2.loli.net/2023/02/28/WscQSEzv5wA8CUg.png" class="responsive-img" alt="Object Oriented 2023 第一单元总结">
+                        
+                        <span class="card-title">Object Oriented 2023 第一单元总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            收获满满的第一单元。和好朋友们一起制作了评测机，没有出现任何 bug。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-category">
+                                    面向对象
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/OO/">
+                        <span class="chip bg-color">OO</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="1776127550"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- Copyright&nbsp;&copy; -->
+            Blog&nbsp;Author&nbsp;
+            
+                <span id="year">2022-2023</span>
+            
+            <!-- <span id="year">2022</span> -->
+            <a href="/about" target="_blank">TobyShi</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2022";
+                    var startMonth = "6";
+                    var startDate = "14";
+                    var startHour = "16";
+                    var startMinute = "20";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">52.3k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Toby-Shi-cloud" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:toby283901@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://space.bilibili.com/357195693" class="tooltipped" target="_blank" data-tooltip="关注我的bilibili" data-position="top" data-delay="50">
+        <i class="fa-brands fa-bilibili"></i>
+    </a>
+
+
+
+    <a href="https://gitee.com/toby-shi" class="tooltipped" target="_blank" data-tooltip="访问我的Gitee" data-position="top" data-delay="50">
+        <i class="fa-solid fa-code-branch"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+    <a href="https://weibo.com/u/7705117147" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com/people/bu-xu-ci-xing-82-13" class="tooltipped" target="_blank" data-tooltip="关注我的知乎" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+<!-- 深色模式按钮 -->
+    <script>
+        if (localStorage.getItem('dark') === '1') {
+        document.body.classList.add('dark');
+        }
+        // else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+        // document.body.classList.add('dark');
+        // }
+        // else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        // document.body.classList.add('dark');
+        // }
+    </script>
+    <a onclick="switchNightMode()" id="sma">
+        <i class="fas fa-lightbulb" id="nightMode" aria-hidden="true"></i>
+    </a>
+
+    <!-- 天气接口控件   -->
+    
+
+    
+
+	
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
