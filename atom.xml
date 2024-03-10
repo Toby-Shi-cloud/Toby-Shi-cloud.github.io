@@ -6,7 +6,7 @@
   <link href="https://toby-shi-cloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://toby-shi-cloud.github.io/"/>
-  <updated>2023-11-06T06:46:50.892Z</updated>
+  <updated>2024-03-10T08:54:47.016Z</updated>
   <id>https://toby-shi-cloud.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>软件工程【I.1】个人作业：阅读和提问</title>
+    <link href="https://toby-shi-cloud.github.io/posts/se-i1.html"/>
+    <id>https://toby-shi-cloud.github.io/posts/se-i1.html</id>
+    <published>2024-03-10T07:00:00.000Z</published>
+    <updated>2024-03-10T08:54:47.016Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><table><thead><tr><th align="left">项目</th><th align="left">内容</th></tr></thead><tbody><tr><td align="left">这个作业属于那个课程</td><td align="left"><a href="https://bbs.csdn.net/forums/buaa-ase2024">软件工程</a></td></tr><tr><td align="left">这个作业的要求在哪里</td><td align="left"><a href="https://bbs.csdn.net/topics/618159304">第一次个人作业</a></td></tr><tr><td align="left">我在这个课程的目标是</td><td align="left">和志同道合的小伙伴一起开发出一款令自己满意也令市场满意，课程结束后还能维护下去的软件</td></tr><tr><td align="left">这个作业在哪个<strong>具体方面</strong>帮助我实现目标</td><td align="left">快速阅读《构建之法：现代软件工程》，了解软工理论知识</td></tr></tbody></table><p><img src="https://patchwiki.biligame.com/images/palworld/f/f1/7tqhrtm8lj6ieq63a4zcwe16lykptiu.png" alt="T WoolFox icon normal.png"></p><h2 id="Q1：关于『软件工程师的职业发展』"><a href="#Q1：关于『软件工程师的职业发展』" class="headerlink" title="Q1：关于『软件工程师的职业发展』"></a>Q1：关于『软件工程师的职业发展』</h2><ul><li>原书第三章第三节描述对职业的态度有5种分类：临时工作（work），工作（job），职业（profession），事业（commitment），理想（calling）。</li><li>我希望日后我能以软件工程师为职业甚至是事业甚至是一种追求。这导致了我在很多软件开发中过于追求一些较为极致的东西（譬如更高的性能，或者更高的代码复用性，或者更通用的代码），但是过于追求极致会导致开发时间与精力消耗巨大，难以负担。</li><li>有时就和书中的Emanuel Derman一样，对其他东西有明显的排斥感（譬如看不起低效的代码和冗长的代码）。E.D.在35岁时有了改变，但是他说的那句话对我而言实在有些难以理解。</li></ul><blockquote><p>回首当年，我（的态度）的确是错了。任何事情，当你仔细探究，你就会理解它的量和质；当你对一个领域的神韵足够了解，并开始连接这个领域的表现形式和实现细节的时候，任何一个领域都是会变得引人入胜的。</p></blockquote><h2 id="Q2：关于MSF中的充分授权和信任"><a href="#Q2：关于MSF中的充分授权和信任" class="headerlink" title="Q2：关于MSF中的充分授权和信任"></a>Q2：关于MSF中的充分授权和信任</h2><ul><li>书中第七章联系与讨论中提到，如果团队给予个人过于充分的授权和信任，会导致某些人不自觉，敷衍了事（尤其是大学里面的团队）。</li><li>周围很多同学也提到：不怕团队里有人摆烂啥也不做，就怕有人把工作接下了却敷衍和拖欠。</li><li>恨不得团队中的所有人都是我自己，这样就不会有矛盾和冲突了。</li><li>我认为团队肯定是需要激励机制的，企业可以有绩效奖&amp;末位淘汰，但是大学团队恐怕做不到这一点，我们到底应该如何处理那些不自觉的队友呢？</li></ul><h2 id="Q3：关于A-x2F-B测试"><a href="#Q3：关于A-x2F-B测试" class="headerlink" title="Q3：关于A/B测试"></a>Q3：关于A/B测试</h2><ul><li>书中第八章有讲述A/B测试的具体含义：将用户划分为两类，分别提供不同的功能，观察哪一部分用户更喜欢对应的功能。</li><li>微信也经常做A/B测试：当微信希望提供某种新功能的时候，会将该功能随机下放给少量用户，如果他们使用这些功能的频率提升了，说明该功能更好。</li><li>但是我对此有很大的疑问，微信的测试时间实在是太长了，很多功能始终停留在测试阶段，有的用户明明很想要该功能却迟迟无法使用到。既然可以做A/B测试，为什么不设置一种可选功能呢，让有需要的用户自己diy自己想要的功能（就像买电脑一样，有的用户买整机，但是也有用户自己选择和购买各个零部件然后组装）。</li></ul><h2 id="Q4：关于PM的选择"><a href="#Q4：关于PM的选择" class="headerlink" title="Q4：关于PM的选择"></a>Q4：关于PM的选择</h2><ul><li>书中第九章介绍了PM的来历和PM的职责。</li><li>书中认为PM更重要的是协调和沟通，但这对一些强势的技术极客来说是不太能接受的。对于一个大学生团队来说，通常需要选择一个有较好编程能力的人作为项目PM才能让人信服。</li><li>我身边既有不善于编程的PM，也有善于编程的PM，他们都难以完全让人信服，这该如何解决呢？</li></ul><h2 id="Q5：关于测试"><a href="#Q5：关于测试" class="headerlink" title="Q5：关于测试"></a>Q5：关于测试</h2><ul><li>书中第十三章介绍了各种测试的方法。然而大学生团队鲜有重视测试的。甚至有的项目已经进入长期维护阶段，维护人员也换了一代又一代，并且实实在在有很多用户了，也没有一个像样的测试。添加新功能难免会对原有功能进行改动，但也只有当一个功能崩溃后用户反馈后，才能开始修复。</li><li>测试真的非常重要，尤其需要从一开始就有一个完整的测试规范，否则很难在后期改进。</li><li>但是大学生团队很多人认为自己开发的软件也就是一个原型，课程结束就丢掉了，如何说服大家多写测试呢？</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="软件工程" scheme="https://toby-shi-cloud.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+    
+    
+    <category term="SE" scheme="https://toby-shi-cloud.github.io/tags/SE/"/>
+    
+  </entry>
   
   <entry>
     <title>现代 C++ 编程（一）：多态</title>
@@ -28,7 +52,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -52,7 +76,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -76,7 +100,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -104,7 +128,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -128,7 +152,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -154,7 +178,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -182,7 +206,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -208,7 +232,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -232,7 +256,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -258,7 +282,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -282,7 +306,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -308,7 +332,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -332,7 +356,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -358,7 +382,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -384,7 +408,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -408,7 +432,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -434,7 +458,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -460,7 +484,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -484,7 +508,7 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
       
     
     
@@ -495,32 +519,6 @@
     <category term="OO" scheme="https://toby-shi-cloud.github.io/tags/OO/"/>
     
     <category term="Java" scheme="https://toby-shi-cloud.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>复现 A Tutorial on Linear and Differential Cryptanalysis中差分分析的例子</title>
-    <link href="https://toby-shi-cloud.github.io/posts/differentialcryptanalysis.html"/>
-    <id>https://toby-shi-cloud.github.io/posts/differentialcryptanalysis.html</id>
-    <published>2022-09-23T10:30:00.000Z</published>
-    <updated>2022-09-23T11:58:12.807Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>黑历史++<span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p><p><img src="https://s2.loli.net/2022/09/23/uRJw5VFbSkvoGXD.png"></p><h2 id="差分分析"><a href="#差分分析" class="headerlink" title="差分分析"></a>差分分析</h2><p>什么是差分分析呢？其实简单来说，就是考察明文的某一或某些位取反对密文的影响，所以这里的差分，实质就是异或的意思。其实感觉差分分析的过程和线性分析是基本一致的，所以这个博客我就写简单一点，实在记不住了还可以翻阅<a href="https://toby-shi-cloud.github.io/posts/linearcryptanalysis.html">上一篇博客</a>。虽然上一篇也不怎么详细（）</p><h2 id="Sbox拟合"><a href="#Sbox拟合" class="headerlink" title="Sbox拟合"></a>Sbox拟合</h2><p>与线性分析一致，我们不得不对sbox进行拟合。同样的，对于输入的每一种可能的差分，我们穷举所有的输入1（输入2=输入1$\oplus$输入差分）并记录由此带来的输出差分值（输出差分=输出1$\oplus$输出2），计算出输入差分和输出差分对应的概率关系。通过16*16的256次计算，我们就可以整理出一张sbox的拟合表格。</p><h2 id="子密钥分析"><a href="#子密钥分析" class="headerlink" title="子密钥分析"></a>子密钥分析</h2><p>同样的，我们选取概率较大的路径，可以得到明文对的一个差分和一个倒数第二轮输出的差分之间的概率，在论文中，选取的是$\Delta P  = [0000\ 1011\ 0000\ 0000]$和$\Delta U4 = [0000\ 0110\ 0000\ 0110]$，概率是$\frac{27}{1024}=0.0264$。</p><p>同样的我们穷举最后一轮相关联的密钥$k_2$和$k_4$，通过倒推得到$U4$，最后计算出当$\Delta P$成立时$\Delta U4$成立的概率即可。</p><p>由于我们选择的是高概率路径，所以最后成立概率最高的密钥就大概率是我们要找的密钥。</p><h3 id="复现结果"><a href="#复现结果" class="headerlink" title="复现结果"></a>复现结果</h3><p><img src="https://s2.loli.net/2022/09/23/UK4adYCN6ZJyBws.png"></p><p>其中子密钥用16进制表示，x表示未知（即和例子的路径无关）。</p><p>可见$k_2=2$且$k_4=4$的概率远超其他密钥组合，而且概率$0.0272863$与理论$\frac{27}{1024}=0.0264$非常接近。</p><h3 id="复现代码"><a href="#复现代码" class="headerlink" title="复现代码"></a>复现代码</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"structure.hh"</span></span><span class="token comment">// \delta P  = [0000 1011 0000 0000]</span><span class="token comment">// \delta U4 = [0000 0110 0000 0110]</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> FileNamePlain <span class="token operator">=</span> <span class="token string">"plaintexts.hex"</span><span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> FileNameCipher <span class="token operator">=</span> <span class="token string">"ciphertexts.hex"</span><span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> FileNameCsv <span class="token operator">=</span> <span class="token string">"diff.csv"</span><span class="token punctuation">;</span>ifstream fp<span class="token punctuation">,</span> fc<span class="token punctuation">;</span>ofstream fcsv<span class="token punctuation">;</span><span class="token keyword">int</span> pcPair<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// use -1 stands for undefined</span><span class="token keyword">const</span> u16 deltaP <span class="token operator">=</span> <span class="token number">0b0000101100000000</span><span class="token punctuation">;</span><span class="token keyword">const</span> u16 deltaU4 <span class="token operator">=</span> <span class="token number">0b0000011000000110</span><span class="token punctuation">;</span><span class="token keyword">inline</span> u16 <span class="token function">getU4</span><span class="token punctuation">(</span>u16 _C<span class="token punctuation">,</span> u16 key<span class="token punctuation">)</span><span class="token punctuation">{</span>    _C <span class="token operator">=</span> <span class="token function">key_mixing</span><span class="token punctuation">(</span>_C<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>    _C <span class="token operator">=</span> <span class="token function">substitution</span><span class="token punctuation">(</span>_C<span class="token punctuation">,</span> SBOX_INV<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> _C<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    fp<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>FileNamePlain<span class="token punctuation">,</span> ios<span class="token double-colon punctuation">::</span>binary <span class="token operator">|</span> ios<span class="token double-colon punctuation">::</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>    fc<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>FileNameCipher<span class="token punctuation">,</span> ios<span class="token double-colon punctuation">::</span>binary <span class="token operator">|</span> ios<span class="token double-colon punctuation">::</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token function">memset</span><span class="token punctuation">(</span>pcPair<span class="token punctuation">,</span> <span class="token number">0xff</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> pcPair<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span>    <span class="token punctuation">{</span>        u16 P<span class="token punctuation">,</span> U<span class="token punctuation">;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>fp<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>P<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>fc<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>U<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>        P <span class="token operator">=</span> P <span class="token operator">&lt;&lt;</span> <span class="token number">8</span> <span class="token operator">|</span> P <span class="token operator">&gt;&gt;</span> <span class="token number">8</span><span class="token punctuation">;</span>        U <span class="token operator">=</span> U <span class="token operator">&lt;&lt;</span> <span class="token number">8</span> <span class="token operator">|</span> U <span class="token operator">&gt;&gt;</span> <span class="token number">8</span><span class="token punctuation">;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">~</span>pcPair<span class="token punctuation">[</span>P<span class="token punctuation">]</span><span class="token punctuation">)</span> num<span class="token operator">++</span><span class="token punctuation">;</span>        pcPair<span class="token punctuation">[</span>P<span class="token punctuation">]</span> <span class="token operator">=</span> U<span class="token punctuation">;</span>        <span class="token comment">// cerr &lt;&lt; hex &lt;&lt; P &lt;&lt; "-&gt;" &lt;&lt; U &lt;&lt; endl;</span>        <span class="token comment">// if(num == 100) break;</span>    <span class="token punctuation">}</span>    cerr <span class="token operator">&lt;&lt;</span>  <span class="token string">"num = "</span> <span class="token operator">&lt;&lt;</span> num <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 有效明密文对个数（剔除重复）</span>    fp<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    fc<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    fcsv<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>FileNameCsv<span class="token punctuation">,</span> ios<span class="token double-colon punctuation">::</span>out<span class="token punctuation">)</span><span class="token punctuation">;</span>    fcsv <span class="token operator">&lt;&lt;</span> <span class="token string">"partial subkey"</span> <span class="token operator">&lt;&lt;</span> <span class="token string">","</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"prob"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>    <span class="token keyword">for</span><span class="token punctuation">(</span>u16 k2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k2 <span class="token operator">&lt;</span> <span class="token number">16</span><span class="token punctuation">;</span> k2<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token keyword">for</span><span class="token punctuation">(</span>u16 k4 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k4 <span class="token operator">&lt;</span> <span class="token number">16</span><span class="token punctuation">;</span> k4<span class="token operator">++</span><span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        u16 key <span class="token operator">=</span> k2 <span class="token operator">&lt;&lt;</span> <span class="token number">8</span> <span class="token operator">|</span> k4<span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token generic-function"><span class="token function">i</span> <span class="token generic class-name"><span class="token operator">&lt;</span> <span class="token number">65536</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>        <span class="token punctuation">{</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>pcPair<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>pcPair<span class="token punctuation">[</span>i<span class="token operator">^</span>deltaP<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&gt;</span></span></span> <span class="token punctuation">(</span>i <span class="token operator">^</span> deltaP<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>            <span class="token comment">// cerr &lt;&lt; (!(pcPair[i] == -1) &amp;&amp; !(pcPair[i^deltaP] == -1)) &lt;&lt; endl;</span>            sum<span class="token operator">++</span><span class="token punctuation">;</span>            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">getU4</span><span class="token punctuation">(</span>pcPair<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>key<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token function">getU4</span><span class="token punctuation">(</span>pcPair<span class="token punctuation">[</span>i<span class="token operator">^</span>deltaP<span class="token punctuation">]</span><span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> deltaU4<span class="token punctuation">)</span>                count<span class="token operator">++</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">double</span> prob <span class="token operator">=</span> count <span class="token operator">*</span> <span class="token number">1.0</span> <span class="token operator">/</span> sum<span class="token punctuation">;</span>        fcsv <span class="token operator">&lt;&lt;</span> hex <span class="token operator">&lt;&lt;</span> <span class="token string">"x"</span> <span class="token operator">&lt;&lt;</span> k2 <span class="token operator">&lt;&lt;</span> <span class="token string">"x"</span> <span class="token operator">&lt;&lt;</span> k4 <span class="token operator">&lt;&lt;</span> <span class="token string">","</span> <span class="token operator">&lt;&lt;</span> dec <span class="token operator">&lt;&lt;</span> prob <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>k2 <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>k4<span class="token punctuation">)</span> cerr <span class="token operator">&lt;&lt;</span> <span class="token string">"sum = "</span> <span class="token operator">&lt;&lt;</span> sum <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 有效明密文对组的组数（剔除没有配对成组的）</span>    <span class="token punctuation">}</span>    fcsv<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><code>structure.hh</code>是我自己写的一个头文件，里面是加密解密需要用到的函数以及Sbox和permutation连线的方式。由于加密解密以及分析都需要用到这些函数，所以就放在头文件里面了。</p><p>用cpp的原因是，bluebeen告诉我cpp比python快数十倍……python分析10万组明密文对要1分钟真的难受……</p><p>因为差分分析需要符合要求的明密文对组，即明文需要满足$\Delta P$的那个式子。所以是先把涉及到的明密文对存下来（代码里面是<code>pcPair</code>）然后在进行统计。</p><p>在进行差分分析的复现的时候，我突然想到一个问题，为什么论文上只用了1万对明密文对，而我用了10万对才能找出答案吗？我的复现究竟是出了什么样的问题呢？</p><p>其实在上面的复现代码中，输出<code>num</code>和<code>sum</code>就已经揭晓了答案。根据输出，我的10万对明密文，只有<code>num</code>=5万的有效明密文对，然后再安装$\Delta P$的要求配对后，只有<code>sum</code>=2万组。而论文直接说的就是1万组满足$\Delta P$的明密文组。其实我也就用了两倍的数据而已。所以我的数据看起来比论文中要精确一些，但是也没有精确太多。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1]Heys,  Howard M . A Tutorial on Linear and Differential Cryptanalysis[J]. Cryptologia, 2002, 26(3):189-221.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    <category term="密码学" scheme="https://toby-shi-cloud.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-    
-    <category term="C/C++" scheme="https://toby-shi-cloud.github.io/tags/C-C/"/>
-    
-    <category term="密码分析" scheme="https://toby-shi-cloud.github.io/tags/%E5%AF%86%E7%A0%81%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
