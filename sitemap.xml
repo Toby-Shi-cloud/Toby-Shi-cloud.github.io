@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://toby-shi-cloud.github.io/posts/mos-porting-task-experiment-report.html</loc>
+    
+    <lastmod>2024-03-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://toby-shi-cloud.github.io/posts/buaatoolsusage.html</loc>
+    
+    <lastmod>2024-03-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://toby-shi-cloud.github.io/posts/co-p3.html</loc>
+    
+    <lastmod>2024-03-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://toby-shi-cloud.github.io/posts/co-p4.html</loc>
+    
+    <lastmod>2024-03-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://toby-shi-cloud.github.io/posts/co-p5.html</loc>
+    
+    <lastmod>2024-03-18</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://toby-shi-cloud.github.io/posts/evaluation-automation-script.html</loc>
     
     <lastmod>2024-03-18</lastmod>
@@ -31,13 +66,6 @@
   
   <url>
     <loc>https://toby-shi-cloud.github.io/posts/co-p6.html</loc>
-    
-    <lastmod>2024-03-18</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://toby-shi-cloud.github.io/posts/co-p4.html</loc>
     
     <lastmod>2024-03-18</lastmod>
     
@@ -156,20 +184,6 @@
   </url>
   
   <url>
-    <loc>https://toby-shi-cloud.github.io/posts/mos-porting-task-experiment-report.html</loc>
-    
-    <lastmod>2024-03-18</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://toby-shi-cloud.github.io/posts/mos-porting-task-experiment-report.html</loc>
-    
-    <lastmod>2024-03-18</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://toby-shi-cloud.github.io/posts/mac-launchctl-auto-background-task.html</loc>
     
     <lastmod>2024-03-18</lastmod>
@@ -208,20 +222,6 @@
     <loc>https://toby-shi-cloud.github.io/posts/helloblog2.html</loc>
     
     <lastmod>2024-03-18</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://toby-shi-cloud.github.io/posts/co-p3.html</loc>
-    
-    <lastmod>2023-11-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://toby-shi-cloud.github.io/posts/co-p5.html</loc>
-    
-    <lastmod>2023-11-07</lastmod>
     
   </url>
   
@@ -331,13 +331,6 @@
   </url>
   
   <url>
-    <loc>https://toby-shi-cloud.github.io/posts/buaatoolsusage.html</loc>
-    
-    <lastmod>2022-11-26</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://toby-shi-cloud.github.io/posts/install-ise-on-wsl.html</loc>
     
     <lastmod>2022-09-28</lastmod>
@@ -424,7 +417,7 @@
 
   <url>
     <loc>https://toby-shi-cloud.github.io/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -432,154 +425,154 @@
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/Swift/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/Apple/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/Python/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/CO/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/C-C/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/Codeforces/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/%E5%AF%86%E7%A0%81%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/%E7%BD%91%E9%A1%B5/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/OO/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/Java/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/server-client/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/VScode/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/wsl/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/%E7%A7%81%E6%9C%89%E4%BA%91/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/OS/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/RISC-V/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/tags/SE/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -588,91 +581,91 @@
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/Swift%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/%E7%AB%9E%E8%B5%9B/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/Python/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/%E7%A7%81%E6%9C%89%E4%BA%91/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/Shell/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/C/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://toby-shi-cloud.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/</loc>
-    <lastmod>2024-03-18</lastmod>
+    <lastmod>2024-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

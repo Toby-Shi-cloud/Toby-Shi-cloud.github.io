@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://toby-shi-cloud.github.io/posts/mos-porting-task-experiment-report.html</loc>
+    <lastmod>2024-03-25</lastmod>
+  </url>
+  <url>
+    <loc>https://toby-shi-cloud.github.io/posts/buaatoolsusage.html</loc>
+    <lastmod>2024-03-18</lastmod>
+  </url>
+  <url>
+    <loc>https://toby-shi-cloud.github.io/posts/co-p3.html</loc>
+    <lastmod>2024-03-18</lastmod>
+  </url>
+  <url>
+    <loc>https://toby-shi-cloud.github.io/posts/co-p4.html</loc>
+    <lastmod>2024-03-18</lastmod>
+  </url>
+  <url>
+    <loc>https://toby-shi-cloud.github.io/posts/co-p5.html</loc>
+    <lastmod>2024-03-18</lastmod>
+  </url>
+  <url>
     <loc>https://toby-shi-cloud.github.io/posts/evaluation-automation-script.html</loc>
     <lastmod>2024-03-18</lastmod>
   </url>
@@ -18,10 +38,6 @@
   </url>
   <url>
     <loc>https://toby-shi-cloud.github.io/posts/co-p6.html</loc>
-    <lastmod>2024-03-18</lastmod>
-  </url>
-  <url>
-    <loc>https://toby-shi-cloud.github.io/posts/co-p4.html</loc>
     <lastmod>2024-03-18</lastmod>
   </url>
   <url>
@@ -89,14 +105,6 @@
     <lastmod>2024-03-18</lastmod>
   </url>
   <url>
-    <loc>https://toby-shi-cloud.github.io/posts/mos-porting-task-experiment-report.html</loc>
-    <lastmod>2024-03-18</lastmod>
-  </url>
-  <url>
-    <loc>https://toby-shi-cloud.github.io/posts/mos-porting-task-experiment-report.html</loc>
-    <lastmod>2024-03-18</lastmod>
-  </url>
-  <url>
     <loc>https://toby-shi-cloud.github.io/posts/mac-launchctl-auto-background-task.html</loc>
     <lastmod>2024-03-18</lastmod>
   </url>
@@ -121,14 +129,6 @@
     <lastmod>2024-03-18</lastmod>
   </url>
   <url>
-    <loc>https://toby-shi-cloud.github.io/posts/co-p3.html</loc>
-    <lastmod>2023-11-07</lastmod>
-  </url>
-  <url>
-    <loc>https://toby-shi-cloud.github.io/posts/co-p5.html</loc>
-    <lastmod>2023-11-07</lastmod>
-  </url>
-  <url>
     <loc>https://toby-shi-cloud.github.io/oocheck/index.html</loc>
     <lastmod>2023-04-08</lastmod>
   </url>
@@ -143,10 +143,6 @@
   <url>
     <loc>https://toby-shi-cloud.github.io/posts/coreview.html</loc>
     <lastmod>2022-12-29</lastmod>
-  </url>
-  <url>
-    <loc>https://toby-shi-cloud.github.io/posts/buaatoolsusage.html</loc>
-    <lastmod>2022-11-26</lastmod>
   </url>
   <url>
     <loc>https://toby-shi-cloud.github.io/posts/install-ise-on-wsl.html</loc>
